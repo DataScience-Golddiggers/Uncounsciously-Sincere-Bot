@@ -1,7 +1,6 @@
 version: "3.1"
 
 rules:
-
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
@@ -11,3 +10,19 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Activate enrollment form
+  steps:
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- rule: Submit form
+  condition:
+  - active_loop: enrollment_form
+  steps:
+  - action: enrollment_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit

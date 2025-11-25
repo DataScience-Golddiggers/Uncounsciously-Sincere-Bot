@@ -1,0 +1,61 @@
+{
+  "type": "IntentMaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "apply_for_course": 0,
+        "ask_deadlines": 1,
+        "back": 2,
+        "bot_challenge": 3,
+        "goodbye": 4,
+        "greet": 5,
+        "inform": 6,
+        "nlu_fallback": 7,
+        "out_of_scope": 8,
+        "restart": 9,
+        "session_start": 10
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "utter_ask_course_name": 13,
+        "utter_ask_degree_type": 14,
+        "utter_ask_student_name": 15,
+        "utter_deadlines": 16,
+        "utter_goodbye": 17,
+        "utter_greet": 18,
+        "utter_iamabot": 19,
+        "utter_submit": 20,
+        "enrollment_form": 21
+      },
+      "entities": {
+        "course_name": 0,
+        "degree_type": 1,
+        "student_name": 2
+      },
+      "slots": {
+        "student_name_0": 0,
+        "degree_type_0": 1,
+        "course_name_0": 2
+      },
+      "active_loop": {
+        "enrollment_form": 0
+      }
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}

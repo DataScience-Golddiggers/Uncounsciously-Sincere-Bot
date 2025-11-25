@@ -3,31 +3,81 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
+  - ask_deadlines
+  - apply_for_course
+  - inform
   - bot_challenge
+
+entities:
+  - course_name
+  - degree_type
+  - student_name
+
+slots:
+  student_name:
+    type: text
+    mappings:
+      # 1. Se l'utente dice "Mi chiamo Mario", prendi "Mario" (entity extraction)
+      - type: from_entity
+        entity: student_name
+      
+      # 2. (LA SOLUZIONE) Se il form è attivo e stiamo chiedendo il nome, 
+      # prendi QUALSIASI testo l'utente scriva.
+      - type: from_text
+        conditions:
+         - active_loop: enrollment_form
+           requested_slot: student_name
+  
+  # Lascia gli altri slot come erano
+  degree_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: degree_type
+  
+  course_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: course_name
+
+  requested_slot:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+
+forms:
+  enrollment_form:
+    required_slots:
+      - student_name
+      - degree_type
+      - course_name
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
+  - text: "Hello! I am the University Admission Bot. How can I help you today?"
 
   utter_goodbye:
-  - text: "Bye"
+  - text: "Good luck with your studies! Bye."
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a bot, powered by RASA, here to help you enroll."
+
+  utter_deadlines:
+  - text: "The deadline for the Fall semester is September 15th. For Spring, it's January 10th."
+
+  utter_ask_student_name:
+  - text: "To start the application, could you please tell me your full name?"
+
+  utter_ask_degree_type:
+  - text: "Are you applying for a Bachelor or a Master degree?"
+
+  utter_ask_course_name:
+  - text: "Which course major are you interested in (e.g. Computer Science, Physics)?"
+
+  utter_submit:
+  - text: "Great {student_name}! I have started your application for a {degree_type} in {course_name}. You will receive an email shortly."
 
 session_config:
   session_expiration_time: 60

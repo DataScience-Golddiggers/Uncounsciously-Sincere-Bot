@@ -6,86 +6,47 @@ nlu:
     - hey
     - hello
     - hi
-    - hello there
     - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - hello there
+    - hi assistant
 
 - intent: goodbye
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
     - bye
     - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
     - see you later
+    - catch you later
+    - thanks, bye
 
-- intent: affirm
+- intent: ask_deadlines
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - when is the deadline for enrollment?
+    - until when can I apply?
+    - what is the last day to register?
+    - are admissions still open?
+    - deadline for spring semester
 
-- intent: deny
+- intent: apply_for_course
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - I want to enroll in university
+    - I would like to apply for a course
+    - help me sign up for [Computer Science](course_name)
+    - I want to register for a [Bachelor](degree_type) degree
+    - Application for [Biology](course_name) please
+    - I want to start my application
 
-- intent: mood_great
+- intent: inform
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - [Computer Science](course_name)
+    - [Mechanical Engineering](course_name)
+    - [Arts and Humanities](course_name)
+    - I want to do a [Master](degree_type)
+    - [Bachelor](degree_type) degree
+    - my name is [John Doe](student_name)
+    - it is [Alice Smith](student_name)
 
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - am I talking to a robot?
