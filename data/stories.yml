@@ -1572,3 +1572,1068 @@ stories:
   - action: utter_submit
   - intent: goodbye_it
   - action: utter_goodbye
+
+- story: enrollment statistics bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Helena Svensson"
+  - slot_was_set:
+    - student_name: "Helena Svensson"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Statistics"
+  - slot_was_set:
+    - course_name: "Statistics"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment nursing master
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Kumar Patel"
+  - slot_was_set:
+    - student_name: "Kumar Patel"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Nursing"
+  - slot_was_set:
+    - course_name: "Nursing"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment finance bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Charlotte Thompson"
+  - slot_was_set:
+    - student_name: "Charlotte Thompson"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Finance"
+  - slot_was_set:
+    - course_name: "Finance"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment renewable energy phd
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Sophie Martin"
+  - slot_was_set:
+    - student_name: "Sophie Martin"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "PhD"
+  - slot_was_set:
+    - degree_type: "PhD"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Renewable Energy"
+  - slot_was_set:
+    - course_name: "Renewable Energy"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment public health master
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Ahmed Hassan"
+  - slot_was_set:
+    - student_name: "Ahmed Hassan"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Public Health"
+  - slot_was_set:
+    - course_name: "Public Health"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment data science master
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Lisa Chen"
+  - slot_was_set:
+    - student_name: "Lisa Chen"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Data Science"
+  - slot_was_set:
+    - course_name: "Data Science"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: iscrivimi chimica magistrale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Anna Rossi"
+  - slot_was_set:
+    - student_name: "Anna Rossi"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Magistrale"
+  - slot_was_set:
+    - degree_type: "Magistrale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Chimica"
+  - slot_was_set:
+    - course_name: "Chimica"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi lettere triennale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Marco Gialli"
+  - slot_was_set:
+    - student_name: "Marco Gialli"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Scienze Umane"
+  - slot_was_set:
+    - course_name: "Scienze Umane"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi finanza magistrale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Giovanni Berton"
+  - slot_was_set:
+    - student_name: "Giovanni Berton"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Magistrale"
+  - slot_was_set:
+    - degree_type: "Magistrale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Finanza"
+  - slot_was_set:
+    - course_name: "Finanza"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi storia triennale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Martina Sartori"
+  - slot_was_set:
+    - student_name: "Martina Sartori"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Storia"
+  - slot_was_set:
+    - course_name: "Storia"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: apply for course without greeting english
+  steps:
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Rachel White"
+  - slot_was_set:
+    - student_name: "Rachel White"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Data Science"
+  - slot_was_set:
+    - course_name: "Data Science"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: ask deadlines then apply english
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_deadlines
+  - action: utter_deadlines
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Michael Chang"
+  - slot_was_set:
+    - student_name: "Michael Chang"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "PhD"
+  - slot_was_set:
+    - degree_type: "PhD"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Artificial Intelligence"
+  - slot_was_set:
+    - course_name: "Artificial Intelligence"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge then apply english
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Alex Garcia"
+  - slot_was_set:
+    - student_name: "Alex Garcia"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Biotechnology"
+  - slot_was_set:
+    - course_name: "Biotechnology"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: iscrivimi infermieristica magistrale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Laura Martini"
+  - slot_was_set:
+    - student_name: "Laura Martini"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Magistrale"
+  - slot_was_set:
+    - degree_type: "Magistrale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Infermieristica"
+  - slot_was_set:
+    - course_name: "Infermieristica"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi farmacia triennale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Riccardo De Santis"
+  - slot_was_set:
+    - student_name: "Riccardo De Santis"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Farmacia"
+  - slot_was_set:
+    - course_name: "Farmacia"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: enrollment environmental science bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Juliet Murphy"
+  - slot_was_set:
+    - student_name: "Juliet Murphy"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Environmental Science"
+  - slot_was_set:
+    - course_name: "Environmental Science"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment biomedical engineering master
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Isaac Newton"
+  - slot_was_set:
+    - student_name: "Isaac Newton"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Biomedical Engineering"
+  - slot_was_set:
+    - course_name: "Biomedical Engineering"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: iscrivimi ingegneria civile triennale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Andrea De Luca"
+  - slot_was_set:
+    - student_name: "Andrea De Luca"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Ingegneria Civile"
+  - slot_was_set:
+    - course_name: "Ingegneria Civile"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi arte magistrale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Benedetta Riva"
+  - slot_was_set:
+    - student_name: "Benedetta Riva"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Magistrale"
+  - slot_was_set:
+    - degree_type: "Magistrale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Arte"
+  - slot_was_set:
+    - course_name: "Arte"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: enrollment veterinary science phd
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Victoria Scott"
+  - slot_was_set:
+    - student_name: "Victoria Scott"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "PhD"
+  - slot_was_set:
+    - degree_type: "PhD"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Veterinary Science"
+  - slot_was_set:
+    - course_name: "Veterinary Science"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: iscrivimi lingue magistrale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Marco Linguini"
+  - slot_was_set:
+    - student_name: "Marco Linguini"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Magistrale"
+  - slot_was_set:
+    - degree_type: "Magistrale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Lingue"
+  - slot_was_set:
+    - course_name: "Lingue"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: enrollment game design bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Dylan Rodriguez"
+  - slot_was_set:
+    - student_name: "Dylan Rodriguez"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Game Design"
+  - slot_was_set:
+    - course_name: "Game Design"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: iscrivimi giornalismo triennale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Gianna Ferro"
+  - slot_was_set:
+    - student_name: "Gianna Ferro"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Giornalismo"
+  - slot_was_set:
+    - course_name: "Giornalismo"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: user inquires about courses
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_course_info
+  - action: utter_course_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user inquires about courses Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_course_info_it
+  - action: utter_course_info_it
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: user asks about requirements
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_requirements_info
+  - action: utter_requirements_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user asks about requirements Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_requirements_info_it
+  - action: utter_requirements_info_it
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: user asks about schedule
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_schedule_info
+  - action: utter_schedule_info
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: user asks about schedule Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_schedule_info_it
+  - action: utter_schedule_info_it
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: user inquires about costs
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_financial_info
+  - action: utter_financial_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user inquires about costs Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_financial_info_it
+  - action: utter_financial_info_it
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: user asks about campus
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_campus_info
+  - action: utter_campus_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user asks about campus Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_campus_info_it
+  - action: utter_campus_info_it
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: user asks admission process
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_admission_requirements
+  - action: utter_admission_requirements
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: user asks admission process Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_admission_requirements_it
+  - action: utter_admission_requirements_it
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: user asks for course suggestion
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_course_suggestion
+  - action: utter_suggest_course
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: user asks for course suggestion Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_course_suggestion_it
+  - action: utter_suggest_course_it
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: user asks FAQ
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_faq
+  - action: utter_faq
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user asks FAQ Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_faq_it
+  - action: utter_faq_it
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: user needs help
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_help
+  - action: utter_help
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: user needs help Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_help_it
+  - action: utter_help_it
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: user wants contact support
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_contact_support
+  - action: utter_contact_support
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user wants contact support Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_contact_support_it
+  - action: utter_contact_support_it
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: multiple inquiries then apply
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_course_info
+  - action: utter_course_info
+  - intent: ask_financial_info
+  - action: utter_financial_info
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: multiple inquiries then apply Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_course_info_it
+  - action: utter_course_info_it
+  - intent: ask_financial_info_it
+  - action: utter_financial_info_it
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: requirements then campus info then apply
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_requirements_info
+  - action: utter_requirements_info
+  - intent: ask_campus_info
+  - action: utter_campus_info
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: requirements then campus info then apply Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_requirements_info_it
+  - action: utter_requirements_info_it
+  - intent: ask_campus_info_it
+  - action: utter_campus_info_it
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: schedule and admission info then apply
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_schedule_info
+  - action: utter_schedule_info
+  - intent: ask_admission_requirements
+  - action: utter_admission_requirements
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- story: schedule and admission info then apply Italian
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_schedule_info_it
+  - action: utter_schedule_info_it
+  - intent: ask_admission_requirements_it
+  - action: utter_admission_requirements_it
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form

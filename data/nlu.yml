@@ -378,6 +378,79 @@ nlu:
     - I'd like to pursue [Metallurgy](course_name)
     - apply to [Robotics](course_name) program
     - I want to take [Philosophy](course_name)
+    - I'm ready to start my university journey
+    - get me enrolled at your institution
+    - I'd love to join your university
+    - I'm looking to apply for [Information Technology](course_name)
+    - please help me register for [Physics](course_name)
+    - I'd like to take a [PhD](degree_type) program
+    - enroll me in [Finance](course_name)
+    - I'm seeking admission to [Education](course_name)
+    - help me get into [History](course_name)
+    - I want to be part of [Languages](course_name)
+    - can I apply for [Environmental Science](course_name)?
+    - register me for [Nursing](course_name)
+    - I need to enroll in [Veterinary Science](course_name)
+    - apply for [Dentistry](course_name) program
+    - I'm interested in the [Social Work](course_name) program
+    - sign me up for [Pharmacy](course_name)
+    - I'd like to pursue [Agriculture](course_name)
+    - help me join the [Data Science](course_name) team
+    - I want to enroll in [Aeronautical Engineering](course_name)
+    - can you help me apply for [Biomedical Engineering](course_name)?
+    - I'm ready for [Game Design](course_name)
+    - please register me for [Cybersecurity](course_name)
+    - I'd like to start [Artificial Intelligence](course_name)
+    - help with enrollment for [Marine Biology](course_name)
+    - I want to apply for the [Robotics](course_name) course
+    - can I enroll in [Urban Planning](course_name)?
+    - I'm interested in [Aviation](course_name) studies
+    - apply me to the [Nanotechnology](course_name) program
+    - I'd like to join the [Statistics](course_name) program
+    - help me enroll in [Anthropology](course_name)
+    - I want to pursue [Linguistics](course_name)
+    - can you assist with [Metallurgy](course_name) enrollment?
+    - I'm ready to apply for a degree
+    - let me start the enrollment process
+    - I'd like to take a course at your university
+    - help me with my university application
+    - I want to get into [Computer Science](course_name)
+    - please enroll me in [Biology](course_name)
+    - I'm interested in applying to [Law](course_name)
+    - can I register for [Engineering](course_name)?
+    - I'd like to study [Chemistry](course_name) at your institution
+    - help me apply to your [Master](degree_type) program
+    - I'm ready to enroll in my chosen program
+    - where do I start the application?
+    - what's the process to enroll?
+    - I'd like to know how to apply
+    - can you help me get enrolled?
+    - I want my application to start now
+    - please help me register
+    - I'm keen to become a student
+    - I'd like to join your programs
+    - help me find the right course
+    - I want to pursue higher education
+    - let me become a student at your university
+    - I'm ready to start my studies
+    - please facilitate my enrollment
+    - I want to be part of your institution
+    - help me navigate the enrollment
+    - I'd like to apply immediately
+    - can I begin enrollment today?
+    - I'm interested in your [Bachelor](degree_type) program
+    - help me with [Master](degree_type) degree application
+    - I'd like to pursue a [PhD](degree_type) at your university
+    - I want to enroll for the upcoming semester
+    - can you assist with my application?
+    - I'm ready to register as a student
+    - please help me enroll now
+    - I'd like to start classes soon
+    - help me get admitted to [Computer Science](course_name)
+    - I want to apply for the next intake
+    - can I register for the [Bachelor](degree_type) program?
+    - I'm interested in joining your [Master](degree_type) courses
+    - let me start the enrollment right away
 
 - intent: inform
   examples: |
@@ -485,6 +558,88 @@ nlu:
     - [Matthew Jackson](student_name) here
     - I'm [Ashley Robinson](student_name)
     - [Tyler Robinson](student_name) at your service
+    - [Oncology](course_name) is my passion
+    - I'll pursue [Cardiology](course_name)
+    - [Neuroscience](course_name) fascinates me
+    - [Genetics](course_name) is my interest
+    - I want [Microbiology](course_name)
+    - [Pathology](course_name) appeals to me
+    - I'm interested in [Toxicology](course_name)
+    - [Immunology](course_name) sounds great
+    - I choose [Epidemiology](course_name)
+    - [Pharmacogenomics](course_name) attracts me
+    - I prefer [Biostatistics](course_name)
+    - [Clinical Research](course_name) is my goal
+    - I want [Translational Medicine](course_name)
+    - [Regenerative Medicine](course_name) interests me
+    - I'll do [Personalized Medicine](course_name)
+    - [Precision Health](course_name) for me
+    - [Nanomedicine](course_name) appeals
+    - I'm going for [Astrobiology](course_name)
+    - [Exobiology](course_name) fascinates me
+    - I want [Bioinformatics](course_name)
+    - [Computational Biology](course_name) is interesting
+    - [Systems Biology](course_name) attracts me
+    - I choose [Synthetic Biology](course_name)
+    - [Molecular Biology](course_name) is my choice
+    - I prefer [Cell Biology](course_name)
+    - [Developmental Biology](course_name) interests me
+    - I want [Evolutionary Biology](course_name)
+    - [Developmental Neuroscience](course_name) for me
+    - I'm interested in [Behavioral Neuroscience](course_name)
+    - [Cognitive Neuroscience](course_name) sounds good
+    - I'll pursue [Social Neuroscience](course_name)
+    - [Computational Neuroscience](course_name) appeals
+    - [Neuroethics](course_name) is my goal
+    - I want [Neuroengineering](course_name)
+    - [Neurophotonics](course_name) fascinates me
+    - I choose [Clinical Neuroscience](course_name)
+    - [Translational Neuroscience](course_name) interests me
+    - I prefer [Neurogenomics](course_name)
+    - [Environmental Health](course_name) is my passion
+    - I'm going for [Occupational Health](course_name)
+    - [Industrial Hygiene](course_name) for me
+    - I want [Epidemiology](course_name)
+    - [Global Health](course_name) appeals to me
+    - I'll do [Community Health](course_name)
+    - [Maternal and Child Health](course_name) interests me
+    - I'm interested in [Health Policy](course_name)
+    - [Healthcare Management](course_name) is great
+    - I choose [Bioethics](course_name)
+    - [Medical Anthropology](course_name) attracts me
+    - I prefer [Medical Sociology](course_name)
+    - [Health Communication](course_name) sounds good
+    - [Health Education](course_name) is my choice
+    - I want [Nutrition Science](course_name)
+    - [Exercise Physiology](course_name) appeals
+    - [Sports Medicine](course_name) for me
+    - I'm [Olivia Martinez](student_name)
+    - [Ethan Anderson](student_name) speaking
+    - call me [Sophia Taylor](student_name)
+    - it's [Jackson Hall](student_name)
+    - I am [Emma Wilson](student_name)
+    - [Charlotte Lopez](student_name) here
+    - you can call me [Noah Garcia](student_name)
+    - [Amelia Lee](student_name) at your service
+    - this is [Liam Martinez](student_name)
+    - [Ava Robinson](student_name) is my name
+    - I'm [Mason Young](student_name)
+    - [Isabella Green](student_name) here
+    - name me [Ethan White](student_name)
+    - call me [Mia Hernandez](student_name)
+    - [Benjamin Turner](student_name) speaking
+    - it's [Harper Phillips](student_name)
+    - [Elijah Campbell](student_name) at your service
+    - [Abigail Parker](student_name) is my name
+    - I am [Lucas Rivera](student_name)
+    - my name is [Ella Edwards](student_name)
+    - [Logan Collins](student_name) here
+    - [Scarlett Reyes](student_name) speaking
+    - I'm [Oliver Morris](student_name)
+    - [Emily Rogers](student_name) at your service
+    - [Aiden Morgan](student_name)
+    - [Avery Peterson](student_name) here
+    - [Jayden Gray](student_name) is my name
 
 - intent: bot_challenge
   examples: |
@@ -1022,6 +1177,59 @@ nlu:
     - è il momento giusto
     - ora o mai più
     - non aspetto più
+    - sono pronto per l'università
+    - mi aiuti a iscrivermi per favore
+    - voglio diventare uno studente
+    - iscrivimi alla vostra università
+    - vorrei candidarmi subito
+    - sono interessato al vostro programma
+    - aiutami ad iscrivermi [Informatica](course_name)
+    - voglio frequentare [Ingegneria Meccanica](course_name)
+    - mi iscrivo per il [Dottorato](degree_type)
+    - registrami subito per favore
+    - voglio cominciare questa settimana
+    - aiuto mi serve per iscrivermi
+    - desidero frequentare il vostro corso
+    - sono determinato a iscrivermi
+    - lasciami diventare uno studente
+    - registrami al più presto
+    - il vostro programma è il mio obiettivo
+    - desidero far parte della vostra università
+    - voglio iniziare la mia carriera qui
+    - aiutami a realizzare il mio sogno
+    - sono convinto di volermi iscrivere
+    - lasciatemi iniziare gli studi
+    - ho deciso e voglio iscrivermi
+    - è tempo di iscrivermi all'università
+    - vi sceglierei fra tutte le università
+    - il vostro ateneo mi piace molto
+    - desidero essere vostro studente
+    - voglio seguire uno dei vostri corsi
+    - aiutami con la procedura di iscrizione
+    - come faccio a registrarmi?
+    - voglio essere ammesso al vostro programma
+    - registrami al [Triennale](degree_type) per favore
+    - mi iscrivo subito al vostro [Magistrale](degree_type)
+    - posso candidarmi al vostro corso?
+    - voglio iscrivermi oggi stesso
+    - aiutami a completare l'iscrizione
+    - qual è il passo successivo per iscrivermi?
+    - mi serve solo aiuto per iscrivermi
+    - voglio frequentare subito
+    - sono interessatissimo a iscrivermi
+    - vorrei iniziare domani se possibile
+    - iscrivimi per il prossimo semestre
+    - registrami quando possibile
+    - voglio unirmi al vostro ateneo
+    - sono entusiasta di iscrivermi
+    - lasciatemi diventare parte della comunità
+    - aiutatemi a intraprendere questo percorso
+    - ho fretta di iscrivermi
+    - voglio iniziare subito la mia formazione
+    - mi iscrivo al programma [Dottorato](degree_type)
+    - registrami per l'ammissione
+    - desidero fortemente iscrivermi
+    - sono tutto orecchi aspettando di iscrivermi
 
 - intent: inform_it
   examples: |
@@ -1206,6 +1414,88 @@ nlu:
     - mi chiamo [Antonietta Russo](student_name)
     - [Cristiano Lombardi](student_name) sono
     - sono [Federica Genovese](student_name)
+    - [Oncologia](course_name) è la mia passione
+    - seguirò [Cardiologia](course_name)
+    - [Neuroscienze](course_name) mi affascinano
+    - [Genetica](course_name) mi interessa
+    - voglio [Microbiologia](course_name)
+    - [Patologia](course_name) mi attrae
+    - sono interessato a [Tossicologia](course_name)
+    - [Immunologia](course_name) mi piace
+    - scelgo [Epidemiologia](course_name)
+    - [Farmacogenomica](course_name) mi fascina
+    - preferisco [Biostatistica](course_name)
+    - [Ricerca Clinica](course_name) è il mio obiettivo
+    - voglio [Medicina Traslazionale](course_name)
+    - [Medicina Rigenerativa](course_name) mi interessa
+    - farò [Medicina Personalizzata](course_name)
+    - [Sanità di Precisione](course_name) per me
+    - [Nanomedicina](course_name) mi attrae
+    - sto per iscrivermi a [Astrobiologia](course_name)
+    - [Esobiologia](course_name) mi fascina
+    - voglio [Bioinformatica](course_name)
+    - [Biologia Computazionale](course_name) è interessante
+    - [Biologia dei Sistemi](course_name) mi attrae
+    - scelgo [Biologia Sintetica](course_name)
+    - [Biologia Molecolare](course_name) è la mia scelta
+    - preferisco [Biologia Cellulare](course_name)
+    - [Biologia dello Sviluppo](course_name) mi interessa
+    - voglio [Biologia Evoluzionistica](course_name)
+    - [Neuroscienze dello Sviluppo](course_name) per me
+    - sono interessato a [Neuroscienze Comportamentali](course_name)
+    - [Neuroscienze Cognitive](course_name) mi piace
+    - seguirò [Neuroscienze Sociali](course_name)
+    - [Neuroscienze Computazionali](course_name) mi attrae
+    - [Neuroetica](course_name) è il mio obiettivo
+    - voglio [Neuroingegneria](course_name)
+    - [Neuroprotonica](course_name) mi fascina
+    - scelgo [Neuroscienze Cliniche](course_name)
+    - [Neuroscienze Traslazionali](course_name) mi interessa
+    - preferisco [Neurogenomica](course_name)
+    - [Salute Ambientale](course_name) è la mia passione
+    - sto per iscrivermi a [Salute Occupazionale](course_name)
+    - [Igiene Industriale](course_name) per me
+    - voglio [Epidemiologia](course_name)
+    - [Salute Globale](course_name) mi attrae
+    - farò [Salute Comunitaria](course_name)
+    - [Salute Materno-Infantile](course_name) mi interessa
+    - sono interessato a [Politiche Sanitarie](course_name)
+    - [Gestione Sanitaria](course_name) è fantastico
+    - scelgo [Bioetica](course_name)
+    - [Antropologia Medica](course_name) mi attrae
+    - preferisco [Sociologia Medica](course_name)
+    - [Comunicazione Sanitaria](course_name) mi piace
+    - [Educazione Sanitaria](course_name) è la mia scelta
+    - voglio [Scienza della Nutrizione](course_name)
+    - [Fisiologia dell'Esercizio](course_name) mi attrae
+    - [Medicina dello Sport](course_name) per me
+    - sono [Olivia Martinez](student_name)
+    - [Ethan Anderson](student_name) che parla
+    - chiamami [Sophia Taylor](student_name)
+    - sono [Jackson Hall](student_name)
+    - mi chiamo [Emma Wilson](student_name)
+    - [Charlotte Lopez](student_name) qui
+    - puoi chiamarmi [Noah Garcia](student_name)
+    - [Amelia Lee](student_name) al vostro servizio
+    - sono [Liam Martinez](student_name)
+    - [Ava Robinson](student_name) è il mio nome
+    - mi chiamo [Mason Young](student_name)
+    - [Isabella Green](student_name) qui
+    - mi presento [Ethan White](student_name)
+    - chiamami [Mia Hernandez](student_name)
+    - [Benjamin Turner](student_name) che parla
+    - sono [Harper Phillips](student_name)
+    - [Elijah Campbell](student_name) al vostro servizio
+    - [Abigail Parker](student_name) è il mio nome
+    - mi chiamo [Lucas Rivera](student_name)
+    - mi presento [Ella Edwards](student_name)
+    - [Logan Collins](student_name) qui
+    - [Scarlett Reyes](student_name) che parla
+    - sono [Oliver Morris](student_name)
+    - [Emily Rogers](student_name) al vostro servizio
+    - [Aiden Morgan](student_name) mi presento
+    - [Avery Peterson](student_name) qui
+    - [Jayden Gray](student_name) è il mio nome
 
 - intent: bot_challenge_it
   examples: |
@@ -1439,3 +1729,463 @@ nlu:
     - quando sei stato fatto?
     - quanti anni hai?
     - sei online?
+
+- intent: ask_course_info
+  examples: |
+    - What courses do you offer?
+    - Tell me about your programs
+    - What are the available majors?
+    - Can you list all courses?
+    - What fields of study are available?
+    - Which programs does your university have?
+    - What subjects can I study?
+    - Are there engineering programs?
+    - Do you have science programs?
+    - Tell me about your course catalog
+    - What types of degrees can I pursue?
+    - List the academic programs
+    - I want to know about your courses
+    - What programs are offered?
+    - Can you describe the courses?
+    - What majors do you have available?
+    - Tell me the program options
+    - I'm interested in learning about courses
+    - What can I study at your university?
+    - Which disciplines are offered?
+
+- intent: ask_course_info_it
+  examples: |
+    - Quali corsi offrite?
+    - Parlami dei vostri programmi
+    - Quali sono i principali disponibili?
+    - Puoi elencare tutti i corsi?
+    - Quali campi di studio sono disponibili?
+    - Quali programmi ha la vostra università?
+    - Quali materie posso studiare?
+    - Ci sono programmi di ingegneria?
+    - Avete programmi scientifici?
+    - Parlami del tuo catalogo di corsi
+    - Che tipo di lauree posso conseguire?
+    - Elenca i programmi accademici
+    - Voglio sapere dei vostri corsi
+    - Quali programmi sono offerti?
+    - Puoi descrivere i corsi?
+    - Quali specializzazioni avete disponibili?
+    - Dimmi le opzioni di programma
+    - Sono interessato a conoscere i corsi
+    - Cosa posso studiare nella vostra università?
+    - Quali discipline sono offerte?
+
+- intent: ask_requirements_info
+  examples: |
+    - What are the admission requirements?
+    - What do I need to apply?
+    - What documents are needed?
+    - What qualifications do I need?
+    - Tell me about the requirements
+    - What should I submit with my application?
+    - Are there any prerequisites?
+    - What's the entry criteria?
+    - What background do I need?
+    - Do I need certifications?
+    - What grades are required?
+    - What exams do I need to pass?
+    - Tell me what I need to apply here
+    - What are the admission criteria?
+    - What documentation is required?
+    - Do I need a high school diploma?
+    - What test scores are needed?
+    - Are recommendation letters required?
+    - What language proficiency is needed?
+    - What are the eligibility requirements?
+
+- intent: ask_requirements_info_it
+  examples: |
+    - Quali sono i requisiti di ammissione?
+    - Cosa mi serve per candidarmi?
+    - Quali documenti sono necessari?
+    - Quali qualifiche mi servono?
+    - Parlami dei requisiti
+    - Cosa devo inviare con la mia candidatura?
+    - Ci sono prerequisiti?
+    - Qual è il criterio di accesso?
+    - Quale background mi serve?
+    - Ho bisogno di certificazioni?
+    - Quali voti sono richiesti?
+    - Quali esami devo superare?
+    - Dimmi cosa mi serve per candidarmi qui
+    - Quali sono i criteri di ammissione?
+    - Quale documentazione è richiesta?
+    - Ho bisogno di un diploma di scuola superiore?
+    - Quali punteggi dei test sono necessari?
+    - Sono richieste lettere di raccomandazione?
+    - Quale competenza linguistica è necessaria?
+    - Quali sono i requisiti di idoneità?
+
+- intent: ask_schedule_info
+  examples: |
+    - When does the semester start?
+    - What's the academic calendar?
+    - When are the deadlines?
+    - Tell me about the class schedule
+    - When do classes begin?
+    - What are the term dates?
+    - When does the fall semester start?
+    - When does spring semester begin?
+    - What are the holiday breaks?
+    - When is summer session?
+    - Tell me about the academic schedule
+    - What's the exam period?
+    - When are classes held?
+    - Are there evening classes?
+    - What's the course duration?
+    - Can I take online classes?
+    - What time do classes meet?
+    - Is there a flexible schedule?
+    - When can I enroll?
+    - What's the registration period?
+
+- intent: ask_schedule_info_it
+  examples: |
+    - Quando inizia il semestre?
+    - Qual è il calendario accademico?
+    - Quali sono le scadenze?
+    - Parlami dell'orario delle lezioni
+    - Quando iniziano le lezioni?
+    - Quali sono le date dei termini?
+    - Quando inizia il semestre autunnale?
+    - Quando inizia il semestre primaverile?
+    - Quali sono le pause per le vacanze?
+    - Quando è la sessione estiva?
+    - Parlami del calendario accademico
+    - Qual è il periodo degli esami?
+    - Quando si tengono le lezioni?
+    - Ci sono lezioni serali?
+    - Qual è la durata del corso?
+    - Posso seguire lezioni online?
+    - A che ora si tengono le lezioni?
+    - C'è un orario flessibile?
+    - Quando posso iscrivermi?
+    - Qual è il periodo di registrazione?
+
+- intent: ask_financial_info
+  examples: |
+    - What's the tuition cost?
+    - How much does it cost?
+    - What are the fees?
+    - Tell me about financial aid
+    - Are there scholarships available?
+    - What about payment plans?
+    - Can I get a grant?
+    - What's the total cost?
+    - Are there discounts?
+    - How do I pay?
+    - What funding options are available?
+    - Do you have financial assistance?
+    - What about loans?
+    - Are scholarships based on merit?
+    - What's the cost of accommodation?
+    - How much is room and board?
+    - What financial packages do you offer?
+    - Can I pay in installments?
+    - What are the additional fees?
+    - Is financial aid available to international students?
+
+- intent: ask_financial_info_it
+  examples: |
+    - Qual è il costo della retta?
+    - Quanto costa?
+    - Quali sono le tasse?
+    - Parlami dell'aiuto finanziario
+    - Sono disponibili borse di studio?
+    - E i piani di pagamento?
+    - Posso ottenere una sovvenzione?
+    - Qual è il costo totale?
+    - Ci sono sconti?
+    - Come pago?
+    - Quali opzioni di finanziamento sono disponibili?
+    - Avete assistenza finanziaria?
+    - E i prestiti?
+    - Le borse di studio si basano sul merito?
+    - Qual è il costo dell'alloggio?
+    - Quanto costa vitto e alloggio?
+    - Quali pacchetti finanziari offrite?
+    - Posso pagare a rate?
+    - Quali sono le tasse aggiuntive?
+    - L'aiuto finanziario è disponibile per studenti internazionali?
+
+- intent: ask_campus_info
+  examples: |
+    - Tell me about the campus
+    - What facilities do you have?
+    - Is there a library?
+    - Are there sports facilities?
+    - What's the campus like?
+    - Do you have dormitories?
+    - What amenities are available?
+    - Tell me about student housing
+    - Are there laboratories?
+    - What research facilities are there?
+    - Can you describe the campus?
+    - What's the campus environment?
+    - Are computers available?
+    - Do you have a gym?
+    - What recreational activities are offered?
+    - Is public transportation available?
+    - Can I visit the campus?
+    - What's the campus size?
+    - Are there food services?
+    - What's the student life like?
+
+- intent: ask_campus_info_it
+  examples: |
+    - Parlami del campus
+    - Quali strutture avete?
+    - C'è una biblioteca?
+    - Ci sono impianti sportivi?
+    - Come è il campus?
+    - Avete dormitori?
+    - Quali servizi sono disponibili?
+    - Parlami dell'alloggio per gli studenti
+    - Ci sono laboratori?
+    - Quali strutture di ricerca ci sono?
+    - Puoi descrivere il campus?
+    - Come è l'ambiente del campus?
+    - I computer sono disponibili?
+    - Avete una palestra?
+    - Quali attività ricreative sono offerte?
+    - C'è trasporto pubblico disponibile?
+    - Posso visitare il campus?
+    - Qual è la dimensione del campus?
+    - Ci sono servizi di ristorazione?
+    - Come è la vita studentesca?
+
+- intent: ask_admission_requirements
+  examples: |
+    - What do I need to get admitted?
+    - Tell me the admission process
+    - How do I apply?
+    - What's the application process?
+    - Can you explain how to enroll?
+    - What steps do I follow?
+    - How long is the application?
+    - When can I submit my application?
+    - What's the acceptance timeline?
+    - How will I know if I'm admitted?
+    - What's the application fee?
+    - Do I need an interview?
+    - Is there a written test?
+    - What if I don't meet requirements?
+    - Can I apply for multiple programs?
+    - How many spots are available?
+    - What's the acceptance rate?
+    - Can international students apply?
+    - Is there early admission?
+    - What's the rolling admission policy?
+
+- intent: ask_admission_requirements_it
+  examples: |
+    - Cosa mi serve per essere ammesso?
+    - Parlami del processo di ammissione
+    - Come faccio domanda?
+    - Qual è il processo di candidatura?
+    - Puoi spiegare come iscriversi?
+    - Quali passaggi devo seguire?
+    - Quanto è lunga la candidatura?
+    - Quando posso inviare la mia candidatura?
+    - Qual è la timeline di accettazione?
+    - Come saprò se sono stato ammesso?
+    - Qual è la tassa di candidatura?
+    - Ho bisogno di un colloquio?
+    - C'è un test scritto?
+    - Cosa succede se non soddisfo i requisiti?
+    - Posso candidarmi a più programmi?
+    - Quanti posti sono disponibili?
+    - Qual è il tasso di accettazione?
+    - Possono candidarsi studenti internazionali?
+    - C'è ammissione anticipata?
+    - Qual è la politica di ammissione a scorrimento?
+
+- intent: ask_course_suggestion
+  examples: |
+    - What course would you recommend?
+    - Which program is best for me?
+    - What should I study?
+    - Can you suggest a program?
+    - What's a good major?
+    - I'm not sure what to study
+    - Help me choose a course
+    - What programs are popular?
+    - Which courses are in demand?
+    - What would suit my interests?
+    - What's trending in education?
+    - Are there new programs?
+    - What do successful graduates study?
+    - What's the best program here?
+    - Which is the most challenging program?
+    - What about hybrid programs?
+    - Can I combine disciplines?
+    - What interdisciplinary options exist?
+    - What specialized tracks do you offer?
+    - Which program has the best career outcomes?
+
+- intent: ask_course_suggestion_it
+  examples: |
+    - Quale corso consiglieresti?
+    - Quale programma è migliore per me?
+    - Cosa dovrei studiare?
+    - Puoi suggerire un programma?
+    - Qual è un buon principale?
+    - Non sono sicuro di cosa studiare
+    - Aiutami a scegliere un corso
+    - Quali programmi sono popolari?
+    - Quali corsi sono richiesti?
+    - Cosa si adatterebbe ai miei interessi?
+    - Cosa è di tendenza nell'istruzione?
+    - Ci sono nuovi programmi?
+    - Cosa studiano i laureati di successo?
+    - Qual è il miglior programma qui?
+    - Quale è il programma più impegnativo?
+    - E i programmi ibridi?
+    - Posso combinare discipline?
+    - Quali opzioni interdisciplinari esistono?
+    - Quali percorsi specializzati offrite?
+    - Quale programma ha i migliori risultati professionali?
+
+- intent: ask_faq
+  examples: |
+    - Do you have FAQs?
+    - What are common questions?
+    - I have a general question
+    - What do people usually ask?
+    - Is there a FAQ section?
+    - What's frequently asked?
+    - Tell me about common issues
+    - Are there tips for applicants?
+    - What should I know before applying?
+    - Any advice for prospective students?
+    - What do successful applicants do?
+    - Are there common mistakes to avoid?
+    - What's the most asked question?
+    - Can you answer my question?
+    - Is there documentation about this?
+    - What information do I need?
+    - Are there application tips?
+    - What's important to know?
+    - Any insider tips?
+    - What should every student know?
+
+- intent: ask_faq_it
+  examples: |
+    - Avete delle FAQ?
+    - Quali sono le domande comuni?
+    - Ho una domanda generale
+    - Cosa chiedono solitamente le persone?
+    - C'è una sezione FAQ?
+    - Cosa è frequentemente chiesto?
+    - Parlami dei problemi comuni
+    - Ci sono suggerimenti per i candidati?
+    - Cosa dovrei sapere prima di candidarmi?
+    - Consigli per i futuri studenti?
+    - Cosa fanno i candidati di successo?
+    - Ci sono errori comuni da evitare?
+    - Qual è la domanda più frequente?
+    - Puoi rispondere alla mia domanda?
+    - Esiste documentazione a riguardo?
+    - Quali informazioni mi servono?
+    - Ci sono suggerimenti per la candidatura?
+    - Cosa è importante sapere?
+    - Qualche consiglio da insider?
+    - Cosa dovrebbe sapere ogni studente?
+
+- intent: ask_help
+  examples: |
+    - I need help
+    - Can you help me?
+    - I'm confused
+    - I don't understand
+    - Can you explain?
+    - What should I do?
+    - I'm lost
+    - Help me please
+    - I need assistance
+    - Can you guide me?
+    - What's the next step?
+    - I'm having trouble
+    - Can you clarify?
+    - I'm unsure
+    - What's the best way?
+    - How do I proceed?
+    - I'm stuck
+    - Can you assist?
+    - What do I do now?
+    - I need support
+
+- intent: ask_help_it
+  examples: |
+    - Ho bisogno di aiuto
+    - Puoi aiutarmi?
+    - Sono confuso
+    - Non capisco
+    - Puoi spiegare?
+    - Cosa dovrei fare?
+    - Sono perso
+    - Aiutami per favore
+    - Ho bisogno di assistenza
+    - Puoi guidarmi?
+    - Qual è il prossimo passo?
+    - Ho difficoltà
+    - Puoi chiarire?
+    - Non sono sicuro
+    - Qual è il modo migliore?
+    - Come procedo?
+    - Sono bloccato
+    - Puoi assistermi?
+    - Cosa faccio adesso?
+    - Ho bisogno di supporto
+
+- intent: ask_contact_support
+  examples: |
+    - How can I contact support?
+    - What's the support email?
+    - Is there a help desk?
+    - How do I reach customer service?
+    - What's the phone number?
+    - Can I get support?
+    - Who can help me?
+    - How do I contact the admissions office?
+    - What's the contact information?
+    - Is there a chat support?
+    - Can I speak to someone?
+    - Where's the help desk?
+    - What's the support phone?
+    - How do I report a problem?
+    - Is there online support?
+    - Who do I talk to?
+    - What's the best way to contact you?
+    - Can I schedule a call?
+    - Is there 24/7 support?
+    - What's the support schedule?
+
+- intent: ask_contact_support_it
+  examples: |
+    - Come posso contattare il supporto?
+    - Qual è l'email di supporto?
+    - C'è un help desk?
+    - Come raggiungo il servizio clienti?
+    - Qual è il numero di telefono?
+    - Posso ottenere supporto?
+    - Chi può aiutarmi?
+    - Come contatto l'ufficio ammissioni?
+    - Qual è l'informazione di contatto?
+    - C'è un supporto chat?
+    - Posso parlare con qualcuno?
+    - Dov'è l'help desk?
+    - Qual è il telefono del supporto?
+    - Come segnalo un problema?
+    - C'è supporto online?
+    - Con chi parlo?
+    - Qual è il modo migliore per contattarti?
+    - Posso programmare una chiamata?
+    - C'è supporto 24/7?
+    - Qual è l'orario di supporto?
