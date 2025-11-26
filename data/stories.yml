@@ -1,7 +1,7 @@
 version: "3.1"
 
 stories:
-- story: happy path enrollment
+- story: happy path enrollment - Computer Science Bachelor
   steps:
   - intent: greet
   - action: utter_greet
@@ -36,6 +36,321 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
 
+- story: happy path enrollment - Engineering Master
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Anna Ferrari"
+  - slot_was_set:
+    - student_name: "Anna Ferrari"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Mechanical Engineering"
+  - slot_was_set:
+    - course_name: "Mechanical Engineering"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: happy path enrollment - Biology Bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Marco Bianchi"
+  - slot_was_set:
+    - student_name: "Marco Bianchi"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Biology"
+  - slot_was_set:
+    - course_name: "Biology"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: happy path enrollment - Arts and Humanities Master
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Giulia Rossi"
+  - slot_was_set:
+    - student_name: "Giulia Rossi"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Arts and Humanities"
+  - slot_was_set:
+    - course_name: "Arts and Humanities"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: happy path enrollment - Physics Bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Paolo Verdi"
+  - slot_was_set:
+    - student_name: "Paolo Verdi"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Physics"
+  - slot_was_set:
+    - course_name: "Physics"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: happy path enrollment - Chemistry Master
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Lucia Neri"
+  - slot_was_set:
+    - student_name: "Lucia Neri"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Chemistry"
+  - slot_was_set:
+    - course_name: "Chemistry"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: happy path enrollment - Data Science PhD
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Thomas Mueller"
+  - slot_was_set:
+    - student_name: "Thomas Mueller"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "PhD"
+  - slot_was_set:
+    - degree_type: "PhD"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Data Science"
+  - slot_was_set:
+    - course_name: "Data Science"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: happy path enrollment - Medicine Bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Elena Russo"
+  - slot_was_set:
+    - student_name: "Elena Russo"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Medicine"
+  - slot_was_set:
+    - course_name: "Medicine"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: happy path enrollment - Law Master
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Nicolas Blanc"
+  - slot_was_set:
+    - student_name: "Nicolas Blanc"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Law"
+  - slot_was_set:
+    - course_name: "Law"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: happy path enrollment - Economics Bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Isabella Santos"
+  - slot_was_set:
+    - student_name: "Isabella Santos"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Economics"
+  - slot_was_set:
+    - course_name: "Economics"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
 - story: inquire deadlines and leave
   steps:
   - intent: greet
@@ -43,4 +358,1217 @@ stories:
   - intent: ask_deadlines
   - action: utter_deadlines
   - intent: goodbye
+  - action: utter_goodbye
+
+- story: inquire deadlines without goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_deadlines
+  - action: utter_deadlines
+
+- story: bot challenge and leave
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge without greet
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment with bot challenge first
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Francesco Gallo"
+  - slot_was_set:
+    - student_name: "Francesco Gallo"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Business Administration"
+  - slot_was_set:
+    - course_name: "Business Administration"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: greet then ask deadlines then apply
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_deadlines
+  - action: utter_deadlines
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Olivia Chen"
+  - slot_was_set:
+    - student_name: "Olivia Chen"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Environmental Science"
+  - slot_was_set:
+    - course_name: "Environmental Science"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment with psychology course
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Sophie Laurent"
+  - slot_was_set:
+    - student_name: "Sophie Laurent"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Psychology"
+  - slot_was_set:
+    - course_name: "Psychology"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment with nursing course
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Hiroshi Yamamoto"
+  - slot_was_set:
+    - student_name: "Hiroshi Yamamoto"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Nursing"
+  - slot_was_set:
+    - course_name: "Nursing"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: multiple bot challenges
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment IT course
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Kevin Chen"
+  - slot_was_set:
+    - student_name: "Kevin Chen"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Information Technology"
+  - slot_was_set:
+    - course_name: "Information Technology"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment architecture course
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Maria Petrov"
+  - slot_was_set:
+    - student_name: "Maria Petrov"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Architecture"
+  - slot_was_set:
+    - course_name: "Architecture"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment finance master
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Lucas Anderson"
+  - slot_was_set:
+    - student_name: "Lucas Anderson"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Finance"
+  - slot_was_set:
+    - course_name: "Finance"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment education bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Amanda Lewis"
+  - slot_was_set:
+    - student_name: "Amanda Lewis"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Education"
+  - slot_was_set:
+    - course_name: "Education"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment statistics phd
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Brandon Young"
+  - slot_was_set:
+    - student_name: "Brandon Young"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "PhD"
+  - slot_was_set:
+    - degree_type: "PhD"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Statistics"
+  - slot_was_set:
+    - course_name: "Statistics"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment history master
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Sophia White"
+  - slot_was_set:
+    - student_name: "Sophia White"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "History"
+  - slot_was_set:
+    - course_name: "History"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment languages bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Marcus Johnson"
+  - slot_was_set:
+    - student_name: "Marcus Johnson"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Languages"
+  - slot_was_set:
+    - course_name: "Languages"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: deadline inquiry then bot challenge then goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_deadlines
+  - action: utter_deadlines
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: apply without greeting
+  steps:
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Victoria Brown"
+  - slot_was_set:
+    - student_name: "Victoria Brown"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Marketing"
+  - slot_was_set:
+    - course_name: "Marketing"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: three bot challenges in a row
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment artificial intelligence
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Daniel Wright"
+  - slot_was_set:
+    - student_name: "Daniel Wright"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Artificial Intelligence"
+  - slot_was_set:
+    - course_name: "Artificial Intelligence"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment cybersecurity bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Jessica Lopez"
+  - slot_was_set:
+    - student_name: "Jessica Lopez"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Cybersecurity"
+  - slot_was_set:
+    - course_name: "Cybersecurity"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge then deadlines then enrollment
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: ask_deadlines
+  - action: utter_deadlines
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Alexander King"
+  - slot_was_set:
+    - student_name: "Alexander King"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Marine Biology"
+  - slot_was_set:
+    - course_name: "Marine Biology"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: greet deadline challenge goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_deadlines
+  - action: utter_deadlines
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: just goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: greet then just goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment geology master
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Rachel Green"
+  - slot_was_set:
+    - student_name: "Rachel Green"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Master"
+  - slot_was_set:
+    - degree_type: "Master"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Geology"
+  - slot_was_set:
+    - course_name: "Geology"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: enrollment robotics bachelor
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Timothy Scott"
+  - slot_was_set:
+    - student_name: "Timothy Scott"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Robotics"
+  - slot_was_set:
+    - course_name: "Robotics"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: iscrivimi informatica triennale (IT)
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Mario Rossi"
+  - slot_was_set:
+    - student_name: "Mario Rossi"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Informatica"
+  - slot_was_set:
+    - course_name: "Informatica"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi ingegneria magistrale (IT)
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Anna Ferrari"
+  - slot_was_set:
+    - student_name: "Anna Ferrari"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Magistrale"
+  - slot_was_set:
+    - degree_type: "Magistrale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Ingegneria Meccanica"
+  - slot_was_set:
+    - course_name: "Ingegneria Meccanica"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi biologia triennale (IT)
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Marco Bianchi"
+  - slot_was_set:
+    - student_name: "Marco Bianchi"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Biologia"
+  - slot_was_set:
+    - course_name: "Biologia"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: chiedi scadenze italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_deadlines_it
+  - action: utter_deadlines
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: sfida bot italiano e esci
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: bot_challenge_it
+  - action: utter_iamabot
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi con sfida bot prima (IT)
+  steps:
+  - intent: bot_challenge_it
+  - action: utter_iamabot
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Francesco Gallo"
+  - slot_was_set:
+    - student_name: "Francesco Gallo"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Amministrazione Aziendale"
+  - slot_was_set:
+    - course_name: "Amministrazione Aziendale"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: molteplici sfide bot italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: bot_challenge_it
+  - action: utter_iamabot
+  - intent: bot_challenge_it
+  - action: utter_iamabot
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi sicurezza informatica italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Jessica Lopez"
+  - slot_was_set:
+    - student_name: "Jessica Lopez"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Sicurezza Informatica"
+  - slot_was_set:
+    - course_name: "Sicurezza Informatica"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: solo arrivederci italiano
+  steps:
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: saluta poi arrivederci italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi medicina triennale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Giulia Moretti"
+  - slot_was_set:
+    - student_name: "Giulia Moretti"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Medicina"
+  - slot_was_set:
+    - course_name: "Medicina"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi psicologia magistrale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Sofia Bianchi"
+  - slot_was_set:
+    - student_name: "Sofia Bianchi"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Magistrale"
+  - slot_was_set:
+    - degree_type: "Magistrale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Psicologia"
+  - slot_was_set:
+    - course_name: "Psicologia"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi economia triennale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Carlo Ferrari"
+  - slot_was_set:
+    - student_name: "Carlo Ferrari"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Economia"
+  - slot_was_set:
+    - course_name: "Economia"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi diritto magistrale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Alessandra Gallo"
+  - slot_was_set:
+    - student_name: "Alessandra Gallo"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Magistrale"
+  - slot_was_set:
+    - degree_type: "Magistrale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Diritto"
+  - slot_was_set:
+    - course_name: "Diritto"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi architettura triennale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Davide Conti"
+  - slot_was_set:
+    - student_name: "Davide Conti"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Architettura"
+  - slot_was_set:
+    - course_name: "Architettura"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi ai triennale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Francesca Moretti"
+  - slot_was_set:
+    - student_name: "Francesca Moretti"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Intelligenza Artificiale"
+  - slot_was_set:
+    - course_name: "Intelligenza Artificiale"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi data science magistrale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Lorenzo Ferraro"
+  - slot_was_set:
+    - student_name: "Lorenzo Ferraro"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Magistrale"
+  - slot_was_set:
+    - degree_type: "Magistrale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Data Science"
+  - slot_was_set:
+    - course_name: "Data Science"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: iscrivimi biotecnologie triennale italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Giulio Martinelli"
+  - slot_was_set:
+    - student_name: "Giulio Martinelli"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Triennale"
+  - slot_was_set:
+    - degree_type: "Triennale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Biotecnologie"
+  - slot_was_set:
+    - course_name: "Biotecnologie"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- story: chiedi scadenze italiano poi iscriviti
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_deadlines_it
+  - action: utter_deadlines
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform_it
+    entities:
+    - student_name: "Martina Rossi"
+  - slot_was_set:
+    - student_name: "Martina Rossi"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform_it
+    entities:
+    - degree_type: "Magistrale"
+  - slot_was_set:
+    - degree_type: "Magistrale"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform_it
+    entities:
+    - course_name: "Robotica"
+  - slot_was_set:
+    - course_name: "Robotica"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye_it
   - action: utter_goodbye

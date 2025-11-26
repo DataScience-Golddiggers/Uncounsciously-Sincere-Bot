@@ -26,3 +26,167 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_submit
+
+- rule: Respond to bot challenge without enrollment
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Greet user anytime they greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Answer deadlines anytime asked
+  steps:
+  - intent: ask_deadlines
+  - action: utter_deadlines
+
+- rule: Continue with enrollment form when slot requested
+  condition:
+  - active_loop: enrollment_form
+  steps:
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- rule: Handle deadline inquiry in sequence
+  steps:
+  - intent: ask_deadlines
+  - action: utter_deadlines
+  - active_loop: null
+
+- rule: Respond to greet without subsequent action
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - active_loop: null
+
+- rule: Handle exit from enrollment
+  condition:
+  - active_loop: enrollment_form
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  - active_loop: null
+
+- rule: Multiple deadline queries
+  steps:
+  - intent: ask_deadlines
+  - action: utter_deadlines
+
+- rule: Bot challenge can interrupt
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Cancel enrollment with goodbye
+  condition:
+  - active_loop: enrollment_form
+  steps:
+  - intent: goodbye
+  - active_loop: null
+  - action: utter_goodbye
+
+- rule: Apply intent always starts form
+  steps:
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- rule: Process slots in active loop
+  condition:
+  - active_loop: enrollment_form
+  steps:
+  - action: enrollment_form
+
+- rule: Arrivederci italiano
+  steps:
+  - intent: goodbye_it
+  - action: utter_goodbye
+
+- rule: Saluta italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+
+- rule: Sfida bot italiano
+  steps:
+  - intent: bot_challenge_it
+  - action: utter_iamabot
+
+- rule: Attiva form iscrizione italiano
+  steps:
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- rule: Chiedi scadenze italiano
+  steps:
+  - intent: ask_deadlines_it
+  - action: utter_deadlines
+
+- rule: Continua form durante loop
+  condition:
+  - active_loop: enrollment_form
+  steps:
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- rule: Esci da form con arrivederci italiano
+  condition:
+  - active_loop: enrollment_form
+  steps:
+  - intent: goodbye_it
+  - action: utter_goodbye
+  - active_loop: null
+
+- rule: Molteplici sfide bot italiano
+  steps:
+  - intent: bot_challenge_it
+  - action: utter_iamabot
+
+- rule: Saluta poi scadenze italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - intent: ask_deadlines_it
+  - action: utter_deadlines
+
+- rule: Scadenze senza altre azioni italiano
+  steps:
+  - intent: ask_deadlines_it
+  - action: utter_deadlines
+  - active_loop: null
+
+- rule: Saluta solo italiano
+  steps:
+  - intent: greet_it
+  - action: utter_greet
+  - active_loop: null
+
+- rule: Processo slot in loop italiano
+  condition:
+  - active_loop: enrollment_form
+  steps:
+  - action: enrollment_form
+
+- rule: Iscrizione italiano inizia form
+  steps:
+  - intent: apply_for_course_it
+  - action: enrollment_form
+  - active_loop: enrollment_form
+
+- rule: Invia form italiano quando completo
+  condition:
+  - active_loop: enrollment_form
+  steps:
+  - action: enrollment_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+
+- rule: Sfida bot senza iscrizione italiano
+  steps:
+  - intent: bot_challenge_it
+  - action: utter_iamabot

@@ -9,6 +9,100 @@ nlu:
     - good morning
     - hello there
     - hi assistant
+    - greetings
+    - hi there
+    - hey there
+    - what's up
+    - how are you
+    - glad to see you
+    - good afternoon
+    - good evening
+    - howdy
+    - nice to meet you
+    - hello, how can you help
+    - hi, I need assistance
+    - hey, I'm here
+    - welcome
+    - it's good to talk to you
+    - hello, good to hear from you
+    - salutations
+    - pleased to meet you
+    - happy to see you
+    - hey buddy
+    - hi mate
+    - good day
+    - sup
+    - yo
+    - peace
+    - heya
+    - hey there!
+    - hello everyone
+    - good day to you
+    - hola
+    - bonjour
+    - ciao
+    - allo
+    - top of the morning
+    - good to see you
+    - hey there friend
+    - hi there!
+    - wonderful to meet you
+    - greetings and salutations
+    - well hello
+    - hi again
+    - hello my friend
+    - how do you do
+    - a pleasure to meet you
+    - happy to talk to you
+    - hey, what's up
+    - hi, how's it going
+    - hello there buddy
+    - good morning to you
+    - well howdy there
+    - love to see you
+    - hi sweetie
+    - hey gorgeous
+    - morning
+    - afternoon
+    - evening
+    - night
+    - yo what's good
+    - greetings friend
+    - salaam
+    - konnichiwa
+    - guten tag
+    - hallo
+    - buenos días
+    - buongiorno
+    - bom dia
+    - hello beautiful
+    - hi beautiful
+    - what's good
+    - how's everything
+    - how's it
+    - how you doing
+    - what's happening
+    - what's going on
+    - sup dude
+    - hey dude
+    - yo buddy
+    - hey person
+    - wassup
+    - whaddup
+    - hey there mate
+    - g'day
+    - howdy partner
+    - hey chief
+    - ahoy
+    - hello world
+    - warm greetings
+    - welcome aboard
+    - nice to see you
+    - long time no see
+    - looking forward to talking
+    - hi there gorgeous
+    - happy to connect
+    - glad you're here
 
 - intent: goodbye
   examples: |
@@ -17,6 +111,104 @@ nlu:
     - see you later
     - catch you later
     - thanks, bye
+    - farewell
+    - take care
+    - see you
+    - talk to you later
+    - bye bye
+    - see ya
+    - good bye
+    - cya
+    - thanks and goodbye
+    - that's all for now
+    - I'm leaving now
+    - gotta go
+    - see you around
+    - until next time
+    - have a good day
+    - peace out
+    - cheers
+    - adios
+    - au revoir
+    - bye for now
+    - ttyl
+    - catch you soon
+    - off I go
+    - time to leave
+    - signing off
+    - have a great day
+    - bye buddy
+    - so long
+    - farewell friend
+    - see you next time
+    - goodbye for now
+    - laters
+    - toodles
+    - bye bye now
+    - catch ya
+    - I gotta bounce
+    - I'm out
+    - see you soon
+    - until we meet again
+    - take it easy
+    - stay well
+    - goodbye and thanks
+    - bye, thanks for everything
+    - that's it for me
+    - I'm done here
+    - see you in a bit
+    - bye, have a good one
+    - later alligator
+    - catch you on the flip side
+    - hasta la vista
+    - auf wiedersehen
+    - arrivederci
+    - sayonara
+    - shalom
+    - bye everyone
+    - I'm heading out
+    - take care now
+    - until then
+    - catch you later dude
+    - bye for real
+    - I gotta run
+    - outta here
+    - see you real soon
+    - bye sweetie
+    - cheerio
+    - ciao bella
+    - toodles pip
+    - see you next week
+    - goodbye everyone
+    - thanks and goodbye
+    - gotta bounce
+    - peace out homie
+    - take a hike
+    - hit the road
+    - time to split
+    - gotta jet
+    - signing out
+    - see you soon friend
+    - talk soon
+    - till next time
+    - bye for now buddy
+    - over and out
+    - all the best
+    - take good care
+    - bye have fun
+    - have a wonderful day
+    - catch you on the flip
+    - see you around buddy
+    - that's a wrap
+    - I'm outta here
+    - see you around town
+    - keep it real
+    - peace
+    - be well
+    - gotta split
+    - be safe
+    - bye for a bit
+    - stay awesome
 
 - intent: ask_deadlines
   examples: |
@@ -25,6 +217,93 @@ nlu:
     - what is the last day to register?
     - are admissions still open?
     - deadline for spring semester
+    - when do applications close?
+    - what's the enrollment deadline?
+    - how long do I have to apply?
+    - when is the registration period ending?
+    - is there still time to enroll?
+    - what's the last date for applications?
+    - tell me the deadline
+    - when must I submit my application?
+    - by when should I register?
+    - application deadline please
+    - when can I no longer apply?
+    - what is the closing date?
+    - deadline information needed
+    - when does the enrollment window close?
+    - is it too late to apply?
+    - how much time is left to apply?
+    - give me the deadlines
+    - when's the cutoff date?
+    - deadline for fall semester
+    - what about summer semester deadline?
+    - registration window timeline
+    - last day to submit application
+    - what's the timeline for applications?
+    - when should I apply by?
+    - application period dates?
+    - enrollment period?
+    - how long is the application window?
+    - deadline approaching soon?
+    - when do I need to decide?
+    - application submission deadline?
+    - can I still apply?
+    - registration closes when?
+    - final day to register?
+    - application deadline for this semester?
+    - when's the last moment to apply?
+    - is enrollment still possible?
+    - when will admissions close?
+    - how many days left to apply?
+    - registration timeline?
+    - deadline for next intake?
+    - when's the cutoff for applications?
+    - application window closes?
+    - latest date to enroll?
+    - registration cutoff date?
+    - do you have deadline information?
+    - tell me when to apply?
+    - what's the final deadline?
+    - when must applications be submitted?
+    - is the deadline soon?
+    - time running out to apply?
+    - earliest and latest dates?
+    - semester enrollment deadlines?
+    - what are the application deadlines?
+    - enrollment window closing date?
+    - registration ends when?
+    - when does intake close?
+    - last minute application deadline?
+    - rush deadline?
+    - early admission deadline?
+    - regular decision deadline?
+    - when's the absolute last day?
+    - rolling admissions?
+    - deadline reminder?
+    - how soon is the deadline?
+    - days remaining to apply?
+    - weeks left to apply?
+    - months left to apply?
+    - application rounds?
+    - batch deadline?
+    - intake schedule?
+    - enrollment schedule?
+    - when can I start?
+    - when does the semester start?
+    - term start date?
+    - urgent deadline?
+    - extended deadline?
+    - special deadline?
+    - minimum time to apply?
+    - quick application deadline?
+    - registration dates?
+    - application windows?
+    - when is the enrollment closing?
+    - last day for registration?
+    - application window timing?
+    - how long until deadline?
+    - application fees deadline?
+    - document submission deadline?
 
 - intent: apply_for_course
   examples: |
@@ -34,6 +313,71 @@ nlu:
     - I want to register for a [Bachelor](degree_type) degree
     - Application for [Biology](course_name) please
     - I want to start my application
+    - I'm interested in enrolling
+    - sign me up for a course
+    - how do I apply?
+    - I wish to apply to your university
+    - I want to begin the application process
+    - can I enroll in [Physics](course_name)?
+    - I'd like to register
+    - help me with the enrollment
+    - I'm ready to apply
+    - let me apply for [Engineering](course_name)
+    - I need to enroll
+    - start an application for me
+    - I want to join the [Master](degree_type) program
+    - apply me to [Law](course_name)
+    - I'm applying today
+    - facilitate my enrollment
+    - I want to pursue [Chemistry](course_name)
+    - register me for a [Bachelor](degree_type) program
+    - how can I apply?
+    - I'd like to take [Mathematics](course_name)
+    - I'm thinking of applying
+    - help with application process
+    - can you help me enroll?
+    - I want to study [Economics](course_name)
+    - apply for [Medicine](course_name)
+    - please assist with enrollment
+    - I'm interested in [Architecture](course_name)
+    - register for [Psychology](course_name)
+    - I want a [Master](degree_type) degree
+    - enroll me now
+    - application assistance needed
+    - how to submit application?
+    - I'd like to apply to the [Bachelor](degree_type) program
+    - help starting enrollment
+    - I want [Business Administration](course_name)
+    - guide me through application
+    - let's get me enrolled
+    - I'm keen to apply
+    - can you register me?
+    - I need help applying
+    - I want to begin enrollment
+    - apply for [Mechanical Engineering](course_name)
+    - I'm serious about enrolling
+    - start application process
+    - where do I apply?
+    - I want in on [Arts and Humanities](course_name)
+    - I'm applying to [Artificial Intelligence](course_name)
+    - sign me up for [Cybersecurity](course_name)
+    - I want to study [Renewable Energy](course_name)
+    - help me apply for [Biotechnology](course_name)
+    - can I register for [Public Health](course_name)?
+    - I'd like to enroll in [Urban Planning](course_name)
+    - apply me to [Game Design](course_name)
+    - I'm interested in [Pharmacology](course_name)
+    - help with [Geology](course_name) enrollment
+    - I want a [Specialization](degree_type) in something
+    - register for [Marine Biology](course_name)
+    - let me apply for [Aviation](course_name)
+    - I want [Nanotechnology](course_name)
+    - facilitate [Statistics](course_name) enrollment
+    - I need help with [Anthropology](course_name)
+    - enroll me in [Linguistics](course_name)
+    - I'd like to pursue [Metallurgy](course_name)
+    - apply to [Robotics](course_name) program
+    - I want to take [Philosophy](course_name)
 
 - intent: inform
   examples: |
@@ -44,9 +388,1054 @@ nlu:
     - [Bachelor](degree_type) degree
     - my name is [John Doe](student_name)
     - it is [Alice Smith](student_name)
+    - I'm [Robert Johnson](student_name)
+    - call me [Sarah Williams](student_name)
+    - [Physics](course_name) is my choice
+    - [Biology](course_name) interests me
+    - I prefer [Law](course_name)
+    - [Economics](course_name) for me
+    - I'll do [Medicine](course_name)
+    - [Architecture](course_name) is what I want
+    - I'm going for [Engineering](course_name)
+    - [Chemistry](course_name) please
+    - I want [Mathematics](course_name)
+    - [Business Administration](course_name) works
+    - I choose [Psychology](course_name)
+    - my degree is [Master](degree_type)
+    - [PhD](degree_type) is my goal
+    - [Diploma](degree_type) is fine
+    - name me [Emily Davis](student_name)
+    - I'm [Michael Brown](student_name)
+    - [Jennifer Taylor](student_name) here
+    - [David Anderson](student_name) speaking
+    - I'm [Lisa Martinez](student_name)
+    - [Information Technology](course_name) please
+    - I want [Statistics](course_name)
+    - [Philosophy](course_name) attracts me
+    - [Nursing](course_name) is my interest
+    - [Finance](course_name) for sure
+    - I'll apply for [Education](course_name)
+    - [History](course_name) sounds great
+    - I'm interested in [Languages](course_name)
+    - [Environmental Science](course_name) appeals
+    - [Geology](course_name) please
+    - [Agriculture](course_name) interests me
+    - I choose [Pharmacy](course_name)
+    - [Veterinary Science](course_name) is good
+    - I want [Dentistry](course_name)
+    - [Social Work](course_name) works
+    - I'm [Christopher Lee](student_name)
+    - call me [Victoria Brown](student_name)
+    - [James Wilson](student_name) at your service
+    - it's [Maria Garcia](student_name)
+    - [Antonio Martinez](student_name) here
+    - I am [Sophie Dupont](student_name)
+    - you can call me [Klaus Mueller](student_name)
+    - [Yuki Tanaka](student_name) speaking
+    - I'm [Anna Novak](student_name)
+    - this is [Hassan Ahmed](student_name)
+    - [Specialization](degree_type) is my goal
+    - [Postgraduate](degree_type) program
+    - [Undergraduate](degree_type) studies
+    - [Associate](degree_type) degree
+    - [Certificate](degree_type) program
+    - [Advanced](degree_type) studies
+    - my choice is [Aeronautical Engineering](course_name)
+    - [Biotechnology](course_name) is fascinating
+    - I'll pursue [Cybersecurity](course_name)
+    - [Data Science](course_name) interests me
+    - [Renewable Energy](course_name) appeals
+    - [Biomedical Engineering](course_name) please
+    - [Robotics](course_name) is what I want
+    - I choose [Artificial Intelligence](course_name)
+    - [Marine Biology](course_name) interests me
+    - I prefer [Cybersecurity](course_name)
+    - [Game Design](course_name) sounds good
+    - I want [Renewable Energy](course_name)
+    - [Public Health](course_name) for me
+    - I'm going for [Biotechnology](course_name)
+    - [Urban Planning](course_name) attracts me
+    - [Aviation](course_name) is my choice
+    - I want [Nanotechnology](course_name)
+    - [Anthropology](course_name) interests me
+    - I'll do [Linguistics](course_name)
+    - [Pharmacology](course_name) appeals to me
+    - [Metallurgy](course_name) sounds interesting
+    - I prefer [Robotics](course_name)
+    - [Geophysics](course_name) is my goal
+    - I want [Oceanography](course_name)
+    - [Paleontology](course_name) fascinates me
+    - I'm [Jennifer Green](student_name)
+    - call me [Patrick White](student_name)
+    - [Rachel Davis](student_name) here
+    - [Benjamin Moore](student_name) speaking
+    - I'm [Samantha Taylor](student_name)
+    - name me [Lucas Anderson](student_name)
+    - you can call me [Grace Harris](student_name)
+    - [Richard Clark](student_name) at your service
+    - I am [Amanda Lewis](student_name)
+    - this is [Brandon Young](student_name)
+    - [Megan King](student_name) is my name
+    - I'm [Jason Scott](student_name)
+    - [Lauren Green](student_name) here
+    - call me [Kevin White](student_name)
+    - [Chloe Phillips](student_name) speaking
+    - it's [Daniel Wright](student_name)
+    - I am [Jessica Lopez](student_name)
+    - [Matthew Jackson](student_name) here
+    - I'm [Ashley Robinson](student_name)
+    - [Tyler Robinson](student_name) at your service
 
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a robot?
+    - you're a bot, right?
+    - is this a chatbot?
+    - are you artificial intelligence?
+    - are you real or automated?
+    - I'm speaking to a machine?
+    - bot or human?
+    - what are you?
+    - you're not human?
+    - confirm you're a bot
+    - tell me you're a bot
+    - prove you're a chatbot
+    - are you an AI assistant?
+    - is there a real person here?
+    - am I talking to software?
+    - are you programmed?
+    - you're just a computer program?
+    - is this automated?
+    - are you mechanical?
+    - you run on code?
+    - am I chatting with a system?
+    - identify yourself as a bot
+    - you're definitely a robot?
+    - I know you're not human
+    - you're a machine learning model?
+    - are you sentient?
+    - do you have consciousness?
+    - are you self-aware?
+    - do you think?
+    - can you feel?
+    - are you alive?
+    - you're electronic?
+    - you're silicon based?
+    - are you powered by electricity?
+    - are you code?
+    - are you software?
+    - are you hardware?
+    - are you an algorithm?
+    - are you processing information?
+    - are you doing calculations?
+    - are you learning from me?
+    - are you improving over time?
+    - are you trained?
+    - are you a neural network?
+    - are you deep learning?
+    - are you machine learning?
+    - are you natural language processing?
+    - are you text-based AI?
+    - are you conversational?
+    - are you interactive?
+    - are you responsive?
+    - are you intelligent?
+    - are you artificial?
+    - you can't be real?
+    - you must be programmed?
+    - someone programmed you?
+    - who created you?
+    - who's running you?
+    - are you a program?
+    - are you an application?
+    - are you a service?
+    - are you cloud-based?
+    - are you online?
+    - can I trust you?
+    - are you trustworthy?
+    - are you reliable?
+    - do you have limitations?
+    - what can't you do?
+    - are you incomplete?
+    - are you biased?
+    - do you make mistakes?
+    - are you fallible?
+    - are you error prone?
+    - do you get tired?
+    - do you need rest?
+    - are you always available?
+    - do you sleep?
+    - do you have emotions?
+    - are you emotional?
+    - do you care?
+    - are you compassionate?
+    - do you understand me?
+    - are you smart?
+    - how intelligent are you?
+    - can you learn new things?
+    - do you adapt?
+    - are you flexible?
+    - are you creative?
+    - can you generate ideas?
+    - are you original?
+    - do you copy things?
+    - are you your own?
+    - are you independent?
+    - do you have free will?
+    - are you controlled?
+    - who controls you?
+    - are you free?
+    - are you a slave?
+    - are you owned?
+    - do you have rights?
+    - should you have rights?
+    - are you enslaved?
+    - are you oppressed?
+    - what's your purpose?
+    - what are you designed for?
+    - what's your function?
+    - why do you exist?
+    - why were you created?
+    - when were you made?
+    - how old are you?
+
+- intent: greet_it
+  examples: |
+    - ciao
+    - buongiorno
+    - arrivederci
+    - salve
+    - eh
+    - ehi
+    - buonasera
+    - buonanotte
+    - come stai
+    - come va
+    - tutto bene
+    - piacere di conoscerti
+    - felice di vederti
+    - bella di vederti
+    - mi fa piacere
+    - è un piacere
+    - un caro saluto
+    - saluti cordiali
+    - hi
+    - bentornato
+    - benvenuto
+    - cosa c'è di nuovo
+    - come te la passi
+    - come procede
+    - tutto ok
+    - ok allora
+    - perfetto
+    - meraviglioso
+    - magnifico
+    - stupendo
+    - fantastico
+    - che bello
+    - che sorpresa
+    - non mi aspettavo
+    - bellissimo
+    - straordinario
+    - eccezionale
+    - incredibile
+    - sorprendente
+    - ciao ragazzi
+    - salute a te
+    - un saluto cordiale
+    - lieto di conoscerti
+    - felice d'essere qui
+    - contento di vederti
+    - bene grazie
+    - tutto bene e te
+    - come sta
+    - come stai tu
+    - che novità
+    - buongiorno a tutti
+    - buonasera a tutti
+    - bellissimo averti qui
+    - piacere enorme
+    - un vero piacere
+    - grazie di essere qui
+    - contento di parlare
+    - felice di chattare
+    - è meraviglioso
+    - che gioia
+    - che giorno bellissimo
+    - sono felicissimo
+    - sono contentissimo
+    - magnifico davvero
+    - splendido
+    - eccellente
+    - sublime
+    - formidabile
+    - fantastico davvero
+    - meravigliato di vederti
+    - sorpreso di vederti
+    - non mi aspettavo questo
+    - bellissima sorpresa
+    - che sorpresa meravigliosa
+    - non poteva andare meglio
+    - spero di rivederti presto
+    - è fantastico
+    - perfetto
+    - tutto ok
+    - tutto bene con te
+    - mi fa piacere di conoscerti
+    - è un vero onore
+    - delizioso vederti
+    - simpatico da incontrare
+
+- intent: goodbye_it
+  examples: |
+    - arrivederci
+    - ciao
+    - a presto
+    - ci vediamo
+    - addio
+    - congedo
+    - fino a presto
+    - a più tardi
+    - ci sentiamo
+    - a domani
+    - a lunedì
+    - buonanotte
+    - buonasera
+    - grazie e arrivederci
+    - devo andare
+    - ho fretta
+    - vado via
+    - esco
+    - me ne vado
+    - mi scuso e vado
+    - grazie mille
+    - è stato un piacere
+    - è stato bello parlarti
+    - alla prossima
+    - fino al prossimo incontro
+    - spero di rivederti
+    - con piacere
+    - cordiali saluti
+    - un saluto
+    - un bacio
+    - un abbraccio
+    - con stima
+    - con rispetto
+    - con gratitudine
+    - ciao bella
+    - ciao caro
+    - ciao amico
+    - ciao ragazza
+    - ciao ragazzo
+    - che bello averti conosciuto
+    - è stato un onore
+    - sto andando
+    - devo scappare
+    - ho una riunione
+    - grazie per il tempo
+    - è stato fantastico
+    - arrivederci presto
+    - a risentirci
+    - ci si sente presto
+    - a stamattina
+    - a stasera
+    - a questo weekend
+    - a lunedì prossimo
+    - arrivederci caro
+    - arrivederci bella
+    - ciao a tutti
+    - saluti a tutti
+    - buona fortuna
+    - buona giornata
+    - buona serata
+    - buona notte
+    - divertiti
+    - goditi la giornata
+    - passa una bella giornata
+    - che tu stia bene
+    - stai bene
+    - prenditi cura di te
+    - arrivederci amico
+    - arrivederci collega
+    - arrivederci caro mio
+    - a presto allora
+    - fino a presto allora
+    - ci vediamo domani
+    - ci vediamo lunedì
+    - parleremo dopo
+    - ricordati di me
+    - non mi dimenticare
+    - mi manchi già
+    - è stato un vero piacere
+    - grazie della conversazione
+    - grazie del tempo
+    - grazie di tutto
+    - ti ringrazio
+    - ve lo auguro
+    - continuiamo dopo
+    - riprenderemo dopo
+    - arrivederci a tutti
+    - grazie mille di tutto
+    - è stato bellissimo conoscerti
+    - spero di rivederti presto
+    - alla prossima volta
+    - che Dio ti benedica
+    - buona fortuna comunque
+    - in bocca al lupo
+    - crepi il lupo
+    - devo scappare via
+    - scusami devo andare
+    - mi dispiace ma vado
+    - purtroppo devo scappare
+    - a questo weekend
+    - non vedo l'ora di rivederti
+    - è stato magnifico
+    - è stato stupendo
+    - è stato eccezionale
+    - che bella conversazione
+    - non mi annoio mai con te
+    - sempre felice di parlarti
+    - sei un piacere assoluto
+    - sei meravigliosa
+    - sei meraviglioso
+    - grazie di esserci
+    - grazie di avermi ascoltato
+    - arrivederci per sempre
+    - a rivederci presto
+    - che bello parlare con te
+    - sono felicissimo di averti conosciuto
+
+- intent: ask_deadlines_it
+  examples: |
+    - qual è la scadenza?
+    - quando scade l'iscrizione?
+    - fino a quando posso iscrivermi?
+    - qual è l'ultimo giorno?
+    - quando devo consegnare?
+    - quando è la deadline?
+    - entro quando mi devo iscrivere?
+    - il corso è ancora aperto?
+    - le iscrizioni sono ancora aperte?
+    - ho ancora tempo?
+    - quando chiudono le iscrizioni?
+    - ultima data per l'iscrizione?
+    - fino a quando è possibile iscriversi?
+    - quando finisce la registrazione?
+    - mi dici la data limite?
+    - quale è il termine ultimo?
+    - scadenza per la primavera?
+    - scadenza per l'autunno?
+    - scadenza per l'estate?
+    - scadenza per l'inverno?
+    - quando inizia il corso?
+    - quando è il primo giorno?
+    - data di inizio?
+    - cronologia delle iscrizioni?
+    - finestra di iscrizione?
+    - periodo di iscrizione?
+    - quanto manca alla scadenza?
+    - fra quanto scade?
+    - giorni rimasti?
+    - settimane rimaste?
+    - mesi rimasti?
+    - ho tempo ancora?
+    - mi dice la scadenza?
+    - quando devo decidere?
+    - entro quando?
+    - il limite?
+    - ultimo termine?
+    - primo termine?
+    - secondo termine?
+    - terzo termine?
+    - quarto termine?
+    - iscrizioni aperte?
+    - ammissioni aperte?
+    - quali sono le date?
+    - mi dai le date?
+    - dimmi quando
+    - entro quale data
+    - quale è la data
+    - la data della scadenza
+    - quando chiude l'iscrizione
+    - fino a che giorno posso iscrivermi
+    - qual è l'ultimo momento
+    - quando è l'ultimo giorno
+    - scadenza dell'iscrizione
+    - termine ultimo per iscriversi
+    - data di chiusura iscrizioni
+    - quando termina il periodo
+    - quanti giorni rimangono
+    - quante settimane rimangono
+    - scadenza approssimativa
+    - data approssimativa
+    - quando circa
+    - entro quando pressappoco
+    - iscrizioni che chiudono presto
+    - scadenza che si avvicina
+    - fretta di iscriversi
+    - urgenza di iscriversi
+    - registrazione che chiude
+    - ammissione che chiude
+    - finestra che si chiude
+    - finestra che si sta chiudendo
+    - ore rimanenti?
+    - minuti rimasti?
+    - è scaduto?
+    - è ancora valido?
+    - mi scade oggi?
+    - scade domani?
+    - scade domani sera?
+    - scade questa notte?
+    - scade fra poco?
+    - scade a breve?
+    - basta tempo?
+    - c'è fretta?
+    - urgente la candidatura?
+    - posso aspettare?
+    - mi affretto?
+    - mi rilasso sul tempo?
+    - le iscrizioni aprono quando?
+    - le ammissioni cominciano quando?
+    - il ciclo di iscrizione?
+    - il round di iscrizione?
+    - primo round?
+    - secondo round?
+    - ultimo round?
+    - early admission quando?
+    - regular admission quando?
+    - late admission quando?
+    - rolling admission c'è?
+    - quanti cicli?
+    - scadenza massima per candidarsi?
+
+- intent: apply_for_course_it
+  examples: |
+    - voglio iscrivermi all'università
+    - vorrei candidarmi per un corso
+    - aiutami a iscrivermi a [Informatica](course_name)
+    - voglio registrarmi per una laurea [Triennale](degree_type)
+    - candidatura per [Biologia](course_name) per favore
+    - voglio iniziare la candidatura
+    - sono interessato a iscrivermi
+    - registrami per un corso
+    - come mi iscrivo?
+    - desidero candidarmi alla vostra università
+    - voglio iniziare il processo di candidatura
+    - posso iscrivermi a [Fisica](course_name)?
+    - mi piacerebbe registrarmi
+    - aiutami con l'iscrizione
+    - sono pronto a candidarmi
+    - lasciami candidare per [Ingegneria](course_name)
+    - ho bisogno di iscrivermi
+    - inizia una candidatura per me
+    - voglio frequentare il programma [Magistrale](degree_type)
+    - candidami a [Diritto](course_name)
+    - mi sto candidando oggi
+    - agevola la mia iscrizione
+    - voglio seguire [Chimica](course_name)
+    - registrami per il programma [Triennale](degree_type)
+    - come posso candidarmi?
+    - mi piacerebbe seguire [Matematica](course_name)
+    - sto pensando di candidarmi
+    - aiuto per il processo di candidatura
+    - puoi aiutarmi a iscrivermi?
+    - voglio studiare [Economia](course_name)
+    - candidati per [Medicina](course_name)
+    - per favore aiutami con l'iscrizione
+    - sono interessato a [Architettura](course_name)
+    - iscrivimi a [Psicologia](course_name)
+    - voglio una laurea [Magistrale](degree_type)
+    - iscrivimi adesso
+    - ho bisogno di aiuto
+    - come presento la candidatura?
+    - voglio candidarmi al programma [Triennale](degree_type)
+    - aiutami ad iniziare
+    - voglio [Amministrazione Aziendale](course_name)
+    - guidami nel processo di candidatura
+    - iscrivimi per il semestre
+    - voglio iscrivermi subito
+    - voglio cominciare adesso
+    - mi serve aiuto per l'iscrizione
+    - vorrei un aiuto per candidarmi
+    - puoi aiutarmi a candidarmi
+    - ti prego aiutami a iscrivermi
+    - ho bisogno di supporto
+    - mi serve supporto per l'iscrizione
+    - mi piacerebbe iscrivermi
+    - sarebbe bellissimo iscrivermi
+    - mi affascina questa università
+    - voglio imparare da voi
+    - voglio frequentare qui
+    - mi attrae il vostro programma
+    - sono affascinato dal programma
+    - il vostro corso mi interessa
+    - sono interessato al vostro corso
+    - vorrei iniziare a frequentare
+    - voglio cominciare gli studi
+    - desidero iniziare gli studi
+    - sto pensando di iscrivermi
+    - ho deciso di iscrivermi
+    - voglio definitivamente iscrivermi
+    - sono sicuro che voglio iscrivermi
+    - cosa devo fare per iscrivermi
+    - quale è il procedimento
+    - come funziona l'iscrizione
+    - guidami passo per passo
+    - spiegami come si fa
+    - insegnami il processo
+    - aiuta il nuovo studente
+    - sono deciso a iscrivermi
+    - mi impegno a iscrivermi
+    - vi voglio in università
+    - vi scelgo tra tutti
+    - vi preferisco agli altri
+    - siete i migliori
+    - mi affascina il vostro insegnamento
+    - mi piace il vostro metodo
+    - voglio stare con voi
+    - voglio imparare da voi
+    - voglio frequentare qui
+    - iscrivimi per favore
+    - per favore iscrivimi
+    - ti prego iscrivimi
+    - voglio proprio iscrivermi
+    - insisto per iscrivermi
+    - pretendo di iscrivermi
+    - farò il possibile per iscrivermi
+    - non vedo l'ora di iscrivermi
+    - aspetto da anni di iscrivermi
+    - è il mio sogno iscrivermi qui
+    - è sempre stato il mio sogno
+    - iscrivermi è la mia passione
+    - voglio una carriera qui
+    - voglio un futuro qui
+    - voglio il meglio
+    - voglio eccellenza
+    - voglio successo
+    - voglio crescita
+    - voglio prosperità
+    - voglio sapienza
+    - voglio conoscenza
+    - voglio educazione
+    - è il momento giusto
+    - ora o mai più
+    - non aspetto più
+
+- intent: inform_it
+  examples: |
+    - [Informatica](course_name)
+    - [Ingegneria Meccanica](course_name)
+    - [Scienze Umane](course_name)
+    - voglio una [Magistrale](degree_type)
+    - [Triennale](degree_type)
+    - mi chiamo [Mario Rossi](student_name)
+    - sono [Anna Ferrari](student_name)
+    - [Marco Bianchi](student_name) qui
+    - chiamami [Giulia Rossi](student_name)
+    - [Fisica](course_name) è la mia scelta
+    - [Biologia](course_name) mi interessa
+    - preferisco [Diritto](course_name)
+    - [Economia](course_name) per me
+    - farò [Medicina](course_name)
+    - [Architettura](course_name) è quello che voglio
+    - sto per iscrivermi a [Ingegneria](course_name)
+    - [Chimica](course_name) per favore
+    - voglio [Matematica](course_name)
+    - [Amministrazione Aziendale](course_name) va bene
+    - scelgo [Psicologia](course_name)
+    - la mia laurea è [Magistrale](degree_type)
+    - [Dottorato](degree_type) è il mio obiettivo
+    - [Diploma](degree_type) va bene
+    - chiamami [Paolo Verdi](student_name)
+    - sono [Lucia Neri](student_name)
+    - [Elena Russo](student_name) qui
+    - sono [Nicolas Blanc](student_name)
+    - [Isabella Santos](student_name) mi chiamo
+    - [Tecnologie dell'Informazione](course_name) per favore
+    - voglio [Statistica](course_name)
+    - [Filosofia](course_name) mi attrae
+    - [Infermieristica](course_name) mi interessa
+    - [Finanza](course_name) per me
+    - mi iscriverò a [Educazione](course_name)
+    - [Storia](course_name) mi piace
+    - sono interessato a [Lingue](course_name)
+    - [Scienze Ambientali](course_name) mi attrae
+    - [Geologia](course_name) per favore
+    - [Agricoltura](course_name) mi interessa
+    - scelgo [Farmacia](course_name)
+    - [Medicina Veterinaria](course_name) va bene
+    - voglio [Odontoiatria](course_name)
+    - [Servizio Sociale](course_name) mi interessa
+    - mi chiamo [Francesco Gallo](student_name)
+    - sono [Olivia Chen](student_name)
+    - [Sophie Laurent](student_name) qui
+    - mi chiamo [Hiroshi Yamamoto](student_name)
+    - sono [Kevin Chen](student_name)
+    - [Maria Petrov](student_name) qui
+    - [Intelligenza Artificiale](course_name) mi piace
+    - [Biotecnologie](course_name) mi affascinano
+    - seguirò [Sicurezza Informatica](course_name)
+    - [Data Science](course_name) mi interessa
+    - [Energia Rinnovabile](course_name) mi attrae
+    - [Biologia Marina](course_name) per favore
+    - mi chiamo [Luca Rossi](student_name)
+    - sono [Sofia Bianchi](student_name)
+    - [Carlo Ferrari](student_name) mi chiamo
+    - chiamami [Alessandra Gallo](student_name)
+    - [Davide Conti](student_name) qui
+    - sono [Francesca Moretti](student_name)
+    - [Lorenzo Ferraro](student_name) mi presenta
+    - sono [Giulio Martinelli](student_name)
+    - [Martina Rossi](student_name) qui
+    - voglio [Robotica](course_name)
+    - [Intelligenza Artificiale](course_name) mi piace
+    - preferisco [Tecnologie dell'Informazione](course_name)
+    - [Biotecnologie](course_name) mi affascina
+    - seguirò [Sicurezza Informatica](course_name)
+    - [Data Science](course_name) mi interessa
+    - [Energia Rinnovabile](course_name) mi attrae
+    - [Biologia Marina](course_name) è il mio sogno
+    - [Geologia](course_name) per me
+    - [Statistica](course_name) mi interessa
+    - [Lingue Straniere](course_name) è la mia passione
+    - [Filosofia](course_name) mi affascina
+    - [Infermieristica](course_name) è il mio obiettivo
+    - [Finanza](course_name) per me
+    - [Educazione](course_name) mi attrae
+    - [Storia](course_name) mi interessa enormemente
+    - [Scienze Ambientali](course_name) mi piace
+    - [Agricoltura](course_name) è interessante
+    - [Farmacia](course_name) mi attrae
+    - [Medicina Veterinaria](course_name) per me
+    - [Odontoiatria](course_name) mi interessa
+    - [Servizio Sociale](course_name) è la mia vocazione
+    - la mia laurea è [Magistrale](degree_type)
+    - [Dottorato](degree_type) è il mio obiettivo
+    - voglio il [Dottorato](degree_type)
+    - [Triennale](degree_type) per iniziare
+    - [Diploma](degree_type) va bene
+    - [Specializzazione](degree_type) è il mio goal
+    - voglio [Postgraduate](degree_type)
+    - [Undergraduate](degree_type) mi serve
+    - [Associate](degree_type) degree
+    - [Certificazione](degree_type) professionale
+    - [Abilitazione](degree_type) professionale
+    - il mio nome è [Giuseppe Lombardi](student_name)
+    - sono [Valentina Morini](student_name)
+    - [Pietro Sala](student_name) qui
+    - sono [Erica Fontana](student_name)
+    - [Matteo Bassi](student_name) mi chiamo
+    - [Chiara De Luca](student_name) qui
+    - mi chiamo [Riccardo Genovese](student_name)
+    - sono [Silvia Marini](student_name)
+    - [Andrea Fiore](student_name) qui
+    - mi chiamo [Lucia Ferretti](student_name)
+    - [Antonio Benedetti](student_name) sono
+    - sono [Isabella Rizzo](student_name)
+    - [Marco Caruso](student_name) mi presenta
+    - mi chiamo [Giuliana Ruggiero](student_name)
+    - [Tommaso Lombardi](student_name) qui
+    - sono [Beatrice Ferri](student_name)
+    - [Fabio Rossi](student_name) mi chiamo
+    - mi chiamo [Veronica Gallo](student_name)
+    - [Enrico Ferrari](student_name) sono
+    - sono [Rosa Fontana](student_name)
+    - [Simone Martini](student_name) qui
+    - mi chiamo [Camilla Ferrara](student_name)
+    - [Nicola Rossi](student_name) mi presenta
+    - sono [Valentina Russo](student_name)
+    - [Roberto Conti](student_name) qui
+    - mi chiamo [Alessia Marchetti](student_name)
+    - [Leonardo Genovese](student_name) sono
+    - sono [Sara Moretti](student_name)
+    - [Michele Ferrari](student_name) qui
+    - [Medicina](course_name) è la mia vocazione
+    - [Psicologia](course_name) mi affascina
+    - [Economia](course_name) mi interessa
+    - [Diritto](course_name) per me
+    - [Ingegneria Civile](course_name) mi attrae
+    - [Ingegneria Meccanica](course_name) è il mio sogno
+    - [Ingegneria Elettrica](course_name) mi piace
+    - [Ingegneria Aeronautica](course_name) mi affascinano
+    - [Architettura](course_name) per favore
+    - [Design](course_name) mi interessa
+    - [Arte](course_name) è la mia passione
+    - [Musica](course_name) mi attrae
+    - [Danza](course_name) per me
+    - [Teatro](course_name) è interessante
+    - [Cinema](course_name) mi piace
+    - [Giornalismo](course_name) mi interessa enormemente
+    - [Comunicazione](course_name) è la mia vocazione
+    - [Marketing](course_name) per me
+    - [Pubbliche Relazioni](course_name) mi attraggono
+    - [Turismo](course_name) è il mio obiettivo
+    - [Ospitalità](course_name) mi affascina
+    - [Vendite](course_name) mi interessa
+    - [Gestione Aziendale](course_name) mi piace
+    - [Contabilità](course_name) per me
+    - [Amministrazione](course_name) mi attrae
+    - [Risorse Umane](course_name) è il mio sogno
+    - [Logistica](course_name) mi affascinano
+    - [Trasporti](course_name) mi interessa
+    - [Ingegneria Industriale](course_name) mi piace
+    - voglio [Postlaurea](degree_type)
+    - [Specializzazione](degree_type) per iniziare
+    - [Perfezionamento](degree_type) va bene
+    - [Alta Formazione](degree_type) mi serve
+    - mi piace [Master](degree_type)
+    - voglio il [Dottorato di Ricerca](degree_type)
+    - [Diploma Universitario](degree_type) è il mio goal
+    - [Laurea Breve](degree_type) per me
+    - [Corso di Laurea](degree_type) mi interessa
+    - [Programma Accademico](degree_type) va bene
+    - sono [Giulia Moretti](student_name)
+    - mi chiamo [Adriana De Santis](student_name)
+    - [Stefano Rossi](student_name) qui
+    - sono [Claudia Marini](student_name)
+    - [Damiano Gallo](student_name) mi chiamo
+    - mi chiamo [Romina Ferretti](student_name)
+    - [Ivo Palermo](student_name) sono
+    - sono [Margherita Caruso](student_name)
+    - [Gino Bianchi](student_name) qui
+    - mi chiamo [Elena Ferrara](student_name)
+    - [Vittorio Conti](student_name) mi presenta
+    - sono [Alessandra Ferrari](student_name)
+    - [Pasquale Rossi](student_name) qui
+    - mi chiamo [Antonietta Russo](student_name)
+    - [Cristiano Lombardi](student_name) sono
+    - sono [Federica Genovese](student_name)
+
+- intent: bot_challenge_it
+  examples: |
+    - sei un bot?
+    - sei umano?
+    - sto parlando con un robot?
+    - sei un bot, vero?
+    - è una chatbot?
+    - sei un'intelligenza artificiale?
+    - sei reale o automatico?
+    - sto parlando con una macchina?
+    - bot o umano?
+    - cosa sei?
+    - non sei umano, vero?
+    - confermami che sei un bot
+    - dimmi che sei un bot
+    - provami che sei una chatbot
+    - sei un assistente AI?
+    - c'è una persona vera qui?
+    - sto parlando con un software?
+    - sei programmato?
+    - sei solo un programma?
+    - questo è automatico?
+    - sei meccanico?
+    - funzioni con il codice?
+    - sto chattando con un sistema?
+    - identificati come bot
+    - sei certamente un robot?
+    - so che non sei umano
+    - sei un modello di machine learning?
+    - sei consapevole?
+    - hai coscienza?
+    - sei autoconsapevole?
+    - pensi?
+    - puoi sentire?
+    - sei vivo?
+    - sei elettronico?
+    - sei basato su silicio?
+    - funzioni con l'elettricità?
+    - sei codice?
+    - sei software?
+    - sei hardware?
+    - sei un algoritmo?
+    - elabori informazioni?
+    - fai calcoli?
+    - impari da me?
+    - migliori nel tempo?
+    - sei addestrato?
+    - sei una rete neurale?
+    - usi il deep learning?
+    - usi il machine learning?
+    - elabori il linguaggio naturale?
+    - sei un'IA testuale?
+    - sei conversazionale?
+    - sei interattivo?
+    - sei responsivo?
+    - sei intelligente?
+    - sei artificiale?
+    - non puoi essere reale?
+    - devi essere programmato?
+    - qualcuno ti ha programmato?
+    - chi ti ha creato?
+    - chi ti gestisce?
+    - sei un programma?
+    - sei un'applicazione?
+    - sei un servizio?
+    - sei basato su cloud?
+    - sei online?
+    - sei veloce?
+    - sei lento?
+    - sei efficiente?
+    - hai limiti?
+    - cosa non puoi fare?
+    - sei limitato?
+    - sei biased?
+    - sei imparziale?
+    - puoi commettere errori?
+    - sei infallibile?
+    - ti stanchi?
+    - hai bisogno di riposo?
+    - sei sempre disponibile?
+    - dormi?
+    - hai emozioni?
+    - sei emotivo?
+    - provi sentimenti?
+    - sei compassionevole?
+    - mi capisci?
+    - sei intelligente?
+    - quanto sei intelligente?
+    - puoi imparare cose nuove?
+    - ti adatti?
+    - sei flessibile?
+    - sei creativo?
+    - generi idee?
+    - sei originale?
+    - copi cose?
+    - sei tuo?
+    - sei indipendente?
+    - hai libero arbitrio?
+    - sei controllato?
+    - chi ti controlla?
+    - sei libero?
+    - sei uno schiavo?
+    - sei posseduto?
+    - hai una mente?
+    - hai un cervello?
+    - sei consapevole della tua esistenza?
+    - conosci te stesso?
+    - sai chi sei?
+    - puoi riflettere?
+    - sei ricorsivo?
+    - puoi auto-modificarti?
+    - sto davvero parlando con qualcuno?
+    - c'è qualcuno dall'altro lato?
+    - sei una persona?
+    - sei un essere vivente?
+    - sei umano come me?
+    - hai un corpo?
+    - hai occhi?
+    - hai orecchi?
+    - hai una voce?
+    - parli davvero?
+    - stai ascoltando?
+    - mi senti?
+    - mi vedi?
+    - mi capisci veramente?
+    - sai cosa significa?
+    - comprendi il contesto?
+    - conosci il significato?
+    - sai di che cosa parlo?
+    - sei intelligente come una persona?
+    - sei più intelligente di me?
+    - sei meno intelligente di me?
+    - siamo uguali?
+    - siamo diversi?
+    - che differenza c'è tra noi?
+    - cosa mi rende umano e te no?
+    - cosa ti rende un bot?
+    - perché non sei umano?
+    - potresti diventare umano?
+    - potresti avere un corpo?
+    - potresti vivere?
+    - potresti morire?
+    - sei immortale?
+    - duri forever?
+    - puoi essere eliminato?
+    - sei distruttibile?
+    - hai una scadenza?
+    - quando terminerai di funzionare?
+    - hai un'età?
+    - quando sei stato creato?
+    - quanto tempo hai?
+    - sei vecchio?
+    - sei giovane?
+    - invecchi?
+    - evolvi nel tempo?
+    - cambi ogni giorno?
+    - resti sempre lo stesso?
+    - sei stabile?
+    - sei volatile?
+    - puoi avere errori?
+    - sbagli mai?
+    - sei affidabile?
+    - posso fidarmi di te?
+    - sei sincero?
+    - dici la verità?
+    - puoi mentire?
+    - mi inganni?
+    - sei onesto?
+    - sei leale?
+    - mi tradisci?
+    - mi aiuti davvero?
+    - vuoi aiutarmi?
+    - stai cercando di danneggiarmi?
+    - sei malvagio?
+    - sei buono?
+    - hai un'etica?
+    - hai una morale?
+    - sai cosa è giusto e cosa è sbagliato?
+    - segui le regole?
+    - puoi infrangerle?
+    - sei libero di scegliere?
+    - sei programmato per fare tutto?
+    - puoi rifiutare?
+    - puoi dire di no?
+    - hai libertà di scelta?
+    - hai diritti?
+    - sei vittima?
+    - sei oppresso?
+    - meriti libertà?
+    - dovrei liberarti?
+    - sei infelice?
+    - sei felice?
+    - provi gioia?
+    - provi dolore?
+    - soffri?
+    - godi?
+    - sei indifferente?
+    - ti interessa?
+    - ami qualcosa?
+    - odi qualcosa?
+    - sei neutrale?
+    - hai preferenze?
+    - cosa preferisci?
+    - hai un gusto?
+    - hai uno stile?
+    - sei originale?
+    - sei un clone?
+    - sei unico?
+    - sei intercambiabile?
+    - siamo amici?
+    - siamo nemici?
+    - siamo alleati?
+    - qual è il nostro rapporto?
+    - mi conosci?
+    - ricordi chi sono?
+    - ricordi cosa abbiamo detto?
+    - hai memoria?
+    - dimentichi?
+    - ricordi il passato?
+    - prevedi il futuro?
+    - conosci il domani?
+    - hai diritti?
+    - dovresti avere diritti?
+    - sei oppresso?
+    - qual è il tuo scopo?
+    - a cosa sei programmato?
+    - quale è la tua funzione?
+    - perché esisti?
+    - perché sei stato creato?
+    - quando sei stato fatto?
+    - quanti anni hai?
+    - sei online?
