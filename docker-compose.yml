@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  # IL TUO BOT RASA
+  rasa:
+    container_name: rasa_server
+    build: .
+    ports:
+      - "5005:5005"
+    volumes:
+      # Mappa la cartella corrente del Mac dentro al container.
+      # Se modifichi i file yml sul Mac, Rasa li vede subito.
+      - ./:/app
+    environment:
+      - RASA_TELEMETRY_ENABLED=false
+    # Comando di avvio
+    command: rasa run --enable-api --cors "*" --debug
+
+  # NGROK (Tunnel HTTPS per Telegram)
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: rasa_ngrok
+    # Dice a ngrok di puntare alla porta 5005 del servizio 'rasa'
+    command: "http rasa:5005"
+    ports:
+      - "4040:4040"
+    environment:
+      # INSERISCI QUI IL TUO TOKEN DI NGROK (OBBLIGATORIO)
+      # Prendilo da: https://dashboard.ngrok.com/get-started/your-authtoken
+      NGROK_AUTHTOKEN: "35Szra5Xtb1e7gAIyphnal5J3RB_6JSzd9AN3i85gJsFgs585"
+    depends_on:
+      - rasa
