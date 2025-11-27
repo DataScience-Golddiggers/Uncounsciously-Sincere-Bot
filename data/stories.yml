@@ -58,4 +58,3 @@ stories:
   - active_loop: enrollment_form
   - slot_was_set:
     - requested_slot: student_name
-  

@@ -14,6 +14,7 @@ language: en
 pipeline:
 # Tokenizer che divide per spazi (funziona per IT e EN)
 - name: WhitespaceTokenizer
+- name: RegexFeaturizer
 # Estrae caratteristiche dal testo (n-grams, parole)
 - name: CountVectorsFeaturizer
 - name: CountVectorsFeaturizer

@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-course_name",
+      "2": "I-course_name",
+      "3": "L-course_name",
+      "4": "U-course_name",
+      "5": "B-degree_type",
+      "6": "I-degree_type",
+      "7": "L-degree_type",
+      "8": "U-degree_type",
+      "9": "B-email",
+      "10": "I-email",
+      "11": "L-email",
+      "12": "U-email",
+      "13": "B-language",
+      "14": "I-language",
+      "15": "L-language",
+      "16": "U-language",
+      "17": "B-student_name",
+      "18": "I-student_name",
+      "19": "L-student_name",
+      "20": "U-student_name",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-course_name": 1,
+      "I-course_name": 2,
+      "L-course_name": 3,
+      "U-course_name": 4,
+      "B-degree_type": 5,
+      "I-degree_type": 6,
+      "L-degree_type": 7,
+      "U-degree_type": 8,
+      "B-email": 9,
+      "I-email": 10,
+      "L-email": 11,
+      "U-email": 12,
+      "B-language": 13,
+      "I-language": 14,
+      "L-language": 15,
+      "U-language": 16,
+      "B-student_name": 17,
+      "I-student_name": 18,
+      "L-student_name": 19,
+      "U-student_name": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

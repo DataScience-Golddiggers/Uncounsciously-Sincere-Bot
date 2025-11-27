@@ -15,6 +15,23 @@ services:
       - RASA_TELEMETRY_ENABLED=false
     # Comando di avvio
     command: rasa run --enable-api --cors "*" --debug
+    depends_on:
+      - action_server # Rasa aspetta che l'action server sia pronto
+
+
+  action_server:
+    container_name: rasa_actions
+    build: ./actions
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./actions:/app/actions # Per modificare il codice python senza rebuildare
+    environment:
+      # CONFIGURA QUI LA TUA MAIL (Se usi Gmail, devi generare una "App Password")
+      - SMTP_SERVER=${SMTP_SERVER}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_EMAIL=${SMTP_EMAIL}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
 
   # NGROK (Tunnel HTTPS per Telegram)
   ngrok:

@@ -1,6 +1,11 @@
 version: "3.1"
 
 nlu:
+
+- regex: email
+  examples: |
+    - ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+
 # --- GESTIONE LINGUA ESPLICITA ---
 - intent: choose_language
   examples: |
@@ -62,7 +67,6 @@ nlu:
 # --- FAQ (Bilingue) ---
 - intent: ask_deadlines
   examples: |
-    # Italiano
     - quando scade il bando?
     - fino a quando posso iscrivermi?
     - qual è l'ultimo giorno per registrarsi?
@@ -70,7 +74,6 @@ nlu:
     - deadline per il semestre primaverile
     - ci sono scadenze imminenti?
     - data limite per immatricolazione
-    # English
     - when is the deadline for enrollment?
     - until when can I apply?
     - what is the last day to register?
@@ -81,11 +84,11 @@ nlu:
 
 - intent: ask_costs
   examples: |
-    - quanto costa l'iscrizione?
-    - quali sono le tasse universitarie?
-    - c'è una retta da pagare?
-    - quanto si paga per la magistrale?
-    - costo annuale
+    - [quanto costa](language){"entity": "language", "value": "it"} l'iscrizione?
+    - quali sono le [tasse universitarie](language){"entity": "language", "value": "it"}?
+    - c'è una [retta](language){"entity": "language", "value": "it"} da pagare?
+    - [quanto si paga](language){"entity": "language", "value": "it"} per la magistrale?
+    - [costo annuale](language){"entity": "language", "value": "it"}
     - ci sono agevolazioni o borse di studio?
     - how much does it cost?
     - what are the tuition fees?
@@ -97,12 +100,12 @@ nlu:
 
 - intent: ask_requirements
   examples: |
-    - quali sono i requisiti per accedere?
-    - serve il test d'ingresso?
-    - c'è bisogno di una votazione minima?
-    - documenti necessari per l'iscrizione
-    - serve il diploma di maturità?
-    - posso iscrivermi senza laurea triennale?
+    - c'è bisogno di una [votazione](language){"entity": "language", "value": "it"} minima?
+    - quali sono i [requisiti](language){"entity": "language", "value": "it"} per accedere?
+    - serve il [test d'ingresso](language){"entity": "language", "value": "it"}?
+    - documenti necessari per l'[iscrizione](language){"entity": "language", "value": "it"}
+    - serve il [diploma](language){"entity": "language", "value": "it"} di maturità?
+    - posso [iscrivermi](language){"entity": "language", "value": "it"} senza laurea triennale?
     - what are the admission requirements?
     - is there an entrance exam?
     - do I need a minimum GPA?
@@ -161,3 +164,29 @@ nlu:
     - scelgo [Fisica](course_name)
     - I choose [Mathematics](course_name)
     - my preference is [Bachelor](degree_type)
+
+- intent: newsletter_request
+  examples: |
+    - I want to subscribe to the newsletter
+    - subscribe me to the newsletter
+    - sign me up for the newsletter
+    - I'd like to receive the newsletter
+    - iscrivimi alla newsletter
+    - voglio iscrivermi alla newsletter
+    - mandami una mail
+    - contattami via posta elettronica
+    - vorrei ricevere informazioni via email
+    - invia un messaggio
+
+- intent: inform_email
+  examples: |
+    - my email is [john.doe@example.com](email)
+    - contact me at [john.doe@example.com](email)
+    - reach me via email at [john.doe@example.com](email)
+    - send it to [john.doe@example.com](email) please
+    - la mia posta elettronica è [mario.rossi@gmail.com](email)
+    - la mia mail è [mario.rossi@gmail.com](email)
+    - invia tutto a [luigi99@libero.it](email)
+    - ecco la mail: [test.user@company.com](email)
+    - [nome.cognome@universita.it](email)
+    - usa [pippo@hotmail.it](email) per contattarmi

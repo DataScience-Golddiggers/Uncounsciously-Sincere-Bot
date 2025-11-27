@@ -42,3 +42,20 @@ rules:
   steps:
   - intent: ask_deadlines
   - action: utter_deadlines
+
+- rule: Attivare form newsletter
+  steps:
+  - intent: newsletter_request
+  - action: newsletter_form
+  - active_loop: newsletter_form
+
+- rule: Invia mail e chiudi form newsletter
+  condition:
+  - active_loop: newsletter_form
+  steps:
+  - action: newsletter_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_send_email   # <--- CHIAMA IL TUO CODICE PYTHON
+  - action: utter_email_sent    # <--- DICE "FATTO"

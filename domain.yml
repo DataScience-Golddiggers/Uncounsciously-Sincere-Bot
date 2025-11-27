@@ -9,12 +9,15 @@ intents:
   - bot_challenge
   - ask_costs
   - ask_requirements
+  - newsletter_request  # L'utente chiede di inviare la mail
+  - inform_email        # L'utente fornisce l'indirizzo
 
 entities:
   - course_name
   - degree_type
   - student_name
-
+  - email
+  
 slots:
   language:
     type: categorical
@@ -58,12 +61,27 @@ slots:
     mappings:
       - type: from_text
 
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: email
+
 forms:
   enrollment_form:
     required_slots:
       - student_name
       - degree_type
       - course_name
+      - email
+  
+  # Aggiunto il form per la newsletter
+  newsletter_form:
+    required_slots:
+      - email
+
+actions:
+  - action_send_email
 
 responses:
   utter_greet:
@@ -1871,6 +1889,53 @@ responses:
           name: language
           value: "it"
     text: "Per le lauree triennali serve il diploma di maturità. Per le magistrali serve una laurea di primo livello."
+
+  utter_ask_email:
+  - text: "Sure! To proceed, please type your email address here."
+  - text: "You can send your email to us right here to continue."
+  - text: "Please provide your email address so we can assist you further."
+  - text: "Feel free to share your email address for further communication."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Certamente! Per procedere, scrivi qui il tuo indirizzo email."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Puoi inviarci la tua email proprio qui per continuare."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Per favore fornisci il tuo indirizzo email così possiamo assisterti ulteriormente."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sentiti libero di condividere il tuo indirizzo email per ulteriori comunicazioni."
+
+  utter_email_sent:
+  - text: "Email sent successfully!"
+  - text: "Your email has been sent!"
+  - text: "The email was sent without any issues!"
+  - text: "We've successfully sent your email!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Mail inviata correttamente!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La tua email è stata inviata!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "L'email è stata inviata senza problemi!"
 
 session_config:
   session_expiration_time: 60
