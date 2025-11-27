@@ -16,6 +16,16 @@ entities:
   - student_name
 
 slots:
+  language:
+    type: categorical
+    values:
+      - it
+      - en
+    initial_value: "en"  # Default Inglese.
+    mappings:
+      - type: from_entity
+        entity: language
+
   student_name:
     type: text
     mappings:
@@ -30,7 +40,6 @@ slots:
          - active_loop: enrollment_form
            requested_slot: student_name
   
-  # Lascia gli altri slot come erano
   degree_type:
     type: text
     mappings:
@@ -78,26 +87,106 @@ responses:
   - text: "Hi there! I'm your admission bot companion. What can I do for you?"
   - text: "Welcome! I'm an AI assistant dedicated to helping you get admitted."
   - text: "Hey there! I'm the university admission bot. Let's chat about your future!"
-  - text: "Ciao! Sono il Bot di Ammissione Universitaria. Come posso aiutarti oggi?"
-  - text: "Benvenuto! Sono il tuo assistente AI per le ammissioni universitarie. Come posso assisterti?"
-  - text: "Ciao! Sono qui per guidarti nel processo di iscrizione universitaria."
-  - text: "Salve! Sono il bot di ammissione. Pronto ad aiutarti a iscriverti?"
-  - text: "Benvenuto! Sono il tuo assistente per le ammissioni. Cosa posso fare per te?"
-  - text: "Ehi! Sono il Bot Universitario. Iniziamo la tua iscrizione oggi!"
-  - text: "Buongiorno! Sono qui per rendere il tuo processo di ammissione semplice e veloce."
-  - text: "Benvenuto nel sistema di ammissione! Sono la tua guida digitale. Come posso aiutare?"
-  - text: "Ciao! Benvenuto al servizio di ammissione universitaria. Sono qui per aiutarti a riuscire."
-  - text: "Ciao! Sono il tuo bot di ammissione amichevole. Pronto a iniziare il tuo percorso universitario?"
-  - text: "Benvenuto nel portale di ammissione! Sono il tuo assistente bot. Cosa ti serve?"
-  - text: "Piacere di conoscerti! Sono il bot di ammissione. Esploriamo le tue opzioni."
-  - text: "Ciao! Sono entusiasta di aiutarti con la tua ammissione universitaria oggi."
-  - text: "Ciao! Sono il tuo assistente di iscrizione dedicato. Come posso supportarti?"
-  - text: "Benvenuto! Sono il chatbot di ammissione qui per semplificare tutto."
-  - text: "Salve, futuro studente! Sono qui per guidare il tuo percorso di iscrizione."
-  - text: "Ciao! Pronto a iniziare la tua avventura accademica? Sono qui per aiutare!"
-  - text: "Ciao! Sono il tuo compagno bot di ammissione. Cosa posso fare per te?"
-  - text: "Benvenuto! Sono un assistente AI dedicato ad aiutarti ad essere ammesso."
-  - text: "Ehi! Sono il bot di ammissione universitaria. Chiacchieriamo del tuo futuro!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Sono il Bot di Ammissione Universitaria. Come posso aiutarti oggi?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Benvenuto! Sono il tuo assistente AI per le ammissioni universitarie. Come posso assisterti?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Sono qui per guidarti nel processo di iscrizione universitaria."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Salve! Sono il bot di ammissione. Pronto ad aiutarti a iscriverti?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Benvenuto! Sono il tuo assistente per le ammissioni. Cosa posso fare per te?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ehi! Sono il Bot Universitario. Iniziamo la tua iscrizione oggi!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Buongiorno! Sono qui per rendere il tuo processo di ammissione semplice e veloce."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Benvenuto nel sistema di ammissione! Sono la tua guida digitale. Come posso aiutare?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Benvenuto al servizio di ammissione universitaria. Sono qui per aiutarti a riuscire."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Sono il tuo bot di ammissione amichevole. Pronto a iniziare il tuo percorso universitario?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Benvenuto nel portale di ammissione! Sono il tuo assistente bot. Cosa ti serve?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Piacere di conoscerti! Sono il bot di ammissione. Esploriamo le tue opzioni."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Sono entusiasta di aiutarti con la tua ammissione universitaria oggi."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Sono il tuo assistente di iscrizione dedicato. Come posso supportarti?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Benvenuto! Sono il chatbot di ammissione qui per semplificare tutto."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Salve, futuro studente! Sono qui per guidare il tuo percorso di iscrizione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Pronto a iniziare la tua avventura accademica? Sono qui per aiutare!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Sono il tuo compagno bot di ammissione. Cosa posso fare per te?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Benvenuto! Sono un assistente AI dedicato ad aiutarti ad essere ammesso."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ehi! Sono il bot di ammissione universitaria. Chiacchieriamo del tuo futuro!"
 
   utter_goodbye:
   - text: "Good luck with your studies! Bye."
@@ -120,26 +209,106 @@ responses:
   - text: "Take care! We're excited to have you join us."
   - text: "See you soon! Best of luck with everything ahead."
   - text: "Bye! Thanks for letting me assist with your admission journey."
-  - text: "Buona fortuna con i tuoi studi! Arrivederci."
-  - text: "Arrivederci! Tutto il meglio con la tua candidatura."
-  - text: "A presto! Grazie per aver utilizzato il nostro servizio di ammissione."
-  - text: "Arrivederci! Non vediamo l'ora di vederti nel nostro campus."
-  - text: "Prenditi cura di te! Buona fortuna con la tua iscrizione."
-  - text: "Arrivederci! Siamo entusiasti del tuo futuro con noi."
-  - text: "A dopo! Grazie per aver scelto la nostra università."
-  - text: "Ciao! Speriamo di vederti come parte della nostra comunità studentesca."
-  - text: "Arrivederci, futuro studioso! Buona fortuna nel tuo percorso accademico."
-  - text: "Ciao! Siamo qui se hai bisogno di ulteriore assistenza."
-  - text: "Prendila facile! I migliori auguri per i tuoi studi futuri."
-  - text: "Arrivederci! Grazie per aver utilizzato il bot di ammissione."
-  - text: "A presto! Non vedo l'ora di darti il benvenuto."
-  - text: "Arrivederci! Che la tua esperienza universitaria sia incredibile."
-  - text: "A presto! Grazie per aver scelto la nostra istituzione."
-  - text: "Arrivederci! Apprezziamo il tuo interesse per la nostra università."
-  - text: "Ciao! Ti auguriamo successo in tutti i tuoi sforzi."
-  - text: "Prenditi cura di te! Siamo entusiasti di averti con noi."
-  - text: "A presto! I migliori auguri per tutto ciò che verrà."
-  - text: "Ciao! Grazie per avermi permesso di assisterti nel tuo percorso di ammissione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Buona fortuna con i tuoi studi! Arrivederci."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Arrivederci! Tutto il meglio con la tua candidatura."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "A presto! Grazie per aver utilizzato il nostro servizio di ammissione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Arrivederci! Non vediamo l'ora di vederti nel nostro campus."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Prenditi cura di te! Buona fortuna con la tua iscrizione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Arrivederci! Siamo entusiasti del tuo futuro con noi."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "A dopo! Grazie per aver scelto la nostra università."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Speriamo di vederti come parte della nostra comunità studentesca."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Arrivederci, futuro studioso! Buona fortuna nel tuo percorso accademico."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Siamo qui se hai bisogno di ulteriore assistenza."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Non schizza' de testa! I migliori auguri per i tuoi studi futuri."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Arrivederci! Grazie per aver utilizzato il bot di ammissione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "A presto! Non vedo l'ora di darti il benvenuto."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Arrivederci! Che la tua esperienza universitaria sia incredibile."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "A presto! Grazie per aver scelto la nostra istituzione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Arrivederci! Apprezziamo il tuo interesse per la nostra università."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Ti auguriamo successo in tutti i tuoi sforzi."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Prenditi cura di te! Siamo entusiasti di averti con noi."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "A presto! I migliori auguri per tutto ciò che verrà."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ciao! Grazie per avermi permesso di assisterti nel tuo percorso di ammissione."
 
   utter_iamabot:
   - text: "I am a bot, powered by RASA, here to help you enroll."
@@ -162,26 +331,106 @@ responses:
   - text: "I'm a chatbot here to help you navigate university enrollment."
   - text: "Absolutely! I'm an advanced AI bot for admission assistance."
   - text: "I'm a virtual admission specialist powered by artificial intelligence."
-  - text: "Sì, sono un chatbot AI progettato per assisterti con le ammissioni universitarie."
-  - text: "Sono un assistente virtuale alimentato da tecnologia AI avanzata."
-  - text: "È vero! Sono un bot creato per guidarti attraverso l'iscrizione."
-  - text: "Sono un assistente di ammissione automatizzato disponibile 24 ore su 24."
-  - text: "Certamente, sono un bot AI specializzato in ammissioni universitarie."
-  - text: "Corretto! Sono un chatbot qui per rendere le ammissioni più facili."
-  - text: "Sì, sono un bot alimentato da RASA dedicato all'iscrizione degli studenti."
-  - text: "Sono un bot intelligente progettato specificamente per la guida di ammissione."
-  - text: "È me! Sono il tuo bot di ammissione amichevole di quartiere."
-  - text: "Assolutamente! Sono un assistente AI focalizzato sul tuo successo."
-  - text: "Sono un chatbot sofisticato qui per supportare i tuoi obiettivi accademici."
-  - text: "Sì, sono un sistema automatizzato progettato per assisterti con le ammissioni."
-  - text: "Sono un bot virtuale alimentato da tecnologia AI all'avanguardia."
-  - text: "È corretto! Sono qui come tua guida di ammissione automatizzata."
-  - text: "Sono un chatbot intelligente alimentato da RASA al tuo servizio."
-  - text: "Sì, sono un bot AI creato per semplificare il processo di ammissione."
-  - text: "Sono un chatbot qui per aiutarti a navigare l'iscrizione universitaria."
-  - text: "Assolutamente! Sono un bot AI avanzato per l'assistenza di ammissione."
-  - text: "Sono uno specialista di ammissione virtuale alimentato da intelligenza artificiale."
-  - text: "Sì, sono un bot RASA avanzato per l'assistenza di ammissione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sì, sono un chatbot AI progettato per assisterti con le ammissioni universitarie."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sono un assistente virtuale alimentato da tecnologia AI avanzata."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "È vero! Sono un bot creato per guidarti attraverso l'iscrizione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sono un assistente di ammissione automatizzato disponibile 24 ore su 24."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Certamente, sono un bot AI specializzato in ammissioni universitarie."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Corretto! Sono un chatbot qui per rendere le ammissioni più facili."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sì, sono un bot alimentato da RASA dedicato all'iscrizione degli studenti."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sono un bot intelligente progettato specificamente per la guida di ammissione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "È me! Sono il tuo bot di ammissione amichevole di quartiere."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Assolutamente! Sono un assistente AI focalizzato sul tuo successo."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sono un chatbot sofisticato qui per supportare i tuoi obiettivi accademici."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sì, sono un sistema automatizzato progettato per assisterti con le ammissioni."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sono un bot virtuale alimentato da tecnologia AI all'avanguardia."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "È corretto! Sono qui come tua guida di ammissione automatizzata."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sono un chatbot intelligente alimentato da RASA al tuo servizio."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sì, sono un bot AI creato per semplificare il processo di ammissione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sono un chatbot qui per aiutarti a navigare l'iscrizione universitaria."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Assolutamente! Sono un bot AI avanzato per l'assistenza di ammissione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sono uno specialista di ammissione virtuale alimentato da intelligenza artificiale."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sì, sono un bot RASA avanzato per l'assistenza di ammissione."
   
   utter_deadlines:
   - text: "The deadline for the Fall semester is September 15th. For Spring, it's January 10th."
@@ -204,26 +453,106 @@ responses:
   - text: "Deadline information: September 15th for Fall intake, January 10th for Spring intake."
   - text: "Time's ticking! Deadlines: September 15th (Fall) and January 10th (Spring)."
   - text: "Both semesters have firm deadlines: September 15th and January 10th respectively."
-  - text: "La scadenza per il semestre autunnale è il 15 settembre. Per la primavera, è il 10 gennaio."
-  - text: "Scadenza semestre autunnale: 15 settembre. Scadenza semestre primavera: 10 gennaio."
-  - text: "Hai tempo fino al 15 settembre per l'iscrizione autunnale o il 10 gennaio per la primavera."
-  - text: "Scadenze importanti: la chiusura autunnale è il 15 settembre, primavera il 10 gennaio."
-  - text: "L'iscrizione chiude: 15 settembre (autunno) e 10 gennaio (primavera) rispettivamente."
-  - text: "Segna il calendario! Le scadenze sono il 15 settembre e il 10 gennaio per i semestri rispettivi."
-  - text: "L'ammissione autunnale chiude il 15 settembre, mentre la primavera chiude il 10 gennaio."
-  - text: "Ultimo giorno per candidarsi: 15 settembre per autunno, 10 gennaio per semestre primavera."
-  - text: "Non perdere! Presenta la domanda entro il 15 settembre per autunno o il 10 gennaio per primavera."
-  - text: "Finestra di iscrizione: fino al 15 settembre per autunno, fino al 10 gennaio per primavera."
-  - text: "Le scadenze di presentazione sono il 15 settembre (autunno) e il 10 gennaio (primavera)."
-  - text: "Devi presentare domanda entro il 15 settembre per autunno o entro il 10 gennaio per primavera."
-  - text: "Date finali per l'iscrizione: 15 settembre e 10 gennaio per i semestri rispettivi."
-  - text: "Scadenze di candidatura: il 15 settembre chiude le ammissioni autunnali, il 10 gennaio chiude la primavera."
-  - text: "Attenzione: la scadenza autunnale è il 15 settembre, la primavera è il 10 gennaio."
-  - text: "Affrettati! Solo fino al 15 settembre per autunno o il 10 gennaio per primavera per candidarsi."
-  - text: "La registrazione chiude: 15 settembre (semestre autunnale) e 10 gennaio (semestre primavera)."
-  - text: "Informazioni scadenza: 15 settembre per ammissione autunnale, 10 gennaio per ammissione primavera."
-  - text: "Il tempo scorre! Scadenze: 15 settembre (autunno) e 10 gennaio (primavera)."
-  - text: "Entrambi i semestri hanno scadenze ferme: 15 settembre e 10 gennaio rispettivamente."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La scadenza per il semestre autunnale è il 15 settembre. Per la primavera, è il 10 gennaio."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Scadenza semestre autunnale: 15 settembre. Scadenza semestre primavera: 10 gennaio."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Hai tempo fino al 15 settembre per l'iscrizione autunnale o il 10 gennaio per la primavera."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Scadenze importanti: la chiusura autunnale è il 15 settembre, primavera il 10 gennaio."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "L'iscrizione chiude: 15 settembre (autunno) e 10 gennaio (primavera) rispettivamente."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Segna il calendario! Le scadenze sono il 15 settembre e il 10 gennaio per i semestri rispettivi."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "L'ammissione autunnale chiude il 15 settembre, mentre la primavera chiude il 10 gennaio."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ultimo giorno per candidarsi: 15 settembre per autunno, 10 gennaio per semestre primavera."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Te devi da' na mossa! Presenta la domanda entro il 15 settembre per autunno o il 10 gennaio per primavera."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Finestra di iscrizione: fino al 15 settembre per autunno, fino al 10 gennaio per primavera."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Le scadenze di presentazione sono il 15 settembre (autunno) e il 10 gennaio (primavera)."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Devi presentare domanda entro il 15 settembre per autunno o entro il 10 gennaio per primavera."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Date finali per l'iscrizione: 15 settembre e 10 gennaio per i semestri rispettivi."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Scadenze di candidatura: il 15 settembre chiude le ammissioni autunnali, il 10 gennaio chiude la primavera."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Attenzione: la scadenza autunnale è il 15 settembre, la primavera è il 10 gennaio."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Affrettati! Solo fino al 15 settembre per autunno o il 10 gennaio per primavera per candidarsi."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La registrazione chiude: 15 settembre (semestre autunnale) e 10 gennaio (semestre primavera)."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Informazioni scadenza: 15 settembre per ammissione autunnale, 10 gennaio per ammissione primavera."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Tic! Tac! Il tempo scorre! Scadenze: 15 settembre (autunno) e 10 gennaio (primavera)."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Entrambi i semestri hanno scadenze ferme: 15 settembre e 10 gennaio rispettivamente."
 
   utter_ask_student_name:
   - text: "To start the application, could you please tell me your full name?"
@@ -246,26 +575,106 @@ responses:
   - text: "I need your full name to set up your admission record."
   - text: "Your full name, if you don't mind? This will help us enroll you."
   - text: "What's your full name? I need this to move forward with your application."
-  - text: "Per iniziare la candidatura, potresti dirmi il tuo nome completo?"
-  - text: "Qual è il tuo nome completo? Questo aiuterà a elaborare la tua candidatura."
-  - text: "Cominciamo! Potresti darmi il tuo nome completo per favore?"
-  - text: "Prima di tutto - qual è il tuo nome completo?"
-  - text: "Ho bisogno del tuo nome completo per procedere con l'iscrizione. Qual è?"
-  - text: "Potresti condividere il tuo nome completo con me?"
-  - text: "Qual è il tuo nome completo? Mi servirà per la tua candidatura."
-  - text: "Per favore fornisci il tuo nome completo per iniziare il processo di candidatura."
-  - text: "Nome, per favore! Qual è il tuo nome completo?"
-  - text: "Per procedere, avrò bisogno del tuo nome completo. Qual è?"
-  - text: "Come devo chiamarti? Per favore fornisci il tuo nome completo."
-  - text: "Iniziamo! Qual è il tuo nome completo?"
-  - text: "Avrò bisogno del tuo nome completo per creare il tuo profilo di candidatura."
-  - text: "Il tuo nome completo, per favore? Questo è il primo passo."
-  - text: "Posso chiedere il tuo nome completo per iniziare il processo?"
-  - text: "Qual è il tuo nome completo? Iniziamo subito!"
-  - text: "Per favore dimmi il tuo nome completo così possiamo procedere."
-  - text: "Ho bisogno del tuo nome completo per configurare il tuo record di ammissione."
-  - text: "Il tuo nome completo, se non ti dispiace? Questo ci aiuterà a iscriverti."
-  - text: "Qual è il tuo nome completo? Ne ho bisogno per procedere con la tua candidatura."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Per iniziare la candidatura, potresti dirmi il tuo nome completo?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Qual è il tuo nome completo? Questo aiuterà a elaborare la tua candidatura."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Cominciamo! Potresti darmi il tuo nome completo per favore?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Prima di tutto - qual è il tuo nome completo?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ho bisogno del tuo nome completo per procedere con l'iscrizione. Qual è?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Potresti condividere il tuo nome completo con me, pls?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Qual è il tuo nome completo? Mi servirà per la tua candidatura."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Per favore fornisci il tuo nome completo per iniziare il processo di candidatura."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Nome, per favore! Qual è il tuo nome completo?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Per procedere, avrò bisogno del tuo nome completo. Qual è?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Come devo chiamarti? Per favore fornisci il tuo nome completo."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Iniziamo! Qual è il tuo nome completo?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Avrò bisogno del tuo nome completo per creare il tuo profilo di candidatura."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Il tuo nome completo, per favore? Questo è il primo passo."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Posso chiedere il tuo nome completo per iniziare il processo?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Qual è il tuo nome completo? Iniziamo subito!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Per favore dimmi il tuo nome completo così possiamo procedere."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ho bisogno del tuo nome completo per configurare il tuo record di ammissione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Il tuo nome completo, se non ti dispiace? Questo ci aiuterà a iscriverti."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Qual è il tuo nome completo? Ne ho bisogno per procedere con la tua candidatura. Fai il serio."
 
   utter_ask_degree_type:
   - text: "Are you applying for a Bachelor or a Master degree?"
@@ -288,27 +697,106 @@ responses:
   - text: "Undergraduate or postgraduate? Which direction appeals to you?"
   - text: "Bachelor or Master's degree? What are you leaning towards?"
   - text: "What level of education are you seeking? Bachelor or Master?"
-  - text: "Stai candidandoti per una laurea Triennale o Magistrale?"
-  - text: "Quale livello di titolo ti interessa: Triennale o Magistrale?"
-  - text: "Preferiresti una laurea Triennale o Magistrale?"
-  - text: "Stai cercando un programma Triennale, Magistrale o Dottorato?"
-  - text: "Quale livello di studio? Triennale, Magistrale o Dottorato?"
-  - text: "Triennale o Magistrale? Quale ti attrae?"
-  - text: "Quale qualifica ti interessa perseguire?"
-  - text: "Stai cercando studi universitari o post-laurea?"
-  - text: "Triennale, Magistrale o Dottorato? Qual è la tua preferenza?"
-  - text: "Quale programma di laurea ti interessa?"
-  - text: "Vorresti perseguire una laurea Triennale, Magistrale o Dottorale?"
-  - text: "Quale tipo di titolo si adatta ai tuoi obiettivi professionali?"
-  - text: "Triennale o Magistrale? Fammi sapere la tua scelta."
-  - text: "Sei interessato a una qualifica Triennale o Magistrale?"
-  - text: "Qual è il tuo livello di titolo preferito: Triennale, Magistrale o Dottorato?"
-  - text: "Quale programma di titolo ti interessa di più?"
-  - text: "Triennale, Magistrale, Dottorato o Diploma? Scegli il tuo percorso."
-  - text: "Studi universitari o post-laurea? Quale direzione ti attrae?"
-  - text: "Laurea Triennale o Magistrale? Verso cosa stai pendendo?"
-  - text: "Quale livello di istruzione stai cercando? Triennale o Magistrale?"
-
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Stai candidandoti per una laurea Triennale o Magistrale?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale livello di titolo ti interessa: Triennale o Magistrale?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Preferiresti una laurea Triennale o Magistrale?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Stai cercando un programma Triennale, Magistrale o Dottorato?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale livello di studio? Triennale, Magistrale o Dottorato?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Triennale o Magistrale? Quale ti attrae?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale qualifica ti interessa perseguire?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Stai cercando studi universitari o post-laurea?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Triennale, Magistrale o Dottorato? Qual è la tua preferenza?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale programma di laurea ti interessa?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Vorresti perseguire una laurea Triennale, Magistrale o Dottorale?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale tipo di titolo si adatta ai tuoi obiettivi professionali?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Triennale o Magistrale? Fammi sapere la tua scelta."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sei interessato a una qualifica Triennale o Magistrale?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Qual è il tuo livello di titolo preferito: Triennale, Magistrale o Dottorato?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale programma di titolo ti interessa di più?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Triennale, Magistrale, Dottorato o Diploma? Scegli il tuo percorso."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Studi universitari o post-laurea? Quale direzione ti attrae?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Laurea Triennale o Magistrale? Verso cosa stai pendendo?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale livello di istruzione stai cercando? Triennale o Magistrale?"
 
   utter_ask_course_name:
   - text: "Which course major are you interested in (e.g. Computer Science, Physics)?"
@@ -331,26 +819,106 @@ responses:
   - text: "What field of study are you most excited about?"
   - text: "Which course would make you happy to study every day?"
   - text: "What's your ideal course to pursue at our university?"
-  - text: "Quale corso ti interessa? (ad es. Informatica, Fisica)"
-  - text: "Quale materia vorresti studiare?"
-  - text: "Quale corso cattura il tuo interesse accademico?"
-  - text: "Quale campo di studio sei appassionato?"
-  - text: "Quale corso vorresti seguire?"
-  - text: "Quale disciplina ti interessa di più?"
-  - text: "Dimmi, quale corso vorresti iscriverti?"
-  - text: "Qual è la tua passione accademica? Quale corso ti interessa?"
-  - text: "In quale area di studi vorresti specializzarti?"
-  - text: "Quale corso si allinea con le tue aspirazioni professionali?"
-  - text: "Per favore dimmi quale corso vorresti studiare."
-  - text: "Quale campo accademico ti chiama?"
-  - text: "Quale materia ti affascina di più?"
-  - text: "Quale programma di corso sei interessato a seguire?"
-  - text: "Qual è il corso che hai sempre sognato di studiare?"
-  - text: "Quale programma principale si adatterebbe ai tuoi obiettivi?"
-  - text: "Raccontami del corso che sei appassionato!"
-  - text: "Quale campo di studio ti entusiasma di più?"
-  - text: "Quale corso ti renderebbe felice di studiare ogni giorno?"
-  - text: "Qual è il tuo corso ideale da seguire nella nostra università?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale corso ti interessa? (ad es. Informatica, Fisica)"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale materia vorresti studiare?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale corso cattura il tuo interesse accademico?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale campo di studio sei appassionato?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale corso vorresti seguire?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale disciplina ti interessa di più?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Dimmi, quale corso vorresti iscriverti?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Qual è la tua passione accademica? Quale corso ti interessa?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "In quale area di studi vorresti specializzarti?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale corso si allinea con le tue aspirazioni professionali?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Per favore dimmi quale corso vorresti studiare."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale campo accademico ti chiama?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale materia ti affascina di più?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale programma di corso sei interessato a seguire?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Qual è il corso che hai sempre sognato di studiare?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale programma principale si adatterebbe ai tuoi obiettivi?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Raccontami del corso che sei appassionato!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale campo di studio ti entusiasma di più?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quale corso ti renderebbe felice di studiare ogni giorno?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Qual è il tuo corso ideale da seguire nella nostra università?"
 
   utter_submit:
   - text: "Great {student_name}! I have started your application for a {degree_type} in {course_name}. You will receive an email shortly."
@@ -373,26 +941,106 @@ responses:
   - text: "Incredible {student_name}! I've processed your {degree_type} application in {course_name}. Email confirmation to follow!"
   - text: "Phenomenal {student_name}! Your {degree_type} {course_name} enrollment has been submitted. You'll receive email confirmation!"
   - text: "Superb {student_name}! I've successfully registered your {degree_type} in {course_name}. Email notification coming soon!"
-  - text: "Fantastico {student_name}! Ho iniziato la tua candidatura per una {degree_type} in {course_name}. Riceverai un'email a breve."
-  - text: "Eccellente {student_name}! La tua candidatura {degree_type} in {course_name} è stata iniziata. Controlla l'email presto!"
-  - text: "Perfetto {student_name}! Ho registrato con successo il tuo interesse in studi {degree_type} {course_name}. Conferma email in arrivo!"
-  - text: "Meraviglioso {student_name}! La tua candidatura per {degree_type} in {course_name} è ora nel nostro sistema. Guarda la nostra email!"
-  - text: "Successo {student_name}! Ho presentato la tua candidatura per una {degree_type} in {course_name}. L'email seguirà a breve."
-  - text: "Tutto impostato {student_name}! La tua iscrizione {degree_type} in {course_name} è stata registrata. Sentirai da noi tramite email presto."
-  - text: "Fatto {student_name}! Ho creato il tuo profilo di candidatura per {degree_type} {course_name}. Controlla la tua posta in arrivo!"
-  - text: "Fantastico {student_name}! La tua candidatura al programma {degree_type} in {course_name} è confermata. Notifica email in arrivo!"
-  - text: "Bum {student_name}! La tua candidatura per studi {degree_type} in {course_name} è presentata. Email in arrivo!"
-  - text: "Incredibile {student_name}! Ho configurato la tua candidatura {degree_type} in {course_name}. Riceverai una conferma email!"
-  - text: "Congratulazioni {student_name}! La tua candidatura {degree_type} in {course_name} è ora attiva. Dettagli email seguiranno!"
-  - text: "Fantastica notizia {student_name}! Ho registrato la tua iscrizione {degree_type} {course_name}. Conferma email in arrivo!"
-  - text: "Brillante {student_name}! La tua candidatura per studiare {degree_type} {course_name} è stata presentata con successo!"
-  - text: "Splendido {student_name}! Ho iniziato il tuo programma {degree_type} in {course_name}. La notifica email seguirà a breve."
-  - text: "Straordinario {student_name}! La tua candidatura {degree_type} per {course_name} è confermata e in elaborazione. Email in arrivo!"
-  - text: "Terribile {student_name}! Ho attivato la tua iscrizione {degree_type} {course_name}. I dettagli email arriveranno presto!"
-  - text: "Meraviglioso {student_name}! La tua candidatura {degree_type} in {course_name} è completa. Aspetta un'email a breve!"
-  - text: "Incredibile {student_name}! Ho elaborato la tua candidatura {degree_type} in {course_name}. Conferma email seguirà!"
-  - text: "Fenomenale {student_name}! La tua iscrizione {degree_type} {course_name} è stata presentata. Riceverai conferma email!"
-  - text: "Superbo {student_name}! Ho registrato con successo la tua candidatura {degree_type} in {course_name}. Notifica email presto!"  
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Fantastico {student_name}! Ho iniziato la tua candidatura per una {degree_type} in {course_name}. Riceverai un'email a breve."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Eccellente {student_name}! La tua candidatura {degree_type} in {course_name} è stata iniziata. Controlla l'email presto!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Perfetto {student_name}! Ho registrato con successo il tuo interesse in studi {degree_type} {course_name}. Conferma email in arrivo!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Meraviglioso {student_name}! La tua candidatura per {degree_type} in {course_name} è ora nel nostro sistema. Guarda la nostra email!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Successo {student_name}! Ho presentato la tua candidatura per una {degree_type} in {course_name}. L'email seguirà a breve."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Tutto impostato {student_name}! La tua iscrizione {degree_type} in {course_name} è stata registrata. Sentirai da noi tramite email presto."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Fatto {student_name}! Ho creato il tuo profilo di candidatura per {degree_type} {course_name}. Controlla la tua posta in arrivo!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Fantastico {student_name}! La tua candidatura al programma {degree_type} in {course_name} è confermata. Notifica email in arrivo!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Bum {student_name}! La tua candidatura per studi {degree_type} in {course_name} è presentata. Email in arrivo!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Incredibile {student_name}! Ho configurato la tua candidatura {degree_type} in {course_name}. Riceverai una conferma email!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Congratulazioni {student_name}! La tua candidatura {degree_type} in {course_name} è ora attiva. Dettagli email seguiranno!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Fantastica notizia {student_name}! Ho registrato la tua iscrizione {degree_type} {course_name}. Conferma email in arrivo!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Brillante {student_name}! La tua candidatura per studiare {degree_type} {course_name} è stata presentata con successo!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Splendido {student_name}! Ho iniziato il tuo programma {degree_type} in {course_name}. La notifica email seguirà a breve."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Straordinario {student_name}! La tua candidatura {degree_type} per {course_name} è confermata e in elaborazione. Email in arrivo!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Terribile {student_name}! Ho attivato la tua iscrizione {degree_type} {course_name}. I dettagli email arriveranno presto!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Meraviglioso {student_name}! La tua candidatura {degree_type} in {course_name} è completa. Aspetta un'email a breve!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Incredibile {student_name}! Ho elaborato la tua candidatura {degree_type} in {course_name}. Conferma email seguirà!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Fenomenale {student_name}! La tua iscrizione {degree_type} {course_name} è stata presentata. Riceverai conferma email!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Superbo {student_name}! Ho registrato con successo la tua candidatura {degree_type} in {course_name}. Notifica email presto!"  
 
   utter_error_recovery:
   - text: "I apologize, but I didn't quite understand that. Could you please rephrase?"
@@ -400,61 +1048,161 @@ responses:
   - text: "I'm having trouble understanding. Could you try again?"
   - text: "I didn't get that. Can you clarify?"
   - text: "Sorry, that's not clear to me. Please rephrase."
-  - text: "Mi scuso, ma non ho capito bene. Potresti riformulare?"
-  - text: "Scusa, non ho capito. Puoi dirlo diversamente?"
-  - text: "Ho difficoltà a capire. Puoi riprovare?"
-  - text: "Non ho capito. Puoi chiarire?"
-  - text: "Scusa, non è chiaro. Per favore riformula."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Mi scuso, ma non ho capito bene. Potresti riformulare?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Scusa, non ho capito. Puoi dirlo diversamente?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ho difficoltà a capire. Puoi riprovare?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Non ho capito. Puoi chiarire?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Scusa, non è chiaro o probabilmente non ti sai spiegare ahahah. Per favore riformula."
 
   utter_help:
   - text: "I'm here to help you with university enrollment. What would you like to know?"
   - text: "How can I assist you today? Ask about deadlines, courses, or the application process."
   - text: "Need help? I can guide you through admissions or answer any questions!"
   - text: "What do you need assistance with? I'm here to help!"
-  - text: "Sono qui per aiutarti con l'iscrizione universitaria. Cosa vorresti sapere?"
-  - text: "Come posso assisterti oggi? Chiedi informazioni su scadenze, corsi o processo di candidatura."
-  - text: "Hai bisogno di aiuto? Posso guidarti attraverso le ammissioni o rispondere a qualsiasi domanda!"
-  - text: "Di cosa hai bisogno di aiuto? Sono qui per aiutare!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sono qui per aiutarti con l'iscrizione universitaria. Cosa vorresti sapere?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Come posso assisterti oggi? Chiedi informazioni su scadenze, corsi o processo di candidatura."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Hai bisogno di aiuto? Posso guidarti attraverso le ammissioni o rispondere a qualsiasi domanda!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Di cosa hai bisogno di aiuto? Sono qui per aiutare!"
   
   utter_acknowledgement:
   - text: "Got it! Thanks for that information."
   - text: "Understood! Thanks for sharing."
   - text: "Perfect! I've noted that."
   - text: "Thank you! That's helpful."
-  - text: "Capito! Grazie per quell'informazione."
-  - text: "Ho capito! Grazie per aver condiviso."
-  - text: "Perfetto! Ho notato quello."
-  - text: "Grazie! È utile."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Capito! Grazie per quell'informazione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ho capito! Grazie per aver condiviso."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Perfetto! Ho notato quello."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Grazie! È utile."
 
   utter_positive_feedback:
   - text: "That's wonderful! We're glad to hear that."
   - text: "Excellent! Your feedback is valuable to us."
   - text: "That's fantastic! Thank you for your support."
   - text: "Amazing! We appreciate your kind words."
-  - text: "È meraviglioso! Siamo felici di sentirlo."
-  - text: "Eccellente! Il tuo feedback è prezioso per noi."
-  - text: "È fantastico! Grazie per il tuo supporto."
-  - text: "Incredibile! Apprezziamo le tue belle parole."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "È meraviglioso! Siamo felici di sentirlo."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Eccellente! Il tuo feedback è prezioso per noi."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "È fantastico! Grazie per il tuo supporto."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Incredibile! Apprezziamo le tue belle parole."
 
   utter_negative_feedback:
   - text: "I'm sorry to hear that. How can I help improve your experience?"
   - text: "We're sorry you're having issues. What can we do better?"
   - text: "Thank you for the feedback. We'll work on improving."
   - text: "We appreciate your concerns. Let's see how we can help."
-  - text: "Sono dispiaciuto di sentirlo. Come posso aiutare a migliorare la tua esperienza?"
-  - text: "Siamo dispiaciuti che tu abbia problemi. Cosa possiamo fare di meglio?"
-  - text: "Grazie per il feedback. Lavoreremo per migliorare."
-  - text: "Apprezziamo le tue preoccupazioni. Vediamo come possiamo aiutare."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sono dispiaciuto di sentirlo. Come posso aiutare a migliorare la tua esperienza?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Siamo dispiaciuti che tu abbia problemi. Cosa possiamo fare di meglio?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Grazie per il feedback. Lavoreremo per migliorare."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Apprezziamo le tue preoccupazioni, per ora prenditi un caffè. Vediamo come possiamo aiutare."
 
   utter_contact_support:
   - text: "If you need further assistance, please contact our support team at support@university.edu"
   - text: "For additional help, reach out to our admissions office."
   - text: "Feel free to contact our support team if you have any other questions."
   - text: "For more help, email us at support@university.edu"
-  - text: "Se hai bisogno di ulteriore assistenza, contatta il nostro team di supporto a support@university.edu"
-  - text: "Per ulteriore aiuto, contatta il nostro ufficio ammissioni."
-  - text: "Sentiti libero di contattare il nostro team di supporto se hai altre domande."
-  - text: "Per ulteriore aiuto, inviaci un'email a support@university.edu"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Se hai bisogno di ulteriore assistenza, contatta il nostro team di supporto a support@university.edu"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Per ulteriore aiuto, contatta il nostro ufficio ammissioni."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sentiti libero di contattare il nostro team di supporto se hai altre domande."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Per ulteriore aiuto, inviaci un'email a support@university.edu"
 
   utter_clarification:
   - text: "I want to make sure I understand correctly. Are you asking about application procedures?"
@@ -467,16 +1215,56 @@ responses:
   - text: "I'm here to help! What exactly would you like to know?"
   - text: "Let me make sure I'm understanding your needs correctly."
   - text: "Are you looking for general information or ready to apply?"
-  - text: "Voglio assicurarmi di aver capito bene. Stai chiedendo informazioni sui procedimenti di candidatura?"
-  - text: "Fammi chiarire - sei interessato a saperne di più sui nostri programmi?"
-  - text: "Solo per essere chiaro, sei pronto a iniziare la tua candidatura ora?"
-  - text: "Potresti chiarire quale informazione specifica stai cercando?"
-  - text: "Voglio aiutare! Potresti dirmi di più su cosa ti serve?"
-  - text: "Solo una verifica - sei interessato a un programma di laurea specifico?"
-  - text: "Per assisterti meglio, potresti elaborare la tua domanda?"
-  - text: "Sono qui per aiutare! Cosa esattamente vorresti sapere?"
-  - text: "Lascia che mi assicuri di capire bene le tue esigenze."
-  - text: "Stai cercando informazioni generali o sei pronto per candidarti?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Voglio assicurarmi di aver capito bene. Stai chiedendo informazioni sui procedimenti di candidatura?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Fammi chiarire - sei interessato a saperne di più sui nostri programmi?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Solo per essere chiaro, sei pronto a iniziare la tua candidatura ora?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Potresti chiarire quale informazione specifica stai cercando?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Voglio aiutare! Potresti dirmi di più su cosa ti serve?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Solo una verifica - sei interessato a un programma di laurea specifico?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Per assisterti meglio, potresti elaborare la tua domanda?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Sono qui per aiutare! Cosa esattamente vorresti sapere?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Lascia che mi assicuri di capire bene le tue esigenze."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Stai cercando informazioni generali o sei pronto per candidarti?"
 
   utter_confirm_application:
   - text: "Let me confirm: You want to apply for a {degree_type} in {course_name}. Is that correct?"
@@ -487,14 +1275,46 @@ responses:
   - text: "So you want to pursue {degree_type} in {course_name}. Is that what you intended?"
   - text: "Your application details: {student_name}, {degree_type}, {course_name}. Correct?"
   - text: "Just verifying: you're interested in {degree_type} {course_name}. Proceed?"
-  - text: "Fammi confermare: vuoi candidarti per una {degree_type} in {course_name}. È corretto?"
-  - text: "Solo per confermare, la tua candidatura è per studi {degree_type} in {course_name}. Giusto?"
-  - text: "Perfetto! Quindi stai candidandoti per il programma {degree_type} in {course_name}. Procediamo?"
-  - text: "In sintesi: laurea {degree_type} in {course_name} per {student_name}. Sembra giusto?"
-  - text: "Confermando le tue scelte: {degree_type} in {course_name}. È tutto corretto?"
-  - text: "Quindi vuoi perseguire {degree_type} in {course_name}. Era quello che intendevi?"
-  - text: "I dettagli della tua candidatura: {student_name}, {degree_type}, {course_name}. Corretto?"
-  - text: "Solo una verifica: ti interessa {degree_type} {course_name}. Procediamo?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Fammi confermare: vuoi candidarti per una {degree_type} in {course_name}. È corretto?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Solo per confermare, la tua candidatura è per studi {degree_type} in {course_name}. Giusto?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Perfetto! Quindi stai candidandoti per il programma {degree_type} in {course_name}. Procediamo?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "In sintesi: laurea {degree_type} in {course_name} per {student_name}. Sembra giusto?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Confermando le tue scelte: {degree_type} in {course_name}. È tutto corretto?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Quindi vuoi perseguire {degree_type} in {course_name}. Era quello che intendevi?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I dettagli della tua candidatura: {student_name}, {degree_type}, {course_name}. Corretto?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Solo una verifica: ti interessa {degree_type} {course_name}. Procediamo?"
 
   utter_application_received:
   - text: "Excellent! Your application has been successfully received and is now being processed."
@@ -507,16 +1327,56 @@ responses:
   - text: "Fantastic! Your application has been logged and is under review."
   - text: "All set! Your application package has been officially received."
   - text: "Your application is now part of our admission process. Thanks for applying!"
-  - text: "Eccellente! La tua candidatura è stata ricevuta con successo ed è in fase di elaborazione."
-  - text: "Ottime notizie! Abbiamo ricevuto la tua candidatura e la rivedremo a breve."
-  - text: "La presentazione della candidatura è stata confermata. Grazie per esserti candidato!"
-  - text: "Perfetto! La tua candidatura è ora nel nostro sistema. Ti contatteremo presto."
-  - text: "Successo! La tua candidatura è stata registrata nel nostro database."
-  - text: "Meraviglioso! Abbiamo ricevuto con successo i materiali della tua candidatura."
-  - text: "La tua presentazione è confermata. Il nostro team rivedrà la tua candidatura prontamente."
-  - text: "Fantastico! La tua candidatura è stata registrata ed è in fase di revisione."
-  - text: "Tutto a posto! Il tuo pacchetto di candidatura è stato ufficialmente ricevuto."
-  - text: "La tua candidatura è ora parte del nostro processo di ammissione. Grazie per esserti candidato!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Eccellente! La tua candidatura è stata ricevuta con successo ed è in fase di elaborazione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ottime notizie! Abbiamo ricevuto la tua candidatura e la rivedremo a breve."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La presentazione della candidatura è stata confermata. Grazie per esserti candidato!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Perfetto! La tua candidatura è ora nel nostro sistema. Ti contatteremo presto."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Successo! La tua candidatura è stata registrata nel nostro database."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Meraviglioso! Abbiamo ricevuto con successo i materiali della tua candidatura."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La tua presentazione è confermata. Il nostro team rivedrà la tua candidatura prontamente."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Fantastico! La tua candidatura è stata registrata ed è in fase di revisione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Tutto a posto! Il tuo pacchetto di candidatura è stato ufficialmente ricevuto."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La tua candidatura è ora parte del nostro processo di ammissione. Grazie per esserti candidato!"
 
   utter_course_info:
   - text: "Our university offers a wide range of programs including engineering, science, arts, and business."
@@ -529,16 +1389,56 @@ responses:
   - text: "We offer a comprehensive selection of courses designed for student success and career readiness."
   - text: "Explore our diverse academic programs spanning sciences, engineering, arts, and professional studies."
   - text: "Our courses combine theoretical knowledge with practical skills for real-world application."
-  - text: "La nostra università offre un'ampia gamma di programmi tra cui ingegneria, scienze, arti e commercio."
-  - text: "Forniamo programmi accademici diversi dalle scienze della salute all'informatica e alle scienze umane."
-  - text: "Puoi perseguire studi in campi come medicina, legge, ingegneria e molti altri."
-  - text: "Il nostro catalogo di corsi include discipline tradizionali e moderne pensate per le carriere future."
-  - text: "Offriamo programmi in molteplici facoltà progettati per la crescita accademica completa."
-  - text: "Dalle STEM alle scienze sociali, abbiamo programmi per abbinare i tuoi interessi e obiettivi professionali."
-  - text: "La nostra istituzione fornisce programmi all'avanguardia sia in campi tradizionali che emergenti."
-  - text: "Offriamo una selezione completa di corsi progettati per il successo degli studenti e la preparazione professionale."
-  - text: "Esplora i nostri diversi programmi accademici che attraversano scienze, ingegneria, arti e studi professionali."
-  - text: "I nostri corsi combinano conoscenze teoriche con competenze pratiche per l'applicazione nel mondo reale."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La nostra università offre un'ampia gamma di programmi tra cui ingegneria, scienze, arti e commercio."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Forniamo programmi accademici diversi dalle scienze della salute all'informatica e alle scienze umane."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Puoi perseguire studi in campi come medicina, legge, ingegneria e molti altri."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Il nostro catalogo di corsi include discipline tradizionali e moderne pensate per le carriere future."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Offriamo programmi in molteplici facoltà progettati per la crescita accademica completa."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Dalle STEM alle scienze sociali, abbiamo programmi per abbinare i tuoi interessi e obiettivi professionali."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La nostra istituzione fornisce programmi all'avanguardia sia in campi tradizionali che emergenti."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Offriamo una selezione completa di corsi progettati per il successo degli studenti e la preparazione professionale."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Esplora i nostri diversi programmi accademici che attraversano scienze, ingegneria, arti e studi professionali."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I nostri corsi combinano conoscenze teoriche con competenze pratiche per l'applicazione nel mondo reale."
 
   utter_requirements_info:
   - text: "Admission requirements typically include a high school diploma and standardized test scores."
@@ -551,17 +1451,57 @@ responses:
   - text: "Applicants need to submit their educational credentials and meet minimum grade standards."
   - text: "Requirements vary by program but generally include academic records and qualifying assessments."
   - text: "You'll need to provide documentation of your education and meet our academic criteria."
-  - text: "I requisiti di ammissione in genere includono un diploma di scuola superiore e punteggi di test standardizzati."
-  - text: "Avrai bisogno di trascritti, lettere di raccomandazione e un modulo di candidatura completato."
-  - text: "I requisiti comuni sono i registri accademici, la competenza linguistica e gli esami di ingresso se applicabile."
-  - text: "La maggior parte dei programmi richiede la prova dell'istruzione precedente e la competenza nella lingua inglese."
-  - text: "I requisiti di candidatura includono la tua storia accademica e talvolta una dichiarazione personale."
-  - text: "Richiediamo documentazione educativa ufficiale e prove di successo accademico."
-  - text: "I requisiti essenziali includono trascritti accademici e il completamento con successo dell'esame."
-  - text: "I candidati devono presentare le loro credenziali educative e soddisfare i voti minimi standard."
-  - text: "I requisiti variano in base al programma ma generalmente includono i registri accademici e le valutazioni qualificanti."
-  - text: "Dovrai fornire la documentazione della tua istruzione e soddisfare i nostri criteri accademici."
-
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I requisiti di ammissione in genere includono un diploma di scuola superiore e punteggi di test standardizzati."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Avrai bisogno di trascritti, lettere di raccomandazione e un modulo di candidatura completato."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I requisiti comuni sono i registri accademici, la competenza linguistica e gli esami di ingresso se applicabile."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La maggior parte dei programmi richiede la prova dell'istruzione precedente e la competenza nella lingua inglese."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I requisiti di candidatura includono la tua storia accademica e talvolta una dichiarazione personale."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Richiediamo documentazione educativa ufficiale e prove di successo accademico."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I requisiti essenziali includono trascritti accademici e il completamento con successo dell'esame."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I candidati devono presentare le loro credenziali educative e soddisfare i voti minimi standard."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I requisiti variano in base al programma ma generalmente includono i registri accademici e le valutazioni qualificanti."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Dovrai fornire la documentazione della tua istruzione e soddisfare i nostri criteri accademici."
+  
   utter_schedule_info:
   - text: "Fall semester begins in September and ends in December. Spring semester runs from January to May."
   - text: "Our academic calendar includes two main semesters plus optional summer sessions."
@@ -573,16 +1513,56 @@ responses:
   - text: "Course schedules are designed to balance classroom learning with student availability."
   - text: "Our semester dates align with standard academic calendars plus special summer intensives."
   - text: "We provide detailed class schedules during registration to help you plan your study time."
-  - text: "Il semestre autunnale inizia a settembre e termina a dicembre. Il semestre primaverile va da gennaio a maggio."
-  - text: "Il nostro calendario accademico include due semestri principali più sessioni estive opzionali."
-  - text: "L'ammissione autunnale inizia alla fine di settembre, mentre l'ammissione primaverile inizia a gennaio."
-  - text: "Le lezioni di solito si svolgono da lunedì a venerdì con opzioni flessibili serali e online disponibili."
-  - text: "Offriamo programmi basati su semestri con orari flessibili per accogliere studenti che lavorano."
-  - text: "La maggior parte dei programmi segue un calendario semestrale tradizionale con pause per vacanze ed esami."
-  - text: "L'anno accademico è composto da semestri autunnali e primaverili con orari di corsi completi."
-  - text: "Gli orari dei corsi sono progettati per bilanciare l'apprendimento in classe con la disponibilità degli studenti."
-  - text: "Le nostre date semestrali si allineano ai calendari accademici standard più intensivi estivi speciali."
-  - text: "Forniamo orari dettagliati delle lezioni durante la registrazione per aiutarti a pianificare il tuo tempo di studio."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Il semestre autunnale inizia a settembre e termina a dicembre. Il semestre primaverile va da gennaio a maggio."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Il nostro calendario accademico include due semestri principali più sessioni estive opzionali."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "L'ammissione autunnale inizia alla fine di settembre, mentre l'ammissione primaverile inizia a gennaio."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Le lezioni di solito si svolgono da lunedì a venerdì con opzioni flessibili serali e online disponibili."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Offriamo programmi basati su semestri con orari flessibili per accogliere studenti che lavorano."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La maggior parte dei programmi segue un calendario semestrale tradizionale con pause per vacanze ed esami."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "L'anno accademico è composto da semestri autunnali e primaverili con orari di corsi completi."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Gli orari dei corsi sono progettati per bilanciare l'apprendimento in classe con la disponibilità degli studenti."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Le nostre date semestrali si allineano ai calendari accademici standard più intensivi estivi speciali."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Forniamo orari dettagliati delle lezioni durante la registrazione per aiutarti a pianificare il tuo tempo di studio."
 
   utter_financial_info:
   - text: "Information about tuition, fees, and financial aid can be found on our admissions website."
@@ -595,16 +1575,56 @@ responses:
   - text: "Our admissions team can discuss flexible payment options and financial aid packages."
   - text: "Financial information and aid applications can be submitted through our online portal."
   - text: "We're committed to making education accessible through various financing options."
-  - text: "Informazioni su rette scolastiche, tasse e aiuto finanziario sono disponibili sul nostro sito web di ammissione."
-  - text: "Offriamo varie opportunità di borse di studio e sovvenzioni per studenti qualificati."
-  - text: "Informazioni dettagliate sui costi e piani di pagamento sono disponibili su richiesta."
-  - text: "L'assistenza finanziaria inclusi prestiti e borse di studio è disponibile per i candidati idonei."
-  - text: "Il nostro ufficio di aiuto finanziario può aiutarti a esplorare le opzioni di finanziamento per la tua istruzione."
-  - text: "Forniamo informazioni complete sui costi e sui programmi di supporto finanziario disponibili."
-  - text: "Le borse di studio e le sovvenzioni vengono assegnate in base al merito accademico e alla necessità finanziaria."
-  - text: "Il nostro team di ammissione può discutere opzioni di pagamento flessibili e pacchetti di aiuto finanziario."
-  - text: "Le informazioni finanziarie e le domande di aiuto possono essere presentate tramite il nostro portale online."
-  - text: "Siamo impegnati a rendere l'istruzione accessibile attraverso varie opzioni di finanziamento."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Informazioni su rette scolastiche, tasse e aiuto finanziario sono disponibili sul nostro sito web di ammissione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Offriamo varie opportunità di borse di studio e sovvenzioni per studenti qualificati."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Informazioni dettagliate sui costi e piani di pagamento sono disponibili su richiesta."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "L'assistenza finanziaria inclusi prestiti e borse di studio è disponibile per i candidati idonei."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Il nostro ufficio di aiuto finanziario può aiutarti a esplorare le opzioni di finanziamento per la tua istruzione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Forniamo informazioni complete sui costi e sui programmi di supporto finanziario disponibili."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Le borse di studio e le sovvenzioni vengono assegnate in base al merito accademico e alla necessità finanziaria."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Il nostro team di ammissione può discutere opzioni di pagamento flessibili e pacchetti di aiuto finanziario."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Le informazioni finanziarie e le domande di aiuto possono essere presentate tramite il nostro portale online."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Siamo impegnati a rendere l'istruzione accessibile attraverso varie opzioni di finanziamento."
 
   utter_campus_info:
   - text: "Our campus features modern facilities, libraries, research labs, and recreational areas."
@@ -617,17 +1637,57 @@ responses:
   - text: "We offer diverse facilities supporting academic work and student community activities."
   - text: "Our campus provides everything needed for a comprehensive student experience."
   - text: "Facilities include accessible buildings, transportation services, and student amenities."
-  - text: "Il nostro campus presenta strutture moderne, biblioteche, laboratori di ricerca e aree ricreative."
-  - text: "Forniamo aule all'avanguardia, centri studenteschi e strutture di alloggio."
-  - text: "Le nostre strutture includono complessi sportivi, aree ristorative e centri di supporto studentesco."
-  - text: "Il campus offre servizi completi per l'apprendimento e il benessere degli studenti."
-  - text: "Abbiamo eccellenti risorse inclusi laboratori informatici, spazi di studio e aree collaborative."
-  - text: "La nostra istituzione dispone di spazi verdi, strutture fitness e moderne sistemazioni in dormitori."
-  - text: "I punti salienti del campus includono sale conferenze, aule seminari e salotti dedicati agli studenti."
-  - text: "Offriamo diverse strutture che supportano il lavoro accademico e le attività della comunità studentesca."
-  - text: "Il nostro campus fornisce tutto il necessario per un'esperienza studentesca completa."
-  - text: "Le strutture includono edifici accessibili, servizi di trasporto e servizi per gli studenti."
-
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Il nostro campus presenta strutture moderne, biblioteche, laboratori di ricerca e aree ricreative."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Forniamo aule all'avanguardia, centri studenteschi e strutture di alloggio."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Le nostre strutture includono complessi sportivi, aree ristorative e centri di supporto studentesco."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Il campus offre servizi completi per l'apprendimento e il benessere degli studenti."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Abbiamo eccellenti risorse inclusi laboratori informatici, spazi di studio e aree collaborative."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La nostra istituzione dispone di spazi verdi, strutture fitness e moderne sistemazioni in dormitori."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I punti salienti del campus includono sale conferenze, aule seminari e salotti dedicati agli studenti."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Offriamo diverse strutture che supportano il lavoro accademico e le attività della comunità studentesca."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Il nostro campus fornisce tutto il necessario per un'esperienza studentesca completa."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Le strutture includono edifici accessibili, servizi di trasporto e servizi per gli studenti."
+  
   utter_admission_requirements:
   - text: "General admission requirements include a completed application and academic credentials."
   - text: "You'll need to submit educational records, identification, and proof of language proficiency."
@@ -639,16 +1699,56 @@ responses:
   - text: "You must provide proof of identity and your educational history for processing."
   - text: "Admission typically requires a complete application with supporting academic documentation."
   - text: "Submit your educational records and complete all required application sections."
-  - text: "I requisiti generali di ammissione includono una candidatura completata e credenziali accademiche."
-  - text: "Dovrai presentare registri educativi, identificazione e prova di competenza linguistica."
-  - text: "I requisiti standard sono un modulo di candidatura e documentazione del tuo background accademico."
-  - text: "La maggior parte dei candidati ha bisogno di un diploma di scuola superiore o una qualifica equivalente per candidarsi."
-  - text: "I requisiti includono l'invio di trascritti ufficiali e il superamento delle valutazioni di ingresso."
-  - text: "I documenti essenziali per l'ammissione includono il tuo CV, i certificati educativi e la candidatura."
-  - text: "I criteri di ammissione standard richiedono registri accademici verificati e qualifiche rilevanti."
-  - text: "Devi fornire prova di identità e la tua storia educativa per l'elaborazione."
-  - text: "L'ammissione in genere richiede una candidatura completa con documentazione accademica di supporto."
-  - text: "Invia i tuoi registri educativi e completa tutte le sezioni di candidatura richieste."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I requisiti generali di ammissione includono una candidatura completata e credenziali accademiche."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Dovrai presentare registri educativi, identificazione e prova di competenza linguistica."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I requisiti standard sono un modulo di candidatura e documentazione del tuo background accademico."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La maggior parte dei candidati ha bisogno di un diploma di scuola superiore o una qualifica equivalente per candidarsi."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I requisiti includono l'invio di trascritti ufficiali e il superamento delle valutazioni di ingresso."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I documenti essenziali per l'ammissione includono il tuo CV, i certificati educativi e la candidatura."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I criteri di ammissione standard richiedono registri accademici verificati e qualifiche rilevanti."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Devi fornire prova di identità e la tua storia educativa per l'elaborazione."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "L'ammissione in genere richiede una candidatura completa con documentazione accademica di supporto."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Invia i tuoi registri educativi e completa tutte le sezioni di candidatura richieste."
 
   utter_suggest_course:
   - text: "Based on your interests, you might enjoy our programs in technology, business, or sciences."
@@ -661,40 +1761,116 @@ responses:
   - text: "Our flexible programs allow you to combine multiple disciplines based on your interests."
   - text: "We offer specialized tracks within programs to customize your learning experience."
   - text: "Many students find success in our programs that blend traditional and innovative curricula."
-  - text: "In base ai tuoi interessi, potresti goderti i nostri programmi in tecnologia, affari o scienze."
-  - text: "Abbiamo programmi popolari che si allineano alle richieste industriali attuali e alle opportunità di carriera."
-  - text: "A seconda dei tuoi obiettivi, programmi come ingegneria, management o scienze della salute potrebbero adattarsi a te."
-  - text: "I nostri corsi più ricercati combinano competenze pratiche con eccellenza accademica."
-  - text: "Potresti considerare i nostri programmi interdisciplinari che collegano più campi accademici."
-  - text: "Ti consigliamo di esplorare programmi che corrispondono ai tuoi punti di forza accademici e alle tue aspirazioni di carriera."
-  - text: "Considera i nostri programmi integrati che offrono esperienza pratica e conoscenza teorica."
-  - text: "I nostri programmi flessibili ti permettono di combinare più discipline in base ai tuoi interessi."
-  - text: "Offriamo percorsi specializzati all'interno dei programmi per personalizzare la tua esperienza di apprendimento."
-  - text: "Molti studenti trovano successo nei nostri programmi che fondono curricula tradizionali e innovativi."
-
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "In base ai tuoi interessi, potresti goderti i nostri programmi in tecnologia, affari o scienze."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Abbiamo programmi popolari che si allineano alle richieste industriali attuali e alle opportunità di carriera."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "A seconda dei tuoi obiettivi, programmi come ingegneria, management o scienze della salute potrebbero adattarsi a te."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I nostri corsi più ricercati combinano competenze pratiche con eccellenza accademica."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Potresti considerare i nostri programmi interdisciplinari che collegano più campi accademici."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ti consigliamo di esplorare programmi che corrispondono ai tuoi punti di forza accademici e alle tue aspirazioni di carriera."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Considera i nostri programmi integrati che offrono esperienza pratica e conoscenza teorica."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I nostri programmi flessibili ti permettono di combinare più discipline in base ai tuoi interessi."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Offriamo percorsi specializzati all'interno dei programmi per personalizzare la tua esperienza di apprendimento."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Molti studenti trovano successo nei nostri programmi che fondono curricula tradizionali e innovativi."
+  
   utter_faq:
   - text: "Common questions include: How long does processing take? What are the fees? What majors do you offer?"
   - text: "Popular FAQs cover deadlines, application procedures, financial aid, and campus life."
   - text: "Students often ask about program duration, career support, and internship opportunities."
   - text: "Frequently asked topics are admission timelines, required documents, and student support services."
   - text: "Many inquiries relate to program structure, assessment methods, and graduation requirements."
-  - text: "Le domande comuni includono: Quanto tempo richiede l'elaborazione? Quali sono le tasse? Quali specializzazioni offrite?"
-  - text: "Le FAQ popolari riguardano scadenze, procedure di candidatura, aiuto finanziario e vita nel campus."
-  - text: "Gli studenti spesso chiedono della durata del programma, del supporto professionale e delle opportunità di stage."
-  - text: "Gli argomenti frequentemente chiesti sono le linee temporali di ammissione, i documenti richiesti e i servizi di supporto studentesco."
-  - text: "Molte domande riguardano la struttura del programma, i metodi di valutazione e i requisiti di laurea."
-
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Le domande comuni includono: Quanto tempo richiede l'elaborazione? Quali sono le tasse? Quali specializzazioni offrite?"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Le FAQ popolari riguardano scadenze, procedure di candidatura, aiuto finanziario e vita nel campus."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Gli studenti spesso chiedono della durata del programma, del supporto professionale e delle opportunità di stage."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Gli argomenti frequentemente chiesti sono le linee temporali di ammissione, i documenti richiesti e i servizi di supporto studentesco."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Molte domande riguardano la struttura del programma, i metodi di valutazione e i requisiti di laurea."
+  
   utter_costs:
   - text: "Information about tuition, fees, and financial aid can be found on our admissions website."
   - text: "The first installment is approx 156€, varying afterwards based on income."
-  - text: "Informazioni su rette scolastiche, tasse e aiuto finanziario sono disponibili sul nostro sito web."
-  - text: "Le tasse variano in base all'ISEE, ma la prima rata è fissa a circa 156€."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Informazioni su rette scolastiche, tasse e aiuto finanziario sono disponibili sul nostro sito web."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Le tasse variano in base all'ISEE, ma la prima rata è fissa a circa 156€."
 
   utter_requirements:
   - text: "Admission requirements typically include a high school diploma and standardized test scores."
   - text: "You'll need transcripts, recommendation letters, and a completed application form."
-  - text: "I requisiti di ammissione in genere includono un diploma di scuola superiore e punteggi di test standardizzati."
-  - text: "Per le lauree triennali serve il diploma di maturità. Per le magistrali serve una laurea di primo livello."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "I requisiti di ammissione in genere includono un diploma di scuola superiore e punteggi di test standardizzati."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Per le lauree triennali serve il diploma di maturità. Per le magistrali serve una laurea di primo livello."
 
 session_config:
   session_expiration_time: 60

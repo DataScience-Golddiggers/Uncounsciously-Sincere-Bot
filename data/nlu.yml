@@ -1,16 +1,34 @@
 version: "3.1"
 
 nlu:
+# --- GESTIONE LINGUA ESPLICITA ---
+- intent: choose_language
+  examples: |
+    - parla [italiano](language){"entity": "language", "value": "it"}
+    - vorrei parlare in [italiano](language){"entity": "language", "value": "it"}
+    - usa l'[italiano](language){"entity": "language", "value": "it"}
+    - switch to [english](language){"entity": "language", "value": "en"}
+    - speak [english](language){"entity": "language", "value": "en"}
+    - can we speak [italian](language){"entity": "language", "value": "it"}
+    - imposta lingua [italiana](language){"entity": "language", "value": "it"}
+    - change language to [english](language){"entity": "language", "value": "en"}
+    - I want to speak [italian](language){"entity": "language", "value": "it"}
+
+# --- SALUTI ---
 - intent: greet
   examples: |
-    - ciao
-    - buongiorno
-    - salve
-    - ehi
-    - ciao assistente
-    - buona sera
-    - heilà
-    - pronto
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - [ciao](language){"entity": "language", "value": "it"}
+    - [buongiorno](language){"entity": "language", "value": "it"}
+    - [salve](language){"entity": "language", "value": "it"}
+    - [buona sera](language){"entity": "language", "value": "it"}
+    - [ehi](language){"entity": "language", "value": "it"}
+    - [ciao](language){"entity": "language", "value": "it"} assistente
+    - [buongiorno](language){"entity": "language", "value": "it"} bot
 
 - intent: goodbye
   examples: |
@@ -21,6 +39,14 @@ nlu:
     - buona giornata
     - basta così, grazie
     - devo andare
+    - talk to you later
+    - goodbye
+    - see you later
+    - bye
+    - catch you later
+    - have a nice day
+    - see ya
+    - thanks, bye
 
 - intent: bot_challenge
   examples: |
@@ -28,9 +54,15 @@ nlu:
     - sei umano?
     - sto parlando con un robot?
     - sei una persona vera?
+    - are you a bot?
+    - are you a human?
+    - am I talking to a robot?
+    - are you real?
 
+# --- FAQ (Bilingue) ---
 - intent: ask_deadlines
   examples: |
+    # Italiano
     - quando scade il bando?
     - fino a quando posso iscrivermi?
     - qual è l'ultimo giorno per registrarsi?
@@ -38,6 +70,14 @@ nlu:
     - deadline per il semestre primaverile
     - ci sono scadenze imminenti?
     - data limite per immatricolazione
+    # English
+    - when is the deadline for enrollment?
+    - until when can I apply?
+    - what is the last day to register?
+    - are admissions still open?
+    - deadline for spring semester
+    - when do applications close?
+    - submission deadline
 
 - intent: ask_costs
   examples: |
@@ -47,6 +87,13 @@ nlu:
     - quanto si paga per la magistrale?
     - costo annuale
     - ci sono agevolazioni o borse di studio?
+    - how much does it cost?
+    - what are the tuition fees?
+    - is there a tuition fee?
+    - cost for the master degree
+    - how much is the annual fee?
+    - are there scholarships available?
+    - tell me about the prices
 
 - intent: ask_requirements
   examples: |
@@ -56,7 +103,15 @@ nlu:
     - documenti necessari per l'iscrizione
     - serve il diploma di maturità?
     - posso iscrivermi senza laurea triennale?
+    - what are the admission requirements?
+    - is there an entrance exam?
+    - do I need a minimum GPA?
+    - documents needed for enrollment
+    - do I need a high school diploma?
+    - can I apply without a bachelor degree?
+    - what do I need to get in?
 
+# --- INTENTI PER IL FORM (Bilingue) ---
 - intent: apply_for_course
   examples: |
     - voglio iscrivermi all'università
@@ -68,18 +123,41 @@ nlu:
     - come faccio ad iscrivermi?
     - vorrei frequentare [Economia](course_name)
     - sono interessato al corso di [Ingegneria Meccanica](course_name)
+    - I want to enroll in university
+    - I would like to apply for a course
+    - help me sign up for [Computer Science](course_name)
+    - I want to register for a [Bachelor](degree_type) degree
+    - Application for [Biology](course_name) please
+    - I want to start my application
+    - sign me up for [Business Administration](course_name)
+    - I'm looking to join the [Master](degree_type) program
 
 - intent: inform
   examples: |
     - [Informatica](course_name)
+    - [Computer Science](course_name)
     - [Ingegneria Meccanica](course_name)
+    - [Mechanical Engineering](course_name)
     - [Lettere e Filosofia](course_name)
+    - [Arts and Humanities](course_name)
     - [Medicina](course_name)
+    - [Physics](course_name)
+    - [Economics](course_name)
     - vorrei fare una [Magistrale](degree_type)
+    - I want to do a [Master](degree_type)
     - corso di laurea [Triennale](degree_type)
-    - [Master](degree_type)
+    - [Bachelor](degree_type) degree
+    - [PhD](degree_type)
+    - [Dottorato](degree_type)
     - il mio nome è [Mario Rossi](student_name)
+    - my name is [John Doe](student_name)
     - sono [Giulia Bianchi](student_name)
+    - I am [Alice Smith](student_name)
     - mi chiamo [Luca](student_name)
+    - it is [Robert Brown](student_name)
+    - [Luigi](student_name)
+    - [Sarah](student_name)
     - preferisco la [Triennale](degree_type)
     - scelgo [Fisica](course_name)
+    - I choose [Mathematics](course_name)
+    - my preference is [Bachelor](degree_type)

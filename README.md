@@ -90,8 +90,13 @@ Shell nel container	*docker exec -it rasa_server /bin/bash*
 Vedere i log	*docker-compose logs -f*
 
 ## 📂 Struttura Cartelle
-data/: Contiene i dati di training (NLU, Stories, Rules).
-models/: Qui vengono salvati i modelli .tar.gz dopo il training.
-config.yml: Configurazione della pipeline NLU.
-domain.yml: Definisce intent, entità, slot e risposte del bot.
-credentials.yml: Token per Telegram e altri canali.
+ 
+ - data/: Contiene i dati di training (NLU, Stories, Rules).
+ 
+ - models/: Qui vengono salvati i modelli .tar.gz dopo il training.
+ 
+ - config.yml: Configurazione della pipeline NLU.
+ 
+ - domain.yml: Definisce intent, entità, slot e risposte del bot.
+ 
+ - credentials.yml: Token per Telegram e altri canali.
