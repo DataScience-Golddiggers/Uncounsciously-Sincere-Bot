@@ -1,0 +1,46 @@
+version: "3.1"
+
+stories:
+- story: happy path enrollment
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  - intent: inform
+    entities:
+    - student_name: "Mario Rossi"
+  - slot_was_set:
+    - student_name: "Mario Rossi"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor"
+  - slot_was_set:
+    - degree_type: "Bachelor"
+  - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: course_name
+  - intent: inform
+    entities:
+    - course_name: "Computer Science"
+  - slot_was_set:
+    - course_name: "Computer Science"
+  - active_loop: null
+  - action: utter_submit
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: inquire deadlines and leave
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_deadlines
+  - action: utter_deadlines
+  - intent: goodbye
+  - action: utter_goodbye

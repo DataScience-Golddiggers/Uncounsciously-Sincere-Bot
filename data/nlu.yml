@@ -3,50 +3,83 @@ version: "3.1"
 nlu:
 - intent: greet
   examples: |
-    - hey
-    - hello
-    - hi
-    - good morning
-    - hello there
-    - hi assistant
+    - ciao
+    - buongiorno
+    - salve
+    - ehi
+    - ciao assistente
+    - buona sera
+    - heilà
+    - pronto
 
 - intent: goodbye
   examples: |
-    - bye
-    - goodbye
-    - see you later
-    - catch you later
-    - thanks, bye
-
-- intent: ask_deadlines
-  examples: |
-    - when is the deadline for enrollment?
-    - until when can I apply?
-    - what is the last day to register?
-    - are admissions still open?
-    - deadline for spring semester
-
-- intent: apply_for_course
-  examples: |
-    - I want to enroll in university
-    - I would like to apply for a course
-    - help me sign up for [Computer Science](course_name)
-    - I want to register for a [Bachelor](degree_type) degree
-    - Application for [Biology](course_name) please
-    - I want to start my application
-
-- intent: inform
-  examples: |
-    - [Computer Science](course_name)
-    - [Mechanical Engineering](course_name)
-    - [Arts and Humanities](course_name)
-    - I want to do a [Master](degree_type)
-    - [Bachelor](degree_type) degree
-    - my name is [John Doe](student_name)
-    - it is [Alice Smith](student_name)
+    - ciao
+    - arrivederci
+    - a presto
+    - ci sentiamo
+    - buona giornata
+    - basta così, grazie
+    - devo andare
 
 - intent: bot_challenge
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a robot?
+    - sei un bot?
+    - sei umano?
+    - sto parlando con un robot?
+    - sei una persona vera?
+
+- intent: ask_deadlines
+  examples: |
+    - quando scade il bando?
+    - fino a quando posso iscrivermi?
+    - qual è l'ultimo giorno per registrarsi?
+    - le iscrizioni sono ancora aperte?
+    - deadline per il semestre primaverile
+    - ci sono scadenze imminenti?
+    - data limite per immatricolazione
+
+- intent: ask_costs
+  examples: |
+    - quanto costa l'iscrizione?
+    - quali sono le tasse universitarie?
+    - c'è una retta da pagare?
+    - quanto si paga per la magistrale?
+    - costo annuale
+    - ci sono agevolazioni o borse di studio?
+
+- intent: ask_requirements
+  examples: |
+    - quali sono i requisiti per accedere?
+    - serve il test d'ingresso?
+    - c'è bisogno di una votazione minima?
+    - documenti necessari per l'iscrizione
+    - serve il diploma di maturità?
+    - posso iscrivermi senza laurea triennale?
+
+- intent: apply_for_course
+  examples: |
+    - voglio iscrivermi all'università
+    - vorrei fare l'iscrizione a un corso
+    - aiutami a segnarmi a [Informatica](course_name)
+    - vorrei registrarmi per una [Laurea Triennale](degree_type)
+    - domanda di iscrizione per [Biologia](course_name) per favore
+    - voglio iniziare la mia immatricolazione
+    - come faccio ad iscrivermi?
+    - vorrei frequentare [Economia](course_name)
+    - sono interessato al corso di [Ingegneria Meccanica](course_name)
+
+- intent: inform
+  examples: |
+    - [Informatica](course_name)
+    - [Ingegneria Meccanica](course_name)
+    - [Lettere e Filosofia](course_name)
+    - [Medicina](course_name)
+    - vorrei fare una [Magistrale](degree_type)
+    - corso di laurea [Triennale](degree_type)
+    - [Master](degree_type)
+    - il mio nome è [Mario Rossi](student_name)
+    - sono [Giulia Bianchi](student_name)
+    - mi chiamo [Luca](student_name)
+    - preferisco la [Triennale](degree_type)
+    - scelgo [Fisica](course_name)

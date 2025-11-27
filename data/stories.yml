@@ -1,7 +1,7 @@
 version: "3.1"
 
 stories:
-- story: happy path enrollment
+- story: happy path enrollment (iscrizione semplice)
   steps:
   - intent: greet
   - action: utter_greet
@@ -20,23 +20,23 @@ stories:
     - requested_slot: degree_type
   - intent: inform
     entities:
-    - degree_type: "Bachelor"
+    - degree_type: "Triennale"
   - slot_was_set:
-    - degree_type: "Bachelor"
+    - degree_type: "Triennale"
   - action: enrollment_form
   - slot_was_set:
     - requested_slot: course_name
   - intent: inform
     entities:
-    - course_name: "Computer Science"
+    - course_name: "Informatica"
   - slot_was_set:
-    - course_name: "Computer Science"
+    - course_name: "Informatica"
   - active_loop: null
   - action: utter_submit
   - intent: goodbye
   - action: utter_goodbye
 
-- story: inquire deadlines and leave
+- story: inquire deadlines and leave (chiede info ed esce)
   steps:
   - intent: greet
   - action: utter_greet
@@ -44,3 +44,18 @@ stories:
   - action: utter_deadlines
   - intent: goodbye
   - action: utter_goodbye
+
+- story: inquire info then enroll (chiede costi poi si iscrive)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_costs
+  - action: utter_costs
+  - intent: ask_requirements
+  - action: utter_requirements
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+  

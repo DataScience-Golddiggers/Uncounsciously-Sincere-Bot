@@ -1,23 +1,23 @@
 version: "3.1"
 
 rules:
-- rule: Say goodbye anytime the user says goodbye
+- rule: Salutare quando l'utente saluta
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: Rispondere alla sfida "sei un bot"
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Activate enrollment form
+- rule: Attivare il form di iscrizione
   steps:
   - intent: apply_for_course
   - action: enrollment_form
   - active_loop: enrollment_form
 
-- rule: Submit form
+- rule: Sottomettere il form
   condition:
   - active_loop: enrollment_form
   steps:
@@ -26,3 +26,19 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_submit
+
+# Nuove regole per le FAQ
+- rule: Rispondere sui costi
+  steps:
+  - intent: ask_costs
+  - action: utter_costs
+
+- rule: Rispondere sui requisiti
+  steps:
+  - intent: ask_requirements
+  - action: utter_requirements
+
+- rule: Rispondere sulle scadenze
+  steps:
+  - intent: ask_deadlines
+  - action: utter_deadlines

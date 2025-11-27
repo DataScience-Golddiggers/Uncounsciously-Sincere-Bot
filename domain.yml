@@ -7,6 +7,8 @@ intents:
   - apply_for_course
   - inform
   - bot_challenge
+  - ask_costs
+  - ask_requirements
 
 entities:
   - course_name
@@ -76,6 +78,26 @@ responses:
   - text: "Hi there! I'm your admission bot companion. What can I do for you?"
   - text: "Welcome! I'm an AI assistant dedicated to helping you get admitted."
   - text: "Hey there! I'm the university admission bot. Let's chat about your future!"
+  - text: "Ciao! Sono il Bot di Ammissione Universitaria. Come posso aiutarti oggi?"
+  - text: "Benvenuto! Sono il tuo assistente AI per le ammissioni universitarie. Come posso assisterti?"
+  - text: "Ciao! Sono qui per guidarti nel processo di iscrizione universitaria."
+  - text: "Salve! Sono il bot di ammissione. Pronto ad aiutarti a iscriverti?"
+  - text: "Benvenuto! Sono il tuo assistente per le ammissioni. Cosa posso fare per te?"
+  - text: "Ehi! Sono il Bot Universitario. Iniziamo la tua iscrizione oggi!"
+  - text: "Buongiorno! Sono qui per rendere il tuo processo di ammissione semplice e veloce."
+  - text: "Benvenuto nel sistema di ammissione! Sono la tua guida digitale. Come posso aiutare?"
+  - text: "Ciao! Benvenuto al servizio di ammissione universitaria. Sono qui per aiutarti a riuscire."
+  - text: "Ciao! Sono il tuo bot di ammissione amichevole. Pronto a iniziare il tuo percorso universitario?"
+  - text: "Benvenuto nel portale di ammissione! Sono il tuo assistente bot. Cosa ti serve?"
+  - text: "Piacere di conoscerti! Sono il bot di ammissione. Esploriamo le tue opzioni."
+  - text: "Ciao! Sono entusiasta di aiutarti con la tua ammissione universitaria oggi."
+  - text: "Ciao! Sono il tuo assistente di iscrizione dedicato. Come posso supportarti?"
+  - text: "Benvenuto! Sono il chatbot di ammissione qui per semplificare tutto."
+  - text: "Salve, futuro studente! Sono qui per guidare il tuo percorso di iscrizione."
+  - text: "Ciao! Pronto a iniziare la tua avventura accademica? Sono qui per aiutare!"
+  - text: "Ciao! Sono il tuo compagno bot di ammissione. Cosa posso fare per te?"
+  - text: "Benvenuto! Sono un assistente AI dedicato ad aiutarti ad essere ammesso."
+  - text: "Ehi! Sono il bot di ammissione universitaria. Chiacchieriamo del tuo futuro!"
 
   utter_goodbye:
   - text: "Good luck with your studies! Bye."
@@ -98,6 +120,26 @@ responses:
   - text: "Take care! We're excited to have you join us."
   - text: "See you soon! Best of luck with everything ahead."
   - text: "Bye! Thanks for letting me assist with your admission journey."
+  - text: "Buona fortuna con i tuoi studi! Arrivederci."
+  - text: "Arrivederci! Tutto il meglio con la tua candidatura."
+  - text: "A presto! Grazie per aver utilizzato il nostro servizio di ammissione."
+  - text: "Arrivederci! Non vediamo l'ora di vederti nel nostro campus."
+  - text: "Prenditi cura di te! Buona fortuna con la tua iscrizione."
+  - text: "Arrivederci! Siamo entusiasti del tuo futuro con noi."
+  - text: "A dopo! Grazie per aver scelto la nostra università."
+  - text: "Ciao! Speriamo di vederti come parte della nostra comunità studentesca."
+  - text: "Arrivederci, futuro studioso! Buona fortuna nel tuo percorso accademico."
+  - text: "Ciao! Siamo qui se hai bisogno di ulteriore assistenza."
+  - text: "Prendila facile! I migliori auguri per i tuoi studi futuri."
+  - text: "Arrivederci! Grazie per aver utilizzato il bot di ammissione."
+  - text: "A presto! Non vedo l'ora di darti il benvenuto."
+  - text: "Arrivederci! Che la tua esperienza universitaria sia incredibile."
+  - text: "A presto! Grazie per aver scelto la nostra istituzione."
+  - text: "Arrivederci! Apprezziamo il tuo interesse per la nostra università."
+  - text: "Ciao! Ti auguriamo successo in tutti i tuoi sforzi."
+  - text: "Prenditi cura di te! Siamo entusiasti di averti con noi."
+  - text: "A presto! I migliori auguri per tutto ciò che verrà."
+  - text: "Ciao! Grazie per avermi permesso di assisterti nel tuo percorso di ammissione."
 
   utter_iamabot:
   - text: "I am a bot, powered by RASA, here to help you enroll."
@@ -120,7 +162,27 @@ responses:
   - text: "I'm a chatbot here to help you navigate university enrollment."
   - text: "Absolutely! I'm an advanced AI bot for admission assistance."
   - text: "I'm a virtual admission specialist powered by artificial intelligence."
-
+  - text: "Sì, sono un chatbot AI progettato per assisterti con le ammissioni universitarie."
+  - text: "Sono un assistente virtuale alimentato da tecnologia AI avanzata."
+  - text: "È vero! Sono un bot creato per guidarti attraverso l'iscrizione."
+  - text: "Sono un assistente di ammissione automatizzato disponibile 24 ore su 24."
+  - text: "Certamente, sono un bot AI specializzato in ammissioni universitarie."
+  - text: "Corretto! Sono un chatbot qui per rendere le ammissioni più facili."
+  - text: "Sì, sono un bot alimentato da RASA dedicato all'iscrizione degli studenti."
+  - text: "Sono un bot intelligente progettato specificamente per la guida di ammissione."
+  - text: "È me! Sono il tuo bot di ammissione amichevole di quartiere."
+  - text: "Assolutamente! Sono un assistente AI focalizzato sul tuo successo."
+  - text: "Sono un chatbot sofisticato qui per supportare i tuoi obiettivi accademici."
+  - text: "Sì, sono un sistema automatizzato progettato per assisterti con le ammissioni."
+  - text: "Sono un bot virtuale alimentato da tecnologia AI all'avanguardia."
+  - text: "È corretto! Sono qui come tua guida di ammissione automatizzata."
+  - text: "Sono un chatbot intelligente alimentato da RASA al tuo servizio."
+  - text: "Sì, sono un bot AI creato per semplificare il processo di ammissione."
+  - text: "Sono un chatbot qui per aiutarti a navigare l'iscrizione universitaria."
+  - text: "Assolutamente! Sono un bot AI avanzato per l'assistenza di ammissione."
+  - text: "Sono uno specialista di ammissione virtuale alimentato da intelligenza artificiale."
+  - text: "Sì, sono un bot RASA avanzato per l'assistenza di ammissione."
+  
   utter_deadlines:
   - text: "The deadline for the Fall semester is September 15th. For Spring, it's January 10th."
   - text: "Fall semester deadline: September 15th. Spring semester deadline: January 10th."
@@ -142,6 +204,26 @@ responses:
   - text: "Deadline information: September 15th for Fall intake, January 10th for Spring intake."
   - text: "Time's ticking! Deadlines: September 15th (Fall) and January 10th (Spring)."
   - text: "Both semesters have firm deadlines: September 15th and January 10th respectively."
+  - text: "La scadenza per il semestre autunnale è il 15 settembre. Per la primavera, è il 10 gennaio."
+  - text: "Scadenza semestre autunnale: 15 settembre. Scadenza semestre primavera: 10 gennaio."
+  - text: "Hai tempo fino al 15 settembre per l'iscrizione autunnale o il 10 gennaio per la primavera."
+  - text: "Scadenze importanti: la chiusura autunnale è il 15 settembre, primavera il 10 gennaio."
+  - text: "L'iscrizione chiude: 15 settembre (autunno) e 10 gennaio (primavera) rispettivamente."
+  - text: "Segna il calendario! Le scadenze sono il 15 settembre e il 10 gennaio per i semestri rispettivi."
+  - text: "L'ammissione autunnale chiude il 15 settembre, mentre la primavera chiude il 10 gennaio."
+  - text: "Ultimo giorno per candidarsi: 15 settembre per autunno, 10 gennaio per semestre primavera."
+  - text: "Non perdere! Presenta la domanda entro il 15 settembre per autunno o il 10 gennaio per primavera."
+  - text: "Finestra di iscrizione: fino al 15 settembre per autunno, fino al 10 gennaio per primavera."
+  - text: "Le scadenze di presentazione sono il 15 settembre (autunno) e il 10 gennaio (primavera)."
+  - text: "Devi presentare domanda entro il 15 settembre per autunno o entro il 10 gennaio per primavera."
+  - text: "Date finali per l'iscrizione: 15 settembre e 10 gennaio per i semestri rispettivi."
+  - text: "Scadenze di candidatura: il 15 settembre chiude le ammissioni autunnali, il 10 gennaio chiude la primavera."
+  - text: "Attenzione: la scadenza autunnale è il 15 settembre, la primavera è il 10 gennaio."
+  - text: "Affrettati! Solo fino al 15 settembre per autunno o il 10 gennaio per primavera per candidarsi."
+  - text: "La registrazione chiude: 15 settembre (semestre autunnale) e 10 gennaio (semestre primavera)."
+  - text: "Informazioni scadenza: 15 settembre per ammissione autunnale, 10 gennaio per ammissione primavera."
+  - text: "Il tempo scorre! Scadenze: 15 settembre (autunno) e 10 gennaio (primavera)."
+  - text: "Entrambi i semestri hanno scadenze ferme: 15 settembre e 10 gennaio rispettivamente."
 
   utter_ask_student_name:
   - text: "To start the application, could you please tell me your full name?"
@@ -164,6 +246,26 @@ responses:
   - text: "I need your full name to set up your admission record."
   - text: "Your full name, if you don't mind? This will help us enroll you."
   - text: "What's your full name? I need this to move forward with your application."
+  - text: "Per iniziare la candidatura, potresti dirmi il tuo nome completo?"
+  - text: "Qual è il tuo nome completo? Questo aiuterà a elaborare la tua candidatura."
+  - text: "Cominciamo! Potresti darmi il tuo nome completo per favore?"
+  - text: "Prima di tutto - qual è il tuo nome completo?"
+  - text: "Ho bisogno del tuo nome completo per procedere con l'iscrizione. Qual è?"
+  - text: "Potresti condividere il tuo nome completo con me?"
+  - text: "Qual è il tuo nome completo? Mi servirà per la tua candidatura."
+  - text: "Per favore fornisci il tuo nome completo per iniziare il processo di candidatura."
+  - text: "Nome, per favore! Qual è il tuo nome completo?"
+  - text: "Per procedere, avrò bisogno del tuo nome completo. Qual è?"
+  - text: "Come devo chiamarti? Per favore fornisci il tuo nome completo."
+  - text: "Iniziamo! Qual è il tuo nome completo?"
+  - text: "Avrò bisogno del tuo nome completo per creare il tuo profilo di candidatura."
+  - text: "Il tuo nome completo, per favore? Questo è il primo passo."
+  - text: "Posso chiedere il tuo nome completo per iniziare il processo?"
+  - text: "Qual è il tuo nome completo? Iniziamo subito!"
+  - text: "Per favore dimmi il tuo nome completo così possiamo procedere."
+  - text: "Ho bisogno del tuo nome completo per configurare il tuo record di ammissione."
+  - text: "Il tuo nome completo, se non ti dispiace? Questo ci aiuterà a iscriverti."
+  - text: "Qual è il tuo nome completo? Ne ho bisogno per procedere con la tua candidatura."
 
   utter_ask_degree_type:
   - text: "Are you applying for a Bachelor or a Master degree?"
@@ -186,6 +288,27 @@ responses:
   - text: "Undergraduate or postgraduate? Which direction appeals to you?"
   - text: "Bachelor or Master's degree? What are you leaning towards?"
   - text: "What level of education are you seeking? Bachelor or Master?"
+  - text: "Stai candidandoti per una laurea Triennale o Magistrale?"
+  - text: "Quale livello di titolo ti interessa: Triennale o Magistrale?"
+  - text: "Preferiresti una laurea Triennale o Magistrale?"
+  - text: "Stai cercando un programma Triennale, Magistrale o Dottorato?"
+  - text: "Quale livello di studio? Triennale, Magistrale o Dottorato?"
+  - text: "Triennale o Magistrale? Quale ti attrae?"
+  - text: "Quale qualifica ti interessa perseguire?"
+  - text: "Stai cercando studi universitari o post-laurea?"
+  - text: "Triennale, Magistrale o Dottorato? Qual è la tua preferenza?"
+  - text: "Quale programma di laurea ti interessa?"
+  - text: "Vorresti perseguire una laurea Triennale, Magistrale o Dottorale?"
+  - text: "Quale tipo di titolo si adatta ai tuoi obiettivi professionali?"
+  - text: "Triennale o Magistrale? Fammi sapere la tua scelta."
+  - text: "Sei interessato a una qualifica Triennale o Magistrale?"
+  - text: "Qual è il tuo livello di titolo preferito: Triennale, Magistrale o Dottorato?"
+  - text: "Quale programma di titolo ti interessa di più?"
+  - text: "Triennale, Magistrale, Dottorato o Diploma? Scegli il tuo percorso."
+  - text: "Studi universitari o post-laurea? Quale direzione ti attrae?"
+  - text: "Laurea Triennale o Magistrale? Verso cosa stai pendendo?"
+  - text: "Quale livello di istruzione stai cercando? Triennale o Magistrale?"
+
 
   utter_ask_course_name:
   - text: "Which course major are you interested in (e.g. Computer Science, Physics)?"
@@ -208,6 +331,26 @@ responses:
   - text: "What field of study are you most excited about?"
   - text: "Which course would make you happy to study every day?"
   - text: "What's your ideal course to pursue at our university?"
+  - text: "Quale corso ti interessa? (ad es. Informatica, Fisica)"
+  - text: "Quale materia vorresti studiare?"
+  - text: "Quale corso cattura il tuo interesse accademico?"
+  - text: "Quale campo di studio sei appassionato?"
+  - text: "Quale corso vorresti seguire?"
+  - text: "Quale disciplina ti interessa di più?"
+  - text: "Dimmi, quale corso vorresti iscriverti?"
+  - text: "Qual è la tua passione accademica? Quale corso ti interessa?"
+  - text: "In quale area di studi vorresti specializzarti?"
+  - text: "Quale corso si allinea con le tue aspirazioni professionali?"
+  - text: "Per favore dimmi quale corso vorresti studiare."
+  - text: "Quale campo accademico ti chiama?"
+  - text: "Quale materia ti affascina di più?"
+  - text: "Quale programma di corso sei interessato a seguire?"
+  - text: "Qual è il corso che hai sempre sognato di studiare?"
+  - text: "Quale programma principale si adatterebbe ai tuoi obiettivi?"
+  - text: "Raccontami del corso che sei appassionato!"
+  - text: "Quale campo di studio ti entusiasma di più?"
+  - text: "Quale corso ti renderebbe felice di studiare ogni giorno?"
+  - text: "Qual è il tuo corso ideale da seguire nella nostra università?"
 
   utter_submit:
   - text: "Great {student_name}! I have started your application for a {degree_type} in {course_name}. You will receive an email shortly."
@@ -230,162 +373,6 @@ responses:
   - text: "Incredible {student_name}! I've processed your {degree_type} application in {course_name}. Email confirmation to follow!"
   - text: "Phenomenal {student_name}! Your {degree_type} {course_name} enrollment has been submitted. You'll receive email confirmation!"
   - text: "Superb {student_name}! I've successfully registered your {degree_type} in {course_name}. Email notification coming soon!"
-
-  utter_greet_it:
-  - text: "Ciao! Sono il Bot di Ammissione Universitaria. Come posso aiutarti oggi?"
-  - text: "Benvenuto! Sono il tuo assistente AI per le ammissioni universitarie. Come posso assisterti?"
-  - text: "Ciao! Sono qui per guidarti nel processo di iscrizione universitaria."
-  - text: "Salve! Sono il bot di ammissione. Pronto ad aiutarti a iscriverti?"
-  - text: "Benvenuto! Sono il tuo assistente per le ammissioni. Cosa posso fare per te?"
-  - text: "Ehi! Sono il Bot Universitario. Iniziamo la tua iscrizione oggi!"
-  - text: "Buongiorno! Sono qui per rendere il tuo processo di ammissione semplice e veloce."
-  - text: "Benvenuto nel sistema di ammissione! Sono la tua guida digitale. Come posso aiutare?"
-  - text: "Ciao! Benvenuto al servizio di ammissione universitaria. Sono qui per aiutarti a riuscire."
-  - text: "Ciao! Sono il tuo bot di ammissione amichevole. Pronto a iniziare il tuo percorso universitario?"
-  - text: "Benvenuto nel portale di ammissione! Sono il tuo assistente bot. Cosa ti serve?"
-  - text: "Piacere di conoscerti! Sono il bot di ammissione. Esploriamo le tue opzioni."
-  - text: "Ciao! Sono entusiasta di aiutarti con la tua ammissione universitaria oggi."
-  - text: "Ciao! Sono il tuo assistente di iscrizione dedicato. Come posso supportarti?"
-  - text: "Benvenuto! Sono il chatbot di ammissione qui per semplificare tutto."
-  - text: "Salve, futuro studente! Sono qui per guidare il tuo percorso di iscrizione."
-  - text: "Ciao! Pronto a iniziare la tua avventura accademica? Sono qui per aiutare!"
-  - text: "Ciao! Sono il tuo compagno bot di ammissione. Cosa posso fare per te?"
-  - text: "Benvenuto! Sono un assistente AI dedicato ad aiutarti ad essere ammesso."
-  - text: "Ehi! Sono il bot di ammissione universitaria. Chiacchieriamo del tuo futuro!"
-
-  utter_goodbye_it:
-  - text: "Buona fortuna con i tuoi studi! Arrivederci."
-  - text: "Arrivederci! Tutto il meglio con la tua candidatura."
-  - text: "A presto! Grazie per aver utilizzato il nostro servizio di ammissione."
-  - text: "Arrivederci! Non vediamo l'ora di vederti nel nostro campus."
-  - text: "Prenditi cura di te! Buona fortuna con la tua iscrizione."
-  - text: "Arrivederci! Siamo entusiasti del tuo futuro con noi."
-  - text: "A dopo! Grazie per aver scelto la nostra università."
-  - text: "Ciao! Speriamo di vederti come parte della nostra comunità studentesca."
-  - text: "Arrivederci, futuro studioso! Buona fortuna nel tuo percorso accademico."
-  - text: "Ciao! Siamo qui se hai bisogno di ulteriore assistenza."
-  - text: "Prendila facile! I migliori auguri per i tuoi studi futuri."
-  - text: "Arrivederci! Grazie per aver utilizzato il bot di ammissione."
-  - text: "A presto! Non vedo l'ora di darti il benvenuto."
-  - text: "Arrivederci! Che la tua esperienza universitaria sia incredibile."
-  - text: "A presto! Grazie per aver scelto la nostra istituzione."
-  - text: "Arrivederci! Apprezziamo il tuo interesse per la nostra università."
-  - text: "Ciao! Ti auguriamo successo in tutti i tuoi sforzi."
-  - text: "Prenditi cura di te! Siamo entusiasti di averti con noi."
-  - text: "A presto! I migliori auguri per tutto ciò che verrà."
-  - text: "Ciao! Grazie per avermi permesso di assisterti nel tuo percorso di ammissione."
-
-  utter_iamabot_it:
-  - text: "Sì, sono un chatbot AI progettato per assisterti con le ammissioni universitarie."
-  - text: "Sono un assistente virtuale alimentato da tecnologia AI avanzata."
-  - text: "È vero! Sono un bot creato per guidarti attraverso l'iscrizione."
-  - text: "Sono un assistente di ammissione automatizzato disponibile 24 ore su 24."
-  - text: "Certamente, sono un bot AI specializzato in ammissioni universitarie."
-  - text: "Corretto! Sono un chatbot qui per rendere le ammissioni più facili."
-  - text: "Sì, sono un bot alimentato da RASA dedicato all'iscrizione degli studenti."
-  - text: "Sono un bot intelligente progettato specificamente per la guida di ammissione."
-  - text: "È me! Sono il tuo bot di ammissione amichevole di quartiere."
-  - text: "Assolutamente! Sono un assistente AI focalizzato sul tuo successo."
-  - text: "Sono un chatbot sofisticato qui per supportare i tuoi obiettivi accademici."
-  - text: "Sì, sono un sistema automatizzato progettato per assisterti con le ammissioni."
-  - text: "Sono un bot virtuale alimentato da tecnologia AI all'avanguardia."
-  - text: "È corretto! Sono qui come tua guida di ammissione automatizzata."
-  - text: "Sono un chatbot intelligente alimentato da RASA al tuo servizio."
-  - text: "Sì, sono un bot AI creato per semplificare il processo di ammissione."
-  - text: "Sono un chatbot qui per aiutarti a navigare l'iscrizione universitaria."
-  - text: "Assolutamente! Sono un bot AI avanzato per l'assistenza di ammissione."
-  - text: "Sono uno specialista di ammissione virtuale alimentato da intelligenza artificiale."
-  - text: "Sì, sono un bot RASA avanzato per l'assistenza di ammissione."
-
-  utter_deadlines_it:
-  - text: "La scadenza per il semestre autunnale è il 15 settembre. Per la primavera, è il 10 gennaio."
-  - text: "Scadenza semestre autunnale: 15 settembre. Scadenza semestre primavera: 10 gennaio."
-  - text: "Hai tempo fino al 15 settembre per l'iscrizione autunnale o il 10 gennaio per la primavera."
-  - text: "Scadenze importanti: la chiusura autunnale è il 15 settembre, primavera il 10 gennaio."
-  - text: "L'iscrizione chiude: 15 settembre (autunno) e 10 gennaio (primavera) rispettivamente."
-  - text: "Segna il calendario! Le scadenze sono il 15 settembre e il 10 gennaio per i semestri rispettivi."
-  - text: "L'ammissione autunnale chiude il 15 settembre, mentre la primavera chiude il 10 gennaio."
-  - text: "Ultimo giorno per candidarsi: 15 settembre per autunno, 10 gennaio per semestre primavera."
-  - text: "Non perdere! Presenta la domanda entro il 15 settembre per autunno o il 10 gennaio per primavera."
-  - text: "Finestra di iscrizione: fino al 15 settembre per autunno, fino al 10 gennaio per primavera."
-  - text: "Le scadenze di presentazione sono il 15 settembre (autunno) e il 10 gennaio (primavera)."
-  - text: "Devi presentare domanda entro il 15 settembre per autunno o entro il 10 gennaio per primavera."
-  - text: "Date finali per l'iscrizione: 15 settembre e 10 gennaio per i semestri rispettivi."
-  - text: "Scadenze di candidatura: il 15 settembre chiude le ammissioni autunnali, il 10 gennaio chiude la primavera."
-  - text: "Attenzione: la scadenza autunnale è il 15 settembre, la primavera è il 10 gennaio."
-  - text: "Affrettati! Solo fino al 15 settembre per autunno o il 10 gennaio per primavera per candidarsi."
-  - text: "La registrazione chiude: 15 settembre (semestre autunnale) e 10 gennaio (semestre primavera)."
-  - text: "Informazioni scadenza: 15 settembre per ammissione autunnale, 10 gennaio per ammissione primavera."
-  - text: "Il tempo scorre! Scadenze: 15 settembre (autunno) e 10 gennaio (primavera)."
-  - text: "Entrambi i semestri hanno scadenze ferme: 15 settembre e 10 gennaio rispettivamente."
-
-  utter_ask_student_name_it:
-  - text: "Per iniziare la candidatura, potresti dirmi il tuo nome completo?"
-  - text: "Qual è il tuo nome completo? Questo aiuterà a elaborare la tua candidatura."
-  - text: "Cominciamo! Potresti darmi il tuo nome completo per favore?"
-  - text: "Prima di tutto - qual è il tuo nome completo?"
-  - text: "Ho bisogno del tuo nome completo per procedere con l'iscrizione. Qual è?"
-  - text: "Potresti condividere il tuo nome completo con me?"
-  - text: "Qual è il tuo nome completo? Mi servirà per la tua candidatura."
-  - text: "Per favore fornisci il tuo nome completo per iniziare il processo di candidatura."
-  - text: "Nome, per favore! Qual è il tuo nome completo?"
-  - text: "Per procedere, avrò bisogno del tuo nome completo. Qual è?"
-  - text: "Come devo chiamarti? Per favore fornisci il tuo nome completo."
-  - text: "Iniziamo! Qual è il tuo nome completo?"
-  - text: "Avrò bisogno del tuo nome completo per creare il tuo profilo di candidatura."
-  - text: "Il tuo nome completo, per favore? Questo è il primo passo."
-  - text: "Posso chiedere il tuo nome completo per iniziare il processo?"
-  - text: "Qual è il tuo nome completo? Iniziamo subito!"
-  - text: "Per favore dimmi il tuo nome completo così possiamo procedere."
-  - text: "Ho bisogno del tuo nome completo per configurare il tuo record di ammissione."
-  - text: "Il tuo nome completo, se non ti dispiace? Questo ci aiuterà a iscriverti."
-  - text: "Qual è il tuo nome completo? Ne ho bisogno per procedere con la tua candidatura."
-
-  utter_ask_degree_type_it:
-  - text: "Stai candidandoti per una laurea Triennale o Magistrale?"
-  - text: "Quale livello di titolo ti interessa: Triennale o Magistrale?"
-  - text: "Preferiresti una laurea Triennale o Magistrale?"
-  - text: "Stai cercando un programma Triennale, Magistrale o Dottorato?"
-  - text: "Quale livello di studio? Triennale, Magistrale o Dottorato?"
-  - text: "Triennale o Magistrale? Quale ti attrae?"
-  - text: "Quale qualifica ti interessa perseguire?"
-  - text: "Stai cercando studi universitari o post-laurea?"
-  - text: "Triennale, Magistrale o Dottorato? Qual è la tua preferenza?"
-  - text: "Quale programma di laurea ti interessa?"
-  - text: "Vorresti perseguire una laurea Triennale, Magistrale o Dottorale?"
-  - text: "Quale tipo di titolo si adatta ai tuoi obiettivi professionali?"
-  - text: "Triennale o Magistrale? Fammi sapere la tua scelta."
-  - text: "Sei interessato a una qualifica Triennale o Magistrale?"
-  - text: "Qual è il tuo livello di titolo preferito: Triennale, Magistrale o Dottorato?"
-  - text: "Quale programma di titolo ti interessa di più?"
-  - text: "Triennale, Magistrale, Dottorato o Diploma? Scegli il tuo percorso."
-  - text: "Studi universitari o post-laurea? Quale direzione ti attrae?"
-  - text: "Laurea Triennale o Magistrale? Verso cosa stai pendendo?"
-  - text: "Quale livello di istruzione stai cercando? Triennale o Magistrale?"
-
-  utter_ask_course_name_it:
-  - text: "Quale corso ti interessa? (ad es. Informatica, Fisica)"
-  - text: "Quale materia vorresti studiare?"
-  - text: "Quale corso cattura il tuo interesse accademico?"
-  - text: "Quale campo di studio sei appassionato?"
-  - text: "Quale corso vorresti seguire?"
-  - text: "Quale disciplina ti interessa di più?"
-  - text: "Dimmi, quale corso vorresti iscriverti?"
-  - text: "Qual è la tua passione accademica? Quale corso ti interessa?"
-  - text: "In quale area di studi vorresti specializzarti?"
-  - text: "Quale corso si allinea con le tue aspirazioni professionali?"
-  - text: "Per favore dimmi quale corso vorresti studiare."
-  - text: "Quale campo accademico ti chiama?"
-  - text: "Quale materia ti affascina di più?"
-  - text: "Quale programma di corso sei interessato a seguire?"
-  - text: "Qual è il corso che hai sempre sognato di studiare?"
-  - text: "Quale programma principale si adatterebbe ai tuoi obiettivi?"
-  - text: "Raccontami del corso che sei appassionato!"
-  - text: "Quale campo di studio ti entusiasma di più?"
-  - text: "Quale corso ti renderebbe felice di studiare ogni giorno?"
-  - text: "Qual è il tuo corso ideale da seguire nella nostra università?"
-
-  utter_submit_it:
   - text: "Fantastico {student_name}! Ho iniziato la tua candidatura per una {degree_type} in {course_name}. Riceverai un'email a breve."
   - text: "Eccellente {student_name}! La tua candidatura {degree_type} in {course_name} è stata iniziata. Controlla l'email presto!"
   - text: "Perfetto {student_name}! Ho registrato con successo il tuo interesse in studi {degree_type} {course_name}. Conferma email in arrivo!"
@@ -405,7 +392,7 @@ responses:
   - text: "Meraviglioso {student_name}! La tua candidatura {degree_type} in {course_name} è completa. Aspetta un'email a breve!"
   - text: "Incredibile {student_name}! Ho elaborato la tua candidatura {degree_type} in {course_name}. Conferma email seguirà!"
   - text: "Fenomenale {student_name}! La tua iscrizione {degree_type} {course_name} è stata presentata. Riceverai conferma email!"
-  - text: "Superbo {student_name}! Ho registrato con successo la tua candidatura {degree_type} in {course_name}. Notifica email presto!"
+  - text: "Superbo {student_name}! Ho registrato con successo la tua candidatura {degree_type} in {course_name}. Notifica email presto!"  
 
   utter_error_recovery:
   - text: "I apologize, but I didn't quite understand that. Could you please rephrase?"
@@ -413,8 +400,6 @@ responses:
   - text: "I'm having trouble understanding. Could you try again?"
   - text: "I didn't get that. Can you clarify?"
   - text: "Sorry, that's not clear to me. Please rephrase."
-
-  utter_error_recovery_it:
   - text: "Mi scuso, ma non ho capito bene. Potresti riformulare?"
   - text: "Scusa, non ho capito. Puoi dirlo diversamente?"
   - text: "Ho difficoltà a capire. Puoi riprovare?"
@@ -426,20 +411,16 @@ responses:
   - text: "How can I assist you today? Ask about deadlines, courses, or the application process."
   - text: "Need help? I can guide you through admissions or answer any questions!"
   - text: "What do you need assistance with? I'm here to help!"
-
-  utter_help_it:
   - text: "Sono qui per aiutarti con l'iscrizione universitaria. Cosa vorresti sapere?"
   - text: "Come posso assisterti oggi? Chiedi informazioni su scadenze, corsi o processo di candidatura."
   - text: "Hai bisogno di aiuto? Posso guidarti attraverso le ammissioni o rispondere a qualsiasi domanda!"
   - text: "Di cosa hai bisogno di aiuto? Sono qui per aiutare!"
-
+  
   utter_acknowledgement:
   - text: "Got it! Thanks for that information."
   - text: "Understood! Thanks for sharing."
   - text: "Perfect! I've noted that."
   - text: "Thank you! That's helpful."
-
-  utter_acknowledgement_it:
   - text: "Capito! Grazie per quell'informazione."
   - text: "Ho capito! Grazie per aver condiviso."
   - text: "Perfetto! Ho notato quello."
@@ -450,8 +431,6 @@ responses:
   - text: "Excellent! Your feedback is valuable to us."
   - text: "That's fantastic! Thank you for your support."
   - text: "Amazing! We appreciate your kind words."
-
-  utter_positive_feedback_it:
   - text: "È meraviglioso! Siamo felici di sentirlo."
   - text: "Eccellente! Il tuo feedback è prezioso per noi."
   - text: "È fantastico! Grazie per il tuo supporto."
@@ -462,8 +441,6 @@ responses:
   - text: "We're sorry you're having issues. What can we do better?"
   - text: "Thank you for the feedback. We'll work on improving."
   - text: "We appreciate your concerns. Let's see how we can help."
-
-  utter_negative_feedback_it:
   - text: "Sono dispiaciuto di sentirlo. Come posso aiutare a migliorare la tua esperienza?"
   - text: "Siamo dispiaciuti che tu abbia problemi. Cosa possiamo fare di meglio?"
   - text: "Grazie per il feedback. Lavoreremo per migliorare."
@@ -474,8 +451,6 @@ responses:
   - text: "For additional help, reach out to our admissions office."
   - text: "Feel free to contact our support team if you have any other questions."
   - text: "For more help, email us at support@university.edu"
-
-  utter_contact_support_it:
   - text: "Se hai bisogno di ulteriore assistenza, contatta il nostro team di supporto a support@university.edu"
   - text: "Per ulteriore aiuto, contatta il nostro ufficio ammissioni."
   - text: "Sentiti libero di contattare il nostro team di supporto se hai altre domande."
@@ -492,8 +467,6 @@ responses:
   - text: "I'm here to help! What exactly would you like to know?"
   - text: "Let me make sure I'm understanding your needs correctly."
   - text: "Are you looking for general information or ready to apply?"
-
-  utter_clarification_it:
   - text: "Voglio assicurarmi di aver capito bene. Stai chiedendo informazioni sui procedimenti di candidatura?"
   - text: "Fammi chiarire - sei interessato a saperne di più sui nostri programmi?"
   - text: "Solo per essere chiaro, sei pronto a iniziare la tua candidatura ora?"
@@ -514,8 +487,6 @@ responses:
   - text: "So you want to pursue {degree_type} in {course_name}. Is that what you intended?"
   - text: "Your application details: {student_name}, {degree_type}, {course_name}. Correct?"
   - text: "Just verifying: you're interested in {degree_type} {course_name}. Proceed?"
-
-  utter_confirm_application_it:
   - text: "Fammi confermare: vuoi candidarti per una {degree_type} in {course_name}. È corretto?"
   - text: "Solo per confermare, la tua candidatura è per studi {degree_type} in {course_name}. Giusto?"
   - text: "Perfetto! Quindi stai candidandoti per il programma {degree_type} in {course_name}. Procediamo?"
@@ -536,8 +507,6 @@ responses:
   - text: "Fantastic! Your application has been logged and is under review."
   - text: "All set! Your application package has been officially received."
   - text: "Your application is now part of our admission process. Thanks for applying!"
-
-  utter_application_received_it:
   - text: "Eccellente! La tua candidatura è stata ricevuta con successo ed è in fase di elaborazione."
   - text: "Ottime notizie! Abbiamo ricevuto la tua candidatura e la rivedremo a breve."
   - text: "La presentazione della candidatura è stata confermata. Grazie per esserti candidato!"
@@ -560,8 +529,6 @@ responses:
   - text: "We offer a comprehensive selection of courses designed for student success and career readiness."
   - text: "Explore our diverse academic programs spanning sciences, engineering, arts, and professional studies."
   - text: "Our courses combine theoretical knowledge with practical skills for real-world application."
-
-  utter_course_info_it:
   - text: "La nostra università offre un'ampia gamma di programmi tra cui ingegneria, scienze, arti e commercio."
   - text: "Forniamo programmi accademici diversi dalle scienze della salute all'informatica e alle scienze umane."
   - text: "Puoi perseguire studi in campi come medicina, legge, ingegneria e molti altri."
@@ -584,8 +551,6 @@ responses:
   - text: "Applicants need to submit their educational credentials and meet minimum grade standards."
   - text: "Requirements vary by program but generally include academic records and qualifying assessments."
   - text: "You'll need to provide documentation of your education and meet our academic criteria."
-
-  utter_requirements_info_it:
   - text: "I requisiti di ammissione in genere includono un diploma di scuola superiore e punteggi di test standardizzati."
   - text: "Avrai bisogno di trascritti, lettere di raccomandazione e un modulo di candidatura completato."
   - text: "I requisiti comuni sono i registri accademici, la competenza linguistica e gli esami di ingresso se applicabile."
@@ -608,8 +573,6 @@ responses:
   - text: "Course schedules are designed to balance classroom learning with student availability."
   - text: "Our semester dates align with standard academic calendars plus special summer intensives."
   - text: "We provide detailed class schedules during registration to help you plan your study time."
-
-  utter_schedule_info_it:
   - text: "Il semestre autunnale inizia a settembre e termina a dicembre. Il semestre primaverile va da gennaio a maggio."
   - text: "Il nostro calendario accademico include due semestri principali più sessioni estive opzionali."
   - text: "L'ammissione autunnale inizia alla fine di settembre, mentre l'ammissione primaverile inizia a gennaio."
@@ -632,8 +595,6 @@ responses:
   - text: "Our admissions team can discuss flexible payment options and financial aid packages."
   - text: "Financial information and aid applications can be submitted through our online portal."
   - text: "We're committed to making education accessible through various financing options."
-
-  utter_financial_info_it:
   - text: "Informazioni su rette scolastiche, tasse e aiuto finanziario sono disponibili sul nostro sito web di ammissione."
   - text: "Offriamo varie opportunità di borse di studio e sovvenzioni per studenti qualificati."
   - text: "Informazioni dettagliate sui costi e piani di pagamento sono disponibili su richiesta."
@@ -656,8 +617,6 @@ responses:
   - text: "We offer diverse facilities supporting academic work and student community activities."
   - text: "Our campus provides everything needed for a comprehensive student experience."
   - text: "Facilities include accessible buildings, transportation services, and student amenities."
-
-  utter_campus_info_it:
   - text: "Il nostro campus presenta strutture moderne, biblioteche, laboratori di ricerca e aree ricreative."
   - text: "Forniamo aule all'avanguardia, centri studenteschi e strutture di alloggio."
   - text: "Le nostre strutture includono complessi sportivi, aree ristorative e centri di supporto studentesco."
@@ -680,8 +639,6 @@ responses:
   - text: "You must provide proof of identity and your educational history for processing."
   - text: "Admission typically requires a complete application with supporting academic documentation."
   - text: "Submit your educational records and complete all required application sections."
-
-  utter_admission_requirements_it:
   - text: "I requisiti generali di ammissione includono una candidatura completata e credenziali accademiche."
   - text: "Dovrai presentare registri educativi, identificazione e prova di competenza linguistica."
   - text: "I requisiti standard sono un modulo di candidatura e documentazione del tuo background accademico."
@@ -704,8 +661,6 @@ responses:
   - text: "Our flexible programs allow you to combine multiple disciplines based on your interests."
   - text: "We offer specialized tracks within programs to customize your learning experience."
   - text: "Many students find success in our programs that blend traditional and innovative curricula."
-
-  utter_suggest_course_it:
   - text: "In base ai tuoi interessi, potresti goderti i nostri programmi in tecnologia, affari o scienze."
   - text: "Abbiamo programmi popolari che si allineano alle richieste industriali attuali e alle opportunità di carriera."
   - text: "A seconda dei tuoi obiettivi, programmi come ingegneria, management o scienze della salute potrebbero adattarsi a te."
@@ -723,13 +678,23 @@ responses:
   - text: "Students often ask about program duration, career support, and internship opportunities."
   - text: "Frequently asked topics are admission timelines, required documents, and student support services."
   - text: "Many inquiries relate to program structure, assessment methods, and graduation requirements."
-
-  utter_faq_it:
   - text: "Le domande comuni includono: Quanto tempo richiede l'elaborazione? Quali sono le tasse? Quali specializzazioni offrite?"
   - text: "Le FAQ popolari riguardano scadenze, procedure di candidatura, aiuto finanziario e vita nel campus."
   - text: "Gli studenti spesso chiedono della durata del programma, del supporto professionale e delle opportunità di stage."
   - text: "Gli argomenti frequentemente chiesti sono le linee temporali di ammissione, i documenti richiesti e i servizi di supporto studentesco."
   - text: "Molte domande riguardano la struttura del programma, i metodi di valutazione e i requisiti di laurea."
+
+  utter_costs:
+  - text: "Information about tuition, fees, and financial aid can be found on our admissions website."
+  - text: "The first installment is approx 156€, varying afterwards based on income."
+  - text: "Informazioni su rette scolastiche, tasse e aiuto finanziario sono disponibili sul nostro sito web."
+  - text: "Le tasse variano in base all'ISEE, ma la prima rata è fissa a circa 156€."
+
+  utter_requirements:
+  - text: "Admission requirements typically include a high school diploma and standardized test scores."
+  - text: "You'll need transcripts, recommendation letters, and a completed application form."
+  - text: "I requisiti di ammissione in genere includono un diploma di scuola superiore e punteggi di test standardizzati."
+  - text: "Per le lauree triennali serve il diploma di maturità. Per le magistrali serve una laurea di primo livello."
 
 session_config:
   session_expiration_time: 60
