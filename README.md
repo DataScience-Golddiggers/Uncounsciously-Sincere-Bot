@@ -5,6 +5,7 @@ Il progetto è configurato per essere eseguito interamente su **Docker**, ottimi
 
 L'architettura include:
 *   **Rasa Core/NLU**: Container principale (basato su Python 3.10).
+*   **Rasa Action**: Container per le action del chatbot, usato per il servizio di emailing.
 *   **Ngrok**: Tunneling automatico per esporre il bot a Telegram.
 
 ---
@@ -14,7 +15,8 @@ L'architettura include:
 Assicurati di avere installato:
 1.  **Docker Desktop** (con Docker Compose).
 2.  Un account **Telegram** e un Bot creato via BotFather.
-3.  Un account **Ngrok** (gratuito) per il tunneling.
+3.  Un account **Gmail** e appcode per accedere all'API.
+4.  Un account **Ngrok** (gratuito) per il tunneling.
 
 ---
 
@@ -40,6 +42,11 @@ telegram:
   verify: "tuo_bot_username"
   webhook_url: "https://....ngrok-free.app/webhooks/telegram/webhook" # Lascia temporaneamente vuoto, lo aggiorneremo dopo l'avvio.
 ```
+
+### 3. Configura Gmail
+Crea il tuo file .env sulla base dell'esempio nella repo e compila i campi con quanto richiesto. 
+Si ricorda che la AppCode di google si genera direttamente dalle preferenze dell'account in Gmail.
+
 
 ## 🚀 Avvio del Bot
 Per avviare l'intera infrastruttura (Rasa + Ngrok):
@@ -79,6 +86,8 @@ docker exec -it rasa_server rasa train
 ```
 
 Il nuovo modello verrà salvato automaticamente nella cartella models/ locale e caricato dal server appena pronto.
+
+**Attenzione:** si vuole precisare che i dati attuali sono stati creati "manualmente" e non presi da Dataset già pronti; per questo motivo il chatbot potrebbe risultare impreciso, ma siamo certi che costituisca un ottima base di partenza per sviluppi futuri!
 
 ## 🛠 Comandi Utili
 Azione	Comando
