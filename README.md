@@ -118,6 +118,14 @@ Addestrare modello	*docker exec -it rasa_server rasa train*
 Shell nel container	*docker exec -it rasa_server /bin/bash*
 Vedere i log	*docker-compose logs -f*
 
+Avvia Ollama: 
+```bash
+export OLLAMA_HOST=0.0.0.0 
+export OLLAMA_ORIGINS="*" 
+export OLLAMA_MODELS=$(pwd)/ollama_data
+ollama serve
+```
+
 ## 📂 Struttura Cartelle
  
  - data/: Contiene i dati di training (NLU, Stories, Rules).

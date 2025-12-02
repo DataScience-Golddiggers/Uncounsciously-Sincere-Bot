@@ -82,22 +82,6 @@ nlu:
     - when do applications close?
     - submission deadline
 
-- intent: ask_costs
-  examples: |
-    - [quanto costa](language){"entity": "language", "value": "it"} l'iscrizione?
-    - quali sono le [tasse universitarie](language){"entity": "language", "value": "it"}?
-    - c'è una [retta](language){"entity": "language", "value": "it"} da pagare?
-    - [quanto si paga](language){"entity": "language", "value": "it"} per la magistrale?
-    - [costo annuale](language){"entity": "language", "value": "it"}
-    - ci sono agevolazioni o borse di studio?
-    - how much does it cost?
-    - what are the tuition fees?
-    - is there a tuition fee?
-    - cost for the master degree
-    - how much is the annual fee?
-    - are there scholarships available?
-    - tell me about the prices
-
 - intent: ask_requirements
   examples: |
     - c'è bisogno di una [votazione](language){"entity": "language", "value": "it"} minima?
@@ -214,3 +198,16 @@ nlu:
     - read the [fees](topic) page
     - search the website for [courses](topic)
     - give me general university information
+    - [quanto costa](language){"entity": "language", "value": "it"} l'[iscrizione](topic)?
+    - quali sono le [tasse universitarie](topic)?
+    - c'è una [retta](topic) da pagare?
+    - [quanto si paga](language){"entity": "language", "value": "it"} per la magistrale?
+    - [costo annuale](topic)
+    - ci sono agevolazioni o [borse di studio](topic)?
+    - how much does it [cost](topic)?
+    - what are the [tuition fees](topic)?
+    - is there a [tuition fee](topic)?
+    - [cost](topic) for the master degree
+    - how much is the [annual fee](topic)?
+    - are there [scholarships](topic) available?
+    - tell me about the [prices](topic)

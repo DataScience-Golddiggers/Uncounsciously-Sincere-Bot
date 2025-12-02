@@ -100,6 +100,10 @@ class ActionGetUniversityInfo(Action):
     URL_MAP = {
         # Italian keys
         "tasse": "https://www.univpm.it/Entra/Tasse_e_contributi",
+        "tasse universitarie": "https://www.univpm.it/Entra/Tasse_e_contributi",
+        "retta": "https://www.univpm.it/Entra/Tasse_e_contributi",
+        "costo annuale": "https://www.univpm.it/Entra/Tasse_e_contributi",
+        "borse di studio": "https://www.univpm.it/Entra/Tasse_e_contributi",
         "corsi": "https://www.univpm.it/Entra/Offerta_formativa",
         "iscrizione": "https://www.univpm.it/Entra/Immatricolazioni",
         "alloggi": "https://www.univpm.it/Entra/Servizi_agli_studenti/Alloggi",
@@ -107,6 +111,10 @@ class ActionGetUniversityInfo(Action):
         
         # English keys (mapping to same URLs)
         "fees": "https://www.univpm.it/Entra/Tasse_e_contributi",
+        "tuition fees": "https://www.univpm.it/Entra/Tasse_e_contributi",
+        "tuition fee": "https://www.univpm.it/Entra/Tasse_e_contributi",
+        "annual fee": "https://www.univpm.it/Entra/Tasse_e_contributi",
+        "prices": "https://www.univpm.it/Entra/Tasse_e_contributi",
         "tuition": "https://www.univpm.it/Entra/Tasse_e_contributi",
         "courses": "https://www.univpm.it/Entra/Offerta_formativa",
         "degrees": "https://www.univpm.it/Entra/Offerta_formativa",

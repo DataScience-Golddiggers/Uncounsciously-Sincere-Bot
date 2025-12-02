@@ -27,12 +27,8 @@ rules:
     - requested_slot: null
   - action: utter_submit
 
-# Nuove regole per le FAQ
-- rule: Rispondere sui costi
-  steps:
-  - intent: ask_costs
-  - action: utter_costs
 
+# Nuove regole per le FAQ
 - rule: Rispondere sui requisiti
   steps:
   - intent: ask_requirements

@@ -7,8 +7,9 @@ intents:
   - apply_for_course
   - inform
   - bot_challenge
-  - ask_costs
   - ask_requirements
+  - ask_web_info
+  - choose_language
   - newsletter_request  # L'utente chiede di inviare la mail
   - inform_email        # L'utente fornisce l'indirizzo
 
@@ -1875,20 +1876,6 @@ responses:
           value: "it"
     text: "Molte domande riguardano la struttura del programma, i metodi di valutazione e i requisiti di laurea."
   
-  utter_costs:
-  - text: "Information about tuition, fees, and financial aid can be found on our admissions website."
-  - text: "The first installment is approx 156€, varying afterwards based on income."
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Informazioni su rette scolastiche, tasse e aiuto finanziario sono disponibili sul nostro sito web."
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Le tasse variano in base all'ISEE, ma la prima rata è fissa a circa 156€."
-
   utter_requirements:
   - text: "Admission requirements typically include a high school diploma and standardized test scores."
   - text: "You'll need transcripts, recommendation letters, and a completed application form."

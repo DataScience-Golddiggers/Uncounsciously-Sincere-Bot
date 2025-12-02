@@ -49,8 +49,8 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: ask_costs
-  - action: utter_costs
+  - intent: ask_web_info
+  - action: action_get_university_info
   - intent: ask_requirements
   - action: utter_requirements
   - intent: apply_for_course
