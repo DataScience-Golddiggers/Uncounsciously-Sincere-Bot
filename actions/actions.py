@@ -189,6 +189,8 @@ class ActionGetUniversityInfo(Action):
             )
 
             # Chiamata API a Ollama
+            # Quando si usa Docker Compose, il nome del servizio 'ollama' viene risolto automaticamente
+            # nell'indirizzo IP del container. Quindi 'http://ollama:11434' è corretto.
             ollama_base_url = os.getenv("OLLAMA_URL", "http://ollama:11434")
             ollama_url = f"{ollama_base_url}/api/generate"
 
