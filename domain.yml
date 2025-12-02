@@ -17,7 +17,8 @@ entities:
   - degree_type
   - student_name
   - email
-  
+  - topic # Nuova entity per l'argomento della ricerca
+
 slots:
   language:
     type: categorical
@@ -66,6 +67,17 @@ slots:
     mappings:
       - type: from_entity
         entity: email
+  
+  topic: # Nuovo slot per l'argomento della ricerca web
+    type: text
+    mappings:
+      - type: from_entity
+        entity: topic
+        conditions:
+          - active_loop: null # Solo se non siamo in un form
+      - type: from_intent
+        intent: ask_web_info
+        value: "generale" # Default in caso di intent ma senza entity
 
 forms:
   enrollment_form:
@@ -82,6 +94,7 @@ forms:
 
 actions:
   - action_send_email
+  - action_get_university_info # Nuova custom action per la ricerca web
 
 responses:
   utter_greet:

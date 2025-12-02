@@ -185,8 +185,32 @@ nlu:
     - reach me via email at [john.doe@example.com](email)
     - send it to [john.doe@example.com](email) please
     - la mia posta elettronica è [mario.rossi@gmail.com](email)
-    - la mia mail è [mario.rossi@gmail.com](email)
+    - la mia mail è [mario.rossi@example.com](email)
     - invia tutto a [luigi99@libero.it](email)
     - ecco la mail: [test.user@company.com](email)
     - [nome.cognome@universita.it](email)
     - usa [pippo@hotmail.it](email) per contattarmi
+
+# --- NUOVO INTENT PER LA RICERCA WEB (Crawl4AI + Ollama) ---
+- intent: ask_web_info
+  examples: |
+    - cerca informazioni sulle [tasse](topic) universitarie
+    - quali sono le ultime notizie sui [corsi di laurea](topic)?
+    - mi dici qualcosa riguardo l'[iscrizione](topic)?
+    - dove posso trovare informazioni sugli [alloggi](topic) per studenti?
+    - cerco dettagli su [borse di studio](topic)
+    - aggiornamenti sulle [scadenze](topic)
+    - informazioni su [facoltà di ingegneria](topic)
+    - leggi la pagina sulle [tasse](topic)
+    - cerca sul sito per [corsi](topic)
+    - dammi informazioni generali sull'università
+    - what's new about [tuition fees](topic)?
+    - tell me about [degree programs](topic)
+    - search for [enrollment](topic) details
+    - I need info on [student housing](topic)
+    - any news on [scholarships](topic)?
+    - updates on [deadlines](topic)
+    - information on [engineering faculty](topic)
+    - read the [fees](topic) page
+    - search the website for [courses](topic)
+    - give me general university information

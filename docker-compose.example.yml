@@ -33,6 +33,19 @@ services:
       - SMTP_EMAIL=${SMTP_EMAIL}
       - SMTP_PASSWORD=${SMTP_PASSWORD}
 
+  # OLLAMA (Local LLM Server)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: rasa_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama_data:/root/.ollama # Salva i modelli scaricati (es. qwen, gemma)
+      - ./entrypoint.sh:/usr/bin/entrypoint.sh # Mount custom entrypoint script
+    entrypoint: ["/usr/bin/entrypoint.sh"] # Use the custom entrypoint
+    networks:
+      default:
+
   # NGROK (Tunnel HTTPS per Telegram)
   ngrok:
     image: ngrok/ngrok:latest

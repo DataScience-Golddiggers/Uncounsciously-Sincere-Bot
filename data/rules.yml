@@ -59,3 +59,9 @@ rules:
     - requested_slot: null
   - action: action_send_email   # <--- CHIAMA IL TUO CODICE PYTHON
   - action: utter_email_sent    # <--- DICE "FATTO"
+
+- rule: Recupera informazioni web
+  steps:
+  - intent: ask_web_info
+  - action: action_get_university_info
+
