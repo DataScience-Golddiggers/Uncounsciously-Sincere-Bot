@@ -181,8 +181,11 @@ class ActionGetUniversityInfo(Action):
             )
 
             # Chiamata API a Ollama
+            ollama_base_url = os.getenv("OLLAMA_URL", "http://ollama:11434")
+            ollama_url = f"{ollama_base_url}/api/generate"
+
             ollama_response = requests.post(
-                "http://ollama:11434/api/generate",
+                ollama_url,
                 json={
                     "model": "qwen2.5:0.5b", 
                     "prompt": prompt,

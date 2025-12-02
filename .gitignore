@@ -8,3 +8,9 @@ __pycache__/
 
 .idea/
 .vscode/
+
+ollama_data/
+logs/
+ollama_data/models/
+tmp/
+output/
