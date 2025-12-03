@@ -1,14 +1,14 @@
 # Unconsciously Sincere Bot
 
 <div style="height; overflow:hidden; margin:auto; margin-bottom:2rem" align="center">
-  <img src="./docs/images/rdm.png" style="width:70%; height:50%; object-fit:cover; object-position:center;" />
+  <img src="./docs/images/rdm2.png" style="width:100%; height:50%; object-fit:cover; object-position:center;" />
 </div>
 
 [![Python](https://img.shields.io/badge/Python-3.10-3776ab?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 ![Keras](https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=Keras&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 ![NGROK](https://img.shields.io/badge/ngrok-140648?style=for-the-badge&logo=Ngrok&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![Ollama](https://img.shields.io/badge/Ollama-FFFFFF?style=for-the-badge&logo=ollama&logoColor=black)
 ![Qwen](https://img.shields.io/badge/Qwen-2.5-blue?style=for-the-badge)
 ![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)
