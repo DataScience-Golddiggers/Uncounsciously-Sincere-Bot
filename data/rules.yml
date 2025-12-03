@@ -66,3 +66,7 @@ rules:
   - intent: user_angry
   - action: utter_user_angry
 
+- rule: Gestione Fallback (non ho capito)
+  steps:
+  - intent: nlu_fallback
+  - action: utter_error_recovery

@@ -29,6 +29,14 @@ nlu:
     - set language to [english](language){"entity": "language", "value": "en"}
     - preferirei l'[italiano](language){"entity": "language", "value": "it"}
     - let's talk in [english](language){"entity": "language", "value": "en"}
+    - change to [italian](language){"entity": "language", "value": "it"}
+    - can you speak [english](language){"entity": "language", "value": "en"}?
+    - traduci in [italiano](language){"entity": "language", "value": "it"}
+    - metti lingua [inglese](language){"entity": "language", "value": "en"}
+    - I prefer [italian](language){"entity": "language", "value": "it"}
+    - let's switch to [italian](language){"entity": "language", "value": "it"}
+    - attiva [italiano](language){"entity": "language", "value": "it"}
+    - activate [english](language){"entity": "language", "value": "en"}
 
 # --- SALUTI ---
 - intent: greet
@@ -57,6 +65,17 @@ nlu:
     - Ciao belli
     - Ciao amico
     - Hey beautiful
+    - [buondì](language){"entity": "language", "value": "it"}
+    - [eilà](language){"entity": "language", "value": "it"}
+    - [salve](language){"entity": "language", "value": "it"} prof
+    - hi buddy
+    - hey friend
+    - what's up?
+    - yo
+    - come va?
+    - how are you?
+    - ci sei?
+    - anyone home?
 
 - intent: goodbye
   examples: |
@@ -89,6 +108,15 @@ nlu:
     - Chiudi la conversazione
     - Buona serata
     - I am done here
+    - chiudo qui
+    - vado via
+    - logging off
+    - signing out
+    - stacco
+    - alla prossima
+    - bye bye
+    - see you around
+    - I'm out
 
 - intent: bot_challenge
   examples: |
@@ -110,6 +138,14 @@ nlu:
     - Chi ti ha programmato?
     - Vero o bot?
     - Are you a person?
+    - chi c'è dietro?
+    - is there a human there?
+    - are you fake?
+    - sei finto?
+    - parlo con una macchina?
+    - talking to a machine?
+    - are you a virtual assistant?
+    - sei un assistente virtuale?
 
 # --- FAQ (Bilingue) ---
 - intent: ask_deadlines
@@ -142,6 +178,15 @@ nlu:
     - Quando finisce il periodo di candidatura?
     - È troppo tardi per candidarsi?
     - Dimmi le scadenze
+    - quando chiudono le liste?
+    - posso ancora iscrivermi oggi?
+    - can I still apply today?
+    - is the deadline passed?
+    - è scaduto il termine?
+    - quanti giorni mancano alla scadenza?
+    - how many days left to apply?
+    - cutoff date?
+    - data finale?
 
 - intent: ask_requirements
   examples: |
@@ -175,6 +220,16 @@ nlu:
     - Servono voti specifici?
     - È richiesto un test di inglese?
     - Requisiti di accesso per il corso
+    - che documenti devo portare?
+    - serve il passaporto?
+    - do I need a visa?
+    - is the GRE required?
+    - serve il certificato di lingua?
+    - language certificate needed?
+    - what paperwork is required?
+    - burocrazia necessaria?
+    - criteri di ammissione?
+    - admission criteria?
 
 # --- INTENTI PER IL FORM (Bilingue) ---
 - intent: apply_for_course
@@ -216,6 +271,15 @@ nlu:
     - Enrollment for [Medicine](course_name)
     - Iscrizione a [Medicina](course_name)
     - Vorrei fare [Lettere](course_name)
+    - iscrivimi subito
+    - voglio entrare in facoltà
+    - get me into college
+    - I need to enroll now
+    - begin registration
+    - comincia la procedura
+    - voglio fare l'università
+    - start sign up process
+    - avvia registrazione
 
 - intent: inform
   examples: |
@@ -302,6 +366,14 @@ nlu:
     - Add me to the mailing list
     - Newsletter sign up
     - Iscrizione alla newsletter
+    - iscrivimi alla mailing list
+    - voglio le news
+    - subscribe to updates
+    - get updates via email
+    - put me on the list
+    - mettimi in lista
+    - mail updates please
+    - notifiche via mail
 
 - intent: inform_email
   examples: |
@@ -327,6 +399,8 @@ nlu:
     - la mia mail è [rossi@azienda.it](email)
     - here is my email [student@uni.edu](email)
     - [contact@me.com](email)
+    - [test.email@provider.com](email)
+    - [info@site.org](email)
 
 # --- NUOVO INTENT PER LA RICERCA WEB (Crawl4AI + Ollama) ---
 - intent: ask_web_info
@@ -406,3 +480,11 @@ nlu:
     - son of a bitch
     - screw you
     - you're an idiot
+    - idiota
+    - mi stai prendendo in giro?
+    - smettila
+    - stop it
+    - you are annoying
+    - shut up
+    - stai zitto
+    - sei fastidioso

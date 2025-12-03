@@ -3,6 +3,7 @@ version: "3.1"
 intents:
   - greet
   - goodbye
+  - nlu_fallback
   - ask_deadlines
   - apply_for_course
   - inform
