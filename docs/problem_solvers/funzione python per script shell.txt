@@ -1,0 +1,3 @@
+python -c "content = open('entrypoint.sh', 'rb').read().replace(b'\r\n', b'\n'); open('entrypoint.sh', 'wb').write(content)"
+
+python -c "content = open('entrypoint.sh', 'rb').read().replace(b'\r\n', b'\n'); open('entrypoint.sh', 'wb').write(content)"

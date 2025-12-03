@@ -17,7 +17,7 @@
 [![License](https://img.shields.io/badge/MIT-green?style=for-the-badge)](LICENSE)
 
 Questo repository contiene il codice sorgente per il Chatbot Rasa "Unconsciously Sincere Bot".
-Il progetto è configurato per essere eseguito su **Docker** ed è fortemente ottimizzato per architetture **Apple Silicon (M1/M2/M3/M4)**, ma compatibile con Windows e Linux.
+Il progetto è configurato per essere eseguito su **Docker** ed è fortemente ottimizzato per architetture dotate di GPU **NVIDIA** e **Apple Silicon (M-series)**, compatibile con Windows, macOS e Linux.
 
 L'architettura è **Ibrida (NLU + LLM)** e include:
 *   **Rasa Core/NLU**: Gestione del dialogo e intenti strutturati.
