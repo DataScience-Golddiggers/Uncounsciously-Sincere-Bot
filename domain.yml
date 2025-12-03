@@ -12,6 +12,7 @@ intents:
   - choose_language
   - newsletter_request  # L'utente chiede di inviare la mail
   - inform_email        # L'utente fornisce l'indirizzo
+  - user_angry
 
 entities:
   - course_name
@@ -1936,6 +1937,38 @@ responses:
           name: language
           value: "it"
     text: "L'email è stata inviata senza problemi!"
+
+  utter_user_angry:
+  - text: "You are angry like a red bird!"
+  - text: "Please try to stay calm. I'm here to help you."
+  - text: "Let's keep the conversation polite, please."
+  - text: "I understand you might be frustrated, but I can only help if you communicate respectfully."
+  - text: "Your frustration is noted, but abusive language is not constructive."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ehi ragazzone datti una calmata!"
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Ti prego di mantenere un tono calmo. Sono qui per aiutarti."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Cerchiamo di essere educati, per favore."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "Capisco la tua frustrazione, ma posso aiutarti solo se comunichi con rispetto."
+  - condition:
+        - type: slot
+          name: language
+          value: "it"
+    text: "La tua frustrazione è stata notata, ma un linguaggio offensivo non è costruttivo."
 
 session_config:
   session_expiration_time: 60

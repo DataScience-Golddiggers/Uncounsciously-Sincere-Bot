@@ -18,6 +18,17 @@ nlu:
     - imposta lingua [italiana](language){"entity": "language", "value": "it"}
     - change language to [english](language){"entity": "language", "value": "en"}
     - I want to speak [italian](language){"entity": "language", "value": "it"}
+    - [italiano](language){"entity": "language", "value": "it"} please
+    - speak in [italian](language){"entity": "language", "value": "it"}
+    - switch to [italian](language){"entity": "language", "value": "it"}
+    - [english](language){"entity": "language", "value": "en"} please
+    - [italiano](language){"entity": "language", "value": "it"} per favore
+    - parla in [italiano](language){"entity": "language", "value": "it"}
+    - passa all'[inglese](language){"entity": "language", "value": "en"}
+    - could we converse in [italian](language){"entity": "language", "value": "it"}?
+    - set language to [english](language){"entity": "language", "value": "en"}
+    - preferirei l'[italiano](language){"entity": "language", "value": "it"}
+    - let's talk in [english](language){"entity": "language", "value": "en"}
 
 # --- SALUTI ---
 - intent: greet
@@ -27,6 +38,11 @@ nlu:
     - hi
     - hello there
     - good morning
+    - Good afternoon
+    - Good evening
+    - Hi bot
+    - Are you there?
+    - Greetings
     - [ciao](language){"entity": "language", "value": "it"}
     - [buongiorno](language){"entity": "language", "value": "it"}
     - [salve](language){"entity": "language", "value": "it"}
@@ -34,6 +50,13 @@ nlu:
     - [ehi](language){"entity": "language", "value": "it"}
     - [ciao](language){"entity": "language", "value": "it"} assistente
     - [buongiorno](language){"entity": "language", "value": "it"} bot
+    - Buonasera
+    - Ehi ciao
+    - Sei online?
+    - Saluti
+    - Ciao belli
+    - Ciao amico
+    - Hey beautiful
 
 - intent: goodbye
   examples: |
@@ -52,6 +75,20 @@ nlu:
     - have a nice day
     - see ya
     - thanks, bye
+    - I'm leaving
+    - End chat
+    - Stop
+    - Quit
+    - See you tomorrow
+    - Me ne vado
+    - Chiudi chat
+    - Esci
+    - Ci vediamo domani
+    - Addio
+    - Have a good one
+    - Chiudi la conversazione
+    - Buona serata
+    - I am done here
 
 - intent: bot_challenge
   examples: |
@@ -63,6 +100,16 @@ nlu:
     - are you a human?
     - am I talking to a robot?
     - are you real?
+    - Are you a computer?
+    - Who created you?
+    - Are you AI?
+    - Chi ti ha creato?
+    - Sei un'intelligenza artificiale?
+    - Sei un computer?
+    - Real or bot?
+    - Chi ti ha programmato?
+    - Vero o bot?
+    - Are you a person?
 
 # --- FAQ (Bilingue) ---
 - intent: ask_deadlines
@@ -81,6 +128,20 @@ nlu:
     - deadline for spring semester
     - when do applications close?
     - submission deadline
+    - When is the last date?
+    - Am I late to apply?
+    - Enrollment closing date
+    - Time limit for application
+    - Entro quando devo fare domanda?
+    - Sono in ritardo per iscrivermi?
+    - Data di chiusura iscrizioni
+    - Limite di tempo per la domanda
+    - When does the application period end?
+    - Is it too late to apply?
+    - Tell me the deadlines
+    - Quando finisce il periodo di candidatura?
+    - È troppo tardi per candidarsi?
+    - Dimmi le scadenze
 
 - intent: ask_requirements
   examples: |
@@ -97,6 +158,23 @@ nlu:
     - do I need a high school diploma?
     - can I apply without a bachelor degree?
     - what do I need to get in?
+    - What grades do I need?
+    - Is IELTS required?
+    - Prerequisites for computer science
+    - Do I need a portfolio?
+    - Che voti servono?
+    - Serve lo IELTS?
+    - Prerequisiti per informatica
+    - Serve un portfolio?
+    - Cosa serve per entrare?
+    - What are the prerequisites?
+    - Do I need specific grades?
+    - Is an English test required?
+    - Entry requirements for the course
+    - Quali sono i prerequisiti?
+    - Servono voti specifici?
+    - È richiesto un test di inglese?
+    - Requisiti di accesso per il corso
 
 # --- INTENTI PER IL FORM (Bilingue) ---
 - intent: apply_for_course
@@ -118,6 +196,26 @@ nlu:
     - I want to start my application
     - sign me up for [Business Administration](course_name)
     - I'm looking to join the [Master](degree_type) program
+    - I want to study [Physics](course_name)
+    - Sign me up for a [Master](degree_type)
+    - Application for [History](course_name)
+    - Start enrollment
+    - Voglio studiare [Fisica](course_name)
+    - Iscrivimi alla [Magistrale](degree_type)
+    - Domanda per [Storia](course_name)
+    - Inizia immatricolazione
+    - I want to apply for [Chemistry](course_name)
+    - Register me for [History](course_name)
+    - I'd like to join the [PhD](degree_type) program
+    - Start application for [Mathematics](course_name)
+    - Voglio candidarmi per [Chimica](course_name)
+    - Registrami per [Storia](course_name)
+    - Vorrei unirmi al programma di [Dottorato](degree_type)
+    - Inizia candidatura per [Matematica](course_name)
+    - I want to get into the [Arts](course_name) program
+    - Enrollment for [Medicine](course_name)
+    - Iscrizione a [Medicina](course_name)
+    - Vorrei fare [Lettere](course_name)
 
 - intent: inform
   examples: |
@@ -148,6 +246,34 @@ nlu:
     - scelgo [Fisica](course_name)
     - I choose [Mathematics](course_name)
     - my preference is [Bachelor](degree_type)
+    - I pick [Chemistry](course_name)
+    - [Master's degree](degree_type)
+    - My name is [Sarah Connor](student_name)
+    - [PhD program](degree_type)
+    - Scelgo [Chimica](course_name)
+    - [Laurea Magistrale](degree_type)
+    - Mi chiamo [Mario Rossi](student_name)
+    - [Dottorato](degree_type)
+    - [History](course_name)
+    - [Mathematics](course_name)
+    - [Master's](degree_type)
+    - I am [James Bond](student_name)
+    - [Alessandro](student_name)
+    - [Storia](course_name)
+    - [Matematica](course_name)
+    - [Magistrale](degree_type)
+    - Mi chiamo [Giuseppe Verdi](student_name)
+    - Sono [Roberto Baggio](student_name)
+    - [Francesco](student_name)
+    - [Biotechnology](course_name)
+    - [Philosophy](course_name)
+    - [Undergraduate](degree_type)
+    - [Postgraduate](degree_type)
+    - [Giulia](student_name)
+    - [Marco](student_name)
+    - [Engineering](course_name)
+    - [Law](course_name)
+    - [Giurisprudenza](course_name)
 
 - intent: newsletter_request
   examples: |
@@ -161,6 +287,21 @@ nlu:
     - contattami via posta elettronica
     - vorrei ricevere informazioni via email
     - invia un messaggio
+    - Send me updates
+    - I want the newsletter
+    - Keep me posted via email
+    - Mandami aggiornamenti
+    - Voglio la newsletter
+    - Tienimi aggiornato via mail
+    - Keep me updated
+    - I'd like to get emails
+    - Send me news
+    - Tienimi aggiornato
+    - Vorrei ricevere email
+    - Mandami notizie
+    - Add me to the mailing list
+    - Newsletter sign up
+    - Iscrizione alla newsletter
 
 - intent: inform_email
   examples: |
@@ -174,6 +315,18 @@ nlu:
     - ecco la mail: [test.user@company.com](email)
     - [nome.cognome@universita.it](email)
     - usa [pippo@hotmail.it](email) per contattarmi
+    - my address is [test@test.com](email)
+    - mail: [example@domain.org](email)
+    - il mio indirizzo è [test@test.com](email)
+    - mail: [example@domain.org](email)
+    - use [alex@email.com](email)
+    - [sara.connor@skynet.net](email)
+    - my email is [bond.james@mi6.uk](email)
+    - usa [alex@email.com](email)
+    - [peppe@mail.it](email)
+    - la mia mail è [rossi@azienda.it](email)
+    - here is my email [student@uni.edu](email)
+    - [contact@me.com](email)
 
 # --- NUOVO INTENT PER LA RICERCA WEB (Crawl4AI + Ollama) ---
 - intent: ask_web_info
@@ -211,3 +364,45 @@ nlu:
     - how much is the [annual fee](topic)?
     - are there [scholarships](topic) available?
     - tell me about the [prices](topic)
+    - details on [exams](topic)
+    - dettagli su [esami](topic)
+    - find [enrollment dates](topic)
+    - cerca date di [immatricolazione](topic)
+    - info about [requirements](topic)
+    - info su [requisiti](topic)
+    - [scholarship](topic) requirements
+    - requisiti per [borse di studio](topic)
+    - [tuition](topic) deadlines
+    - scadenze [tasse](topic)
+    - [housing](topic) costs
+    - costi [alloggi](topic)
+    - [master](topic) programs list
+    - lista corsi [magistrali](topic)
+    - [bachelor](topic) programs list
+    - lista corsi [triennali](topic)
+
+- intent: user_angry
+  examples: |
+    - sei uno stupido bot!
+    - non capisci niente!
+    - sei inutile!
+    - che diavolo è successo?
+    - questa cosa non funziona!
+    - non mi aiuti per niente!
+    - ma va!
+    - cavolo!
+    - merda
+    - porca miseria
+    - vaffanculo
+    - sei un deficiente
+    - you are useless!
+    - you don't understand anything!
+    - this bot is stupid!
+    - what the hell?
+    - this is not working!
+    - you are a piece of crap!
+    - damn it!
+    - bloody hell
+    - son of a bitch
+    - screw you
+    - you're an idiot
