@@ -6,6 +6,11 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
+- rule: Say hello when the user greets
+  steps:
+  - intent: greet
+  - action: utter_greet
+
 - rule: Rispondere alla sfida "sei un bot"
   steps:
   - intent: bot_challenge
@@ -25,7 +30,7 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_submit
+  - action: action_send_enrollment_email
 
 
 # Nuove regole per le FAQ

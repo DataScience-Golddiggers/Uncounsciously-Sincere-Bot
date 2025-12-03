@@ -98,6 +98,7 @@ forms:
 actions:
   - action_send_email
   - action_get_university_info # Nuova custom action per la ricerca web
+  - action_send_enrollment_email
 
 responses:
   utter_greet:

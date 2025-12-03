@@ -257,3 +257,76 @@ class ActionGetUniversityInfo(Action):
             dispatcher.utter_message(text=msg)
 
         return []
+
+
+class ActionSendEnrollmentEmail(Action):
+    '''Invia una mail di conferma registrazione corso con i dettagli dell'utente.'''
+
+    def name(self) -> Text:
+        return "action_send_enrollment_email"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # Recupero dati dagli slot
+        student_name = tracker.get_slot("student_name")
+        user_email = tracker.get_slot("email")
+        course_name = tracker.get_slot("course_name")
+        degree_type = tracker.get_slot("degree_type")
+        
+        if not user_email:
+            dispatcher.utter_message(text="Non ho trovato la mail per inviare la conferma.")
+            return []
+
+        # Recupera variabili ambiente (stessa logica di ActionSendEmail)
+        smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+        smtp_port = int(os.getenv("SMTP_PORT", 465))
+        sender_email = os.getenv("SMTP_EMAIL")
+        sender_password = os.getenv("SMTP_PASSWORD")
+
+        if not sender_email or not sender_password:
+            print("ERRORE CONFIGURAZIONE: Mancano le credenziali nel file .env")
+            dispatcher.utter_message(text="Non posso inviare la mail perché mancano le configurazioni del server.")
+            return []
+
+        # Costruzione del corpo della mail
+        subject = f"Conferma interesse: {course_name}"
+        body = (
+            f"Ciao {student_name},\n\n"
+            f"Abbiamo registrato con successo il tuo interesse per il seguente corso di studi:\n\n"
+            f"- Corso: {course_name}\n"
+            f"- Tipo di Laurea: {degree_type}\n\n"
+            f"Un orientatore ti contatterà presto a questo indirizzo email ({user_email}) per fornirti maggiori dettagli.\n\n"
+            f"Cordiali saluti,\n"
+            f"Il tuo Assistente Virtuale UnivPM"
+        )
+
+        msg = MIMEText(body)
+        msg['Subject'] = subject
+        msg['From'] = sender_email
+        msg['To'] = user_email 
+
+        try:
+            # Connessione SMTP
+            if smtp_port == 465:
+                server = smtplib.SMTP_SSL(smtp_server, smtp_port)
+            else:
+                server = smtplib.SMTP(smtp_server, smtp_port)
+                server.starttls()
+
+            server.login(sender_email, sender_password)
+            server.sendmail(sender_email, user_email, msg.as_string())
+            server.quit()
+            
+            print(f"DEBUG: Mail di enrollment inviata a {user_email}")
+            
+            # Conferma all'utente
+            dispatcher.utter_message(text=f"Perfetto {student_name}! Ho inviato una mail di riepilogo a {user_email} con i dettagli del corso '{course_name}'.")
+            
+        except Exception as e:
+            print(f"ERRORE SMTP ENROLLMENT: {e}")
+            dispatcher.utter_message(text="Ho salvato i tuoi dati, ma c'è stato un errore tecnico nell'invio dell'email di conferma.")
+
+        return []
+            
