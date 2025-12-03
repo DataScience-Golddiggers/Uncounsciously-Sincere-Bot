@@ -9,6 +9,7 @@ import smtplib
 import json
 import asyncio
 import requests
+import re
 from email.mime.text import MIMEText
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
@@ -125,6 +126,41 @@ class ActionGetUniversityInfo(Action):
         "scholarships": "https://www.univpm.it/Entra/Tasse_e_contributi", # Often related
     }
 
+    def clean_content(self, text: str) -> str:
+        '''
+        Clean the extracted content using regex to remove unwanted elements.
+        :summary: Pulisce il contenuto estratto usando regex per rimuovere elementi indesiderati.
+        
+        :param self: Instance of the ActionGetUniversityInfo class
+        :param text: Description of the text to be cleaned
+        :type text: str
+        :return: Descrizione
+        :rtype: str
+        '''
+
+        # Rimuove immagini Markdown: ![alt](url)
+        text = re.sub(r'!\[.*?\]\(.*?\)', '', text)
+        
+        # Rimuove link Markdown mantenendo il testo: [testo](url) -> testo
+        # Nota: Utile per risparmiare token, ma si perde il link.
+        text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)
+        
+        # Rimuove tag HTML residui
+        text = re.sub(r'<[^>]+>', '', text)
+        
+        # Rimuove righe con troppi caratteri speciali (separatori, ecc.), ma preserva tabelle
+        # Le tabelle markdown usano | e -
+        # Rimuoviamo linee che sono solo === o --- o *** se non sembrano tabelle
+        text = re.sub(r'^\s*[-=_*]{3,}\s*$', '', text, flags=re.MULTILINE)
+
+        # Collassa newline multipli
+        text = re.sub(r'\n\s*\n', '\n\n', text)
+        
+        # Rimuove spazi multipli
+        text = re.sub(r'[ \t]+', ' ', text)
+        
+        return text.strip()
+
     async def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
@@ -159,9 +195,12 @@ class ActionGetUniversityInfo(Action):
                     msg = "Non sono riuscito a leggere il contenuto della pagina." if language == "it" else "I couldn't read the page content."
                     dispatcher.utter_message(text=msg)
                     return []
+                
+                # Pulizia del testo con Regex
+                extracted_text = self.clean_content(extracted_text)
                     
                 # Limitiamo la lunghezza del testo per il prompt
-                extracted_text = extracted_text[:6000] 
+                extracted_text = extracted_text[:8000] 
 
         except Exception as e:
             print(f"ERRORE CRAWL4AI: {e}")
