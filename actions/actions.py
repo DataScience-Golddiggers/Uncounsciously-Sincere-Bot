@@ -331,30 +331,32 @@ class ValidateEnrollmentForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         """Validate `degree_field` value."""
-        # Valid fields from DB Enum
+        # Valid fields from DB Enum (Note: 'Enginering' has a typo in DB)
         valid_fields = ['Enginering', 'Economics', 'Medicine', 'Science', 'Agriculture']
         
-        # Case insensitive check
-        if slot_value.capitalize() in valid_fields: # DB has 'Enginering' typo, keep it or fix it? User provided SQL has 'Enginering'.
-             # Mappa input utente (es. 'Ingegneria') ai valori DB se necessario, ma per ora assumiamo input diretto o entity mapping
-             # Se l'entity extraction funziona bene, dovrebbe darci il valore corretto se mappato.
-             # Ma controlliamo se l'utente ha scritto "Ingegneria" e mappiamolo a "Enginering"
-             mapping = {
-                 "Ingegneria": "Enginering",
-                 "Engineering": "Enginering",
-                 "Economia": "Economics",
-                 "Economics": "Economics",
-                 "Medicina": "Medicine",
-                 "Medicine": "Medicine",
-                 "Scienze": "Science",
-                 "Science": "Science",
-                 "Agraria": "Agriculture",
-                 "Agriculture": "Agriculture"
-             }
-             mapped_value = mapping.get(slot_value.capitalize(), slot_value)
-             
-             if mapped_value in valid_fields:
-                 return {"degree_field": mapped_value}
+        # Mapping for user input to DB values
+        mapping = {
+             "Ingegneria": "Enginering",
+             "Engineering": "Enginering",
+             "Economia": "Economics",
+             "Economics": "Economics",
+             "Medicina": "Medicine",
+             "Medicine": "Medicine",
+             "Scienze": "Science",
+             "Science": "Science",
+             "Agraria": "Agriculture",
+             "Agriculture": "Agriculture"
+        }
+
+        # Normalize input
+        normalized_value = slot_value.capitalize()
+        
+        # Apply mapping if exists, otherwise keep normalized value
+        mapped_value = mapping.get(normalized_value, normalized_value)
+        
+        # Check if mapped value is valid
+        if mapped_value in valid_fields:
+             return {"degree_field": mapped_value}
         
         # Se non valido
         lang = tracker.get_slot("language")
@@ -479,8 +481,15 @@ class ActionSendEnrollmentEmail(Action):
         # Recupero dati dagli slot
         student_name = tracker.get_slot("student_name")
         user_email = tracker.get_slot("email")
-        course_name = tracker.get_slot("course_name")
+        # course_name e degree_type potrebbero non essere più usati se usiamo il nuovo flusso DB
+        # Ma manteniamoli per retrocompatibilità o se servono
+        course_name = tracker.get_slot("course_name") 
         degree_type = tracker.get_slot("degree_type")
+        
+        # Nuovi slot dal DB flow
+        degree_field = tracker.get_slot("degree_field")
+        degree_id = tracker.get_slot("degree_id")
+        selected_courses = tracker.get_slot("selected_courses")
         
         if not user_email:
             dispatcher.utter_message(text="Non ho trovato la mail per inviare la conferma.")
@@ -497,13 +506,17 @@ class ActionSendEnrollmentEmail(Action):
             dispatcher.utter_message(text="Non posso inviare la mail perché mancano le configurazioni del server.")
             return []
 
+        # Formatta la lista dei corsi scelti
+        courses_str = ", ".join(selected_courses) if selected_courses else "Nessun corso selezionato"
+
         # Costruzione del corpo della mail
-        subject = f"Conferma interesse: {course_name}"
+        subject = f"Conferma interesse: {degree_id} - {degree_field}"
         body = (
             f"Ciao {student_name},\n\n"
-            f"Abbiamo registrato con successo il tuo interesse per il seguente corso di studi:\n\n"
-            f"- Corso: {course_name}\n"
-            f"- Tipo di Laurea: {degree_type}\n\n"
+            f"Abbiamo registrato con successo il tuo interesse per il seguente percorso di studi:\n\n"
+            f"- Area di Studio: {degree_field}\n"
+            f"- Corso di Laurea (ID): {degree_id}\n"
+            f"- Corsi Opzionali Selezionati: {courses_str}\n\n"
             f"Un orientatore ti contatterà presto a questo indirizzo email ({user_email}) per fornirti maggiori dettagli.\n\n"
             f"Cordiali saluti,\n"
             f"Il tuo Assistente Virtuale UnivPM"
