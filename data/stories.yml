@@ -17,30 +17,37 @@ stories:
     - student_name: "Mario Rossi"
   - action: enrollment_form
   - slot_was_set:
-    - requested_slot: degree_type
+    - requested_slot: degree_field
   - intent: inform
     entities:
-    - degree_type: "Triennale"
+    - degree_field: "Engineering"
   - slot_was_set:
-    - degree_type: "Triennale"
+    - degree_field: "Engineering"
   - action: enrollment_form
+  - slot_was_set:
+    - requested_slot: degree_id
+  - intent: inform
+    entities:
+    - degree_id: "1"
+  - slot_was_set:
+    - degree_id: "1"
+  - action: enrollment_form
+  - action: action_ask_selected_courses
   - slot_was_set:
     - requested_slot: selected_courses
   - intent: inform
-    entities:
-    - course_id: "101"
-    - course_id: "102"
   - slot_was_set:
-    - selected_courses: ["101", "102"]
+    - selected_courses: "9"
   - action: enrollment_form
   - slot_was_set:
-    - requested_slot: course_name
+    - requested_slot: email
   - intent: inform
     entities:
-    - course_name: "Informatica"
+    - email: "mario.rossi@example.com"
   - slot_was_set:
-    - course_name: "Informatica"
+    - email: "mario.rossi@example.com"
   - active_loop: null
+  - action: action_send_enrollment_email
   - action: utter_submit
   - intent: goodbye
   - action: utter_goodbye

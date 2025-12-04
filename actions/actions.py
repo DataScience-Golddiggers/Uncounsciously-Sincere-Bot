@@ -319,6 +319,86 @@ class ActionAskDegreeId(Action):
         return []
 
 
+class ActionAskSelectedCourses(Action):
+    """Mostra i corsi obbligatori e fa scegliere un corso opzionale."""
+    
+    def name(self) -> Text:
+        return "action_ask_selected_courses"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        degree_id = tracker.get_slot("degree_id")
+        lang = tracker.get_slot("language")
+        
+        if not degree_id:
+            msg = "Please select a degree first." if lang != "it" else "Per favore seleziona prima un corso di laurea."
+            dispatcher.utter_message(text=msg)
+            return []
+
+        try:
+            conn = psycopg2.connect(
+                host=os.getenv("POSTGRES_HOST", "db"),
+                database=os.getenv("POSTGRES_DB", "mydb"),
+                user=os.getenv("POSTGRES_USER", "postgres"),
+                password=os.getenv("POSTGRES_PASSWORD", "supersecret")
+            )
+            cur = conn.cursor()
+            
+            # Query per ottenere il nome della laurea
+            cur.execute("SELECT name FROM degree WHERE id = %s", (degree_id,))
+            degree_result = cur.fetchone()
+            degree_name = degree_result[0] if degree_result else degree_id
+            
+            # Query per ottenere i corsi obbligatori
+            cur.execute("SELECT id, name FROM course WHERE degree_id = %s AND is_mandatory = TRUE", (degree_id,))
+            mandatory_courses = cur.fetchall()
+            
+            # Query per ottenere i corsi opzionali
+            cur.execute("SELECT id, name FROM course WHERE degree_id = %s AND is_mandatory = FALSE", (degree_id,))
+            optional_courses = cur.fetchall()
+            
+            cur.close()
+            conn.close()
+
+            # Costruisci il messaggio
+            if lang == "it":
+                message = f"📚 **{degree_name}**\n\n"
+                message += "📋 **Corsi Obbligatori** (inclusi automaticamente):\n"
+            else:
+                message = f"📚 **{degree_name}**\n\n"
+                message += "📋 **Mandatory Courses** (automatically included):\n"
+
+            for course in mandatory_courses:
+                message += f"  ✅ {course[1]}\n"
+
+            if optional_courses:
+                if lang == "it":
+                    message += "\n🎯 **Corsi Opzionali** - Scegli uno scrivendo il numero:\n"
+                else:
+                    message += "\n🎯 **Optional Courses** - Choose one by typing the number:\n"
+                
+                for course in optional_courses:
+                    message += f"  [{course[0]}] {course[1]}\n"
+            else:
+                if lang == "it":
+                    message += "\n(Nessun corso opzionale disponibile)"
+                else:
+                    message += "\n(No optional courses available)"
+
+            dispatcher.utter_message(text=message)
+
+        except Exception as e:
+            print(f"DB ERROR: {e}")
+            msg = "I cannot access the database right now." if lang != "it" else "Non riesco ad accedere al database al momento."
+            dispatcher.utter_message(text=msg)
+
+        return []
+
+        return []
+
+
 class ValidateEnrollmentForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_enrollment_form"
@@ -439,33 +519,45 @@ class ValidateEnrollmentForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate `selected_courses` value."""
+        """Validate `selected_courses` value - deve essere un ID di corso opzionale valido."""
         
-        # Se slot_value è una lista, bene. Se è un singolo valore, lo rendiamo lista.
-        if isinstance(slot_value, str):
-            selected_ids = [slot_value]
-        else:
-            selected_ids = slot_value
-
-        # Lista dei corsi validi (hardcoded come da richiesta)
-        # 10x: Informatica, 20x: Economia, 30x: Default
-        valid_courses = [
-            "101", "102", "103", "104", "105",
-            "201", "202", "203", "204", "205",
-            "301", "302", "303", "304", "305"
-        ]
+        degree_id = tracker.get_slot("degree_id")
+        lang = tracker.get_slot("language")
         
-        # Filtra solo gli ID validi
-        valid_selection = [cid for cid in selected_ids if cid in valid_courses]
-        
-        # Rimuovi duplicati
-        valid_selection = list(set(valid_selection))
-
-        if len(valid_selection) < 2:
-            dispatcher.utter_message(text="Please select at least 2 valid courses from the list (e.g., 101 and 102).")
+        if not degree_id:
             return {"selected_courses": None}
         
-        return {"selected_courses": valid_selection}
+        try:
+            conn = psycopg2.connect(
+                host=os.getenv("POSTGRES_HOST", "db"),
+                database=os.getenv("POSTGRES_DB", "mydb"),
+                user=os.getenv("POSTGRES_USER", "postgres"),
+                password=os.getenv("POSTGRES_PASSWORD", "supersecret")
+            )
+            cur = conn.cursor()
+            
+            # Verifica che l'ID sia un corso opzionale valido per questa laurea
+            cur.execute(
+                "SELECT name FROM course WHERE id = %s AND degree_id = %s AND is_mandatory = FALSE",
+                (slot_value, degree_id)
+            )
+            result = cur.fetchone()
+            
+            cur.close()
+            conn.close()
+
+            if result:
+                return {"selected_courses": slot_value}
+            else:
+                msg = f"'{slot_value}' is not a valid optional course. Please choose from the list above."
+                if lang == "it":
+                    msg = f"'{slot_value}' non è un corso opzionale valido. Scegli dalla lista sopra."
+                dispatcher.utter_message(text=msg)
+                return {"selected_courses": None}
+
+        except Exception as e:
+            print(f"DB ERROR in validate_selected_courses: {e}")
+            return {"selected_courses": None}
 
 
 class ActionSendEnrollmentEmail(Action):
@@ -481,21 +573,17 @@ class ActionSendEnrollmentEmail(Action):
         # Recupero dati dagli slot
         student_name = tracker.get_slot("student_name")
         user_email = tracker.get_slot("email")
-        # course_name e degree_type potrebbero non essere più usati se usiamo il nuovo flusso DB
-        # Ma manteniamoli per retrocompatibilità o se servono
-        course_name = tracker.get_slot("course_name") 
-        degree_type = tracker.get_slot("degree_type")
-        
-        # Nuovi slot dal DB flow
         degree_field = tracker.get_slot("degree_field")
         degree_id = tracker.get_slot("degree_id")
-        selected_courses = tracker.get_slot("selected_courses")
+        selected_course_id = tracker.get_slot("selected_courses")
+        lang = tracker.get_slot("language")
         
         if not user_email:
-            dispatcher.utter_message(text="Non ho trovato la mail per inviare la conferma.")
+            msg = "I couldn't find your email to send the confirmation." if lang != "it" else "Non ho trovato la mail per inviare la conferma."
+            dispatcher.utter_message(text=msg)
             return []
 
-        # Recupera variabili ambiente (stessa logica di ActionSendEmail)
+        # Recupera variabili ambiente
         smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
         smtp_port = int(os.getenv("SMTP_PORT", 465))
         sender_email = os.getenv("SMTP_EMAIL")
@@ -503,20 +591,75 @@ class ActionSendEnrollmentEmail(Action):
 
         if not sender_email or not sender_password:
             print("ERRORE CONFIGURAZIONE: Mancano le credenziali nel file .env")
-            dispatcher.utter_message(text="Non posso inviare la mail perché mancano le configurazioni del server.")
+            msg = "I can't send the email because server configurations are missing." if lang != "it" else "Non posso inviare la mail perché mancano le configurazioni del server."
+            dispatcher.utter_message(text=msg)
             return []
 
-        # Formatta la lista dei corsi scelti
-        courses_str = ", ".join(selected_courses) if selected_courses else "Nessun corso selezionato"
+        # Recupera dati completi dal database
+        degree_name = degree_id
+        mandatory_courses_list = []
+        optional_course_name = selected_course_id
+        
+        try:
+            conn = psycopg2.connect(
+                host=os.getenv("POSTGRES_HOST", "db"),
+                database=os.getenv("POSTGRES_DB", "mydb"),
+                user=os.getenv("POSTGRES_USER", "postgres"),
+                password=os.getenv("POSTGRES_PASSWORD", "supersecret")
+            )
+            cur = conn.cursor()
+            
+            # Recupera il nome della laurea
+            cur.execute("SELECT name, type FROM degree WHERE id = %s", (degree_id,))
+            degree_result = cur.fetchone()
+            if degree_result:
+                degree_name = degree_result[0]
+                degree_type = degree_result[1]
+            else:
+                degree_type = "N/A"
+            
+            # Recupera i corsi obbligatori
+            cur.execute("SELECT name FROM course WHERE degree_id = %s AND is_mandatory = TRUE", (degree_id,))
+            mandatory_courses = cur.fetchall()
+            mandatory_courses_list = [c[0] for c in mandatory_courses]
+            
+            # Recupera il nome del corso opzionale scelto
+            if selected_course_id:
+                cur.execute("SELECT name FROM course WHERE id = %s", (selected_course_id,))
+                optional_result = cur.fetchone()
+                if optional_result:
+                    optional_course_name = optional_result[0]
+            
+            cur.close()
+            conn.close()
+
+        except Exception as e:
+            print(f"DB ERROR in ActionSendEnrollmentEmail: {e}")
+            # Continua comunque con i dati che abbiamo
+
+        # Formatta la lista dei corsi obbligatori
+        mandatory_str = "\n".join([f"  - {c}" for c in mandatory_courses_list]) if mandatory_courses_list else "  (Nessun corso obbligatorio trovato)"
 
         # Costruzione del corpo della mail
-        subject = f"Conferma interesse: {degree_id} - {degree_field}"
+        subject = f"Conferma Iscrizione: {degree_name}"
         body = (
             f"Ciao {student_name},\n\n"
             f"Abbiamo registrato con successo il tuo interesse per il seguente percorso di studi:\n\n"
-            f"- Area di Studio: {degree_field}\n"
-            f"- Corso di Laurea (ID): {degree_id}\n"
-            f"- Corsi Opzionali Selezionati: {courses_str}\n\n"
+            f"═══════════════════════════════════════\n"
+            f"📌 RIEPILOGO ISCRIZIONE\n"
+            f"═══════════════════════════════════════\n\n"
+            f"🎓 Area di Studio: {degree_field}\n"
+            f"📚 Corso di Laurea: {degree_name} ({degree_id})\n"
+            f"📋 Tipo: {degree_type}\n\n"
+            f"───────────────────────────────────────\n"
+            f"CORSI OBBLIGATORI:\n"
+            f"───────────────────────────────────────\n"
+            f"{mandatory_str}\n\n"
+            f"───────────────────────────────────────\n"
+            f"CORSO OPZIONALE SCELTO:\n"
+            f"───────────────────────────────────────\n"
+            f"  ⭐ {optional_course_name}\n\n"
+            f"═══════════════════════════════════════\n\n"
             f"Un orientatore ti contatterà presto a questo indirizzo email ({user_email}) per fornirti maggiori dettagli.\n\n"
             f"Cordiali saluti,\n"
             f"Il tuo Assistente Virtuale UnivPM"
@@ -542,11 +685,15 @@ class ActionSendEnrollmentEmail(Action):
             print(f"DEBUG: Mail di enrollment inviata a {user_email}")
             
             # Conferma all'utente
-            dispatcher.utter_message(text=f"Perfetto {student_name}! Ho inviato una mail di riepilogo a {user_email} con i dettagli del corso '{course_name}'.")
+            if lang == "it":
+                dispatcher.utter_message(text=f"Perfetto {student_name}! 🎉 Ho inviato una mail di riepilogo a {user_email} con tutti i dettagli del corso '{degree_name}'.")
+            else:
+                dispatcher.utter_message(text=f"Perfect {student_name}! 🎉 I've sent a summary email to {user_email} with all the details about '{degree_name}'.")
             
         except Exception as e:
             print(f"ERRORE SMTP ENROLLMENT: {e}")
-            dispatcher.utter_message(text="Ho salvato i tuoi dati, ma c'è stato un errore tecnico nell'invio dell'email di conferma.")
+            msg = "I saved your data, but there was a technical error sending the confirmation email." if lang != "it" else "Ho salvato i tuoi dati, ma c'è stato un errore tecnico nell'invio dell'email di conferma."
+            dispatcher.utter_message(text=msg)
 
         return []
             
