@@ -236,7 +236,7 @@ class ActionGetUniversityInfo(Action):
             ollama_response = requests.post(
                 ollama_url,
                 json={
-                    "model": "qwen2.5:0.5b", 
+                    "model": "qwen3:0.6b", #"qwen2.5:0.5b", 
                     "prompt": prompt,
                     "stream": False
                 },

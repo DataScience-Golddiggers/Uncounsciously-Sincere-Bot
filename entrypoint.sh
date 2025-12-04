@@ -6,7 +6,7 @@ model_exists() {
 }
 
 # Modello da scaricare
-MODEL_NAME="qwen2.5:0.5b"
+MODEL_NAME="qwen3:0.6b" #"qwen2.5:0.5b"
 
 # Avvia il server Ollama in background per permettere l'uso di `ollama list`
 ollama serve &
