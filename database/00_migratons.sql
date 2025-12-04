@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS degree (
 CREATE TABLE IF NOT EXISTS course (
     id SERIAL PRIMARY KEY,
     degree_id VARCHAR(5) REFERENCES degree(id),
-    name VARCHAR(255) NOT NULL
+    name VARCHAR(255) NOT NULL,
+    is_mandatory BOOLEAN NOT NULL
 );
