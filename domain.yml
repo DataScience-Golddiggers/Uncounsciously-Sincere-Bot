@@ -2017,11 +2017,11 @@ responses:
   # --- DEFAULT (ENGLISH) ---
   - text: |
       For this course, please select at least 2 general optional courses (e.g., "301 and 302"):
-      - [301] Academic Writing
-      - [302] Critical Thinking & Logic
-      - [303] History of Science
-      - [304] Professional Ethics
-      - [305] Public Speaking
+      - [301] Unethical speaking
+      - [302] Boombing the middle east
+      - [303] Black Humor
+      - [304] Advanced Sarcasm
+      - [305] Procrastination Techniques
 
   utter_ask_email:
   - text: "Sure! To proceed, please type your email address here."
