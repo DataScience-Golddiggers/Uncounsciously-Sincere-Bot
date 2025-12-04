@@ -21,8 +21,23 @@ entities:
   - student_name
   - email
   - topic # Nuova entity per l'argomento della ricerca
+  - course_id
+  - degree_field
+  - degree_id
 
 slots:
+  degree_field:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: degree_field
+
+  degree_id:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: degree_id
+
   language:
     type: categorical
     values:
@@ -59,6 +74,19 @@ slots:
       - type: from_entity
         entity: course_name
 
+  selected_courses:
+    type: list
+    mappings:
+      - type: from_entity
+        entity: course_id
+        conditions:
+          - active_loop: enrollment_form
+            requested_slot: selected_courses
+      - type: from_entity
+        entity: course_id
+        conditions:
+          - active_loop: null
+
   requested_slot:
     type: text
     influence_conversation: false
@@ -70,6 +98,10 @@ slots:
     mappings:
       - type: from_entity
         entity: email
+      - type: from_text
+        conditions:
+          - active_loop: enrollment_form
+            requested_slot: email
   
   topic: # Nuovo slot per l'argomento della ricerca web
     type: text
@@ -86,8 +118,9 @@ forms:
   enrollment_form:
     required_slots:
       - student_name
-      - degree_type
-      - course_name
+      - degree_field
+      - degree_id
+      - selected_courses
       - email
   
   # Aggiunto il form per la newsletter
@@ -98,9 +131,27 @@ forms:
 actions:
   - action_send_email
   - action_get_university_info # Nuova custom action per la ricerca web
+  - validate_enrollment_form
   - action_send_enrollment_email
+  - action_ask_degree_id
 
 responses:
+  utter_ask_degree_field:
+  - text: "Please select a field of study: Engineering, Economics, Medicine, Science, or Agriculture."
+  - condition:
+      - type: slot
+        name: language
+        value: "it"
+    text: "Per favore seleziona un'area di studio: Engineering, Economics, Medicine, Science, o Agriculture."
+
+  utter_ask_degree_id:
+  - text: "Please enter the Degree ID you are interested in."
+  - condition:
+      - type: slot
+        name: language
+        value: "it"
+    text: "Per favore inserisci l'ID del Corso di Laurea a cui sei interessato."
+
   utter_greet:
   - text: "Hello! I am the University Admission Bot. How can I help you today?"
   - text: "Welcome! I'm your AI assistant for university admissions. What can I do for you?"
@@ -1892,6 +1943,85 @@ responses:
           name: language
           value: "it"
     text: "Per le lauree triennali serve il diploma di maturità. Per le magistrali serve una laurea di primo livello."
+
+  utter_ask_selected_courses:
+  # --- INFORMATICA / COMPUTER SCIENCE ---
+  - condition:
+      - type: slot
+        name: course_name
+        value: "Informatica"
+      - type: slot
+        name: language
+        value: "it"
+    text: |
+      Ottima scelta! Per Informatica, seleziona almeno 2 corsi opzionali (es. "101 e 102"):
+      - [101] Programmazione Python Avanzata
+      - [102] Fondamenti di Machine Learning
+      - [103] Visualizzazione Dati con D3.js
+      - [104] Cloud Computing con AWS
+      - [105] Basi di Cybersecurity
+
+  - condition:
+      - type: slot
+        name: course_name
+        value: "Computer Science"
+    text: |
+      Great choice! For Computer Science, please select at least 2 optional courses (e.g., "101 and 102"):
+      - [101] Advanced Python Programming
+      - [102] Machine Learning Fundamentals
+      - [103] Data Visualization with D3.js
+      - [104] Cloud Computing with AWS
+      - [105] Cybersecurity Basics
+
+  # --- ECONOMIA / ECONOMICS ---
+  - condition:
+      - type: slot
+        name: course_name
+        value: "Economia"
+      - type: slot
+        name: language
+        value: "it"
+    text: |
+      Bene! Per Economia, seleziona almeno 2 corsi opzionali (es. "201 e 202"):
+      - [201] Microeconomia Avanzata
+      - [202] Macroeconomia e Politica Monetaria
+      - [203] Contabilità Finanziaria
+      - [204] Strategia Aziendale
+      - [205] Principi di Marketing Digitale
+
+  - condition:
+      - type: slot
+        name: course_name
+        value: "Economics"
+    text: |
+      Good! For Economics, please select at least 2 optional courses (e.g., "201 and 202"):
+      - [201] Advanced Microeconomics
+      - [202] Macroeconomics & Monetary Policy
+      - [203] Financial Accounting
+      - [204] Business Strategy
+      - [205] Digital Marketing Principles
+
+  # --- DEFAULT (ITALIANO) ---
+  - condition:
+      - type: slot
+        name: language
+        value: "it"
+    text: |
+      Per questo corso, seleziona almeno 2 corsi opzionali generali (es. "301 e 302"):
+      - [301] Scrittura Accademica
+      - [302] Pensiero Critico e Logica
+      - [303] Storia della Scienza
+      - [304] Etica Professionale
+      - [305] Public Speaking
+
+  # --- DEFAULT (ENGLISH) ---
+  - text: |
+      For this course, please select at least 2 general optional courses (e.g., "301 and 302"):
+      - [301] Unethical speaking
+      - [302] Boombing the middle east
+      - [303] Black Humor
+      - [304] Advanced Sarcasm
+      - [305] Procrastination Techniques
 
   utter_ask_email:
   - text: "Sure! To proceed, please type your email address here."

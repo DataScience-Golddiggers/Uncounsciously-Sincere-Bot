@@ -10,10 +10,12 @@ import json
 import asyncio
 import requests
 import re
+import psycopg2
 from email.mime.text import MIMEText
 from typing import Any, Text, Dict, List
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.types import DomainDict
 from crawl4ai import AsyncWebCrawler
 
 class ActionSendEmail(Action):
@@ -259,6 +261,213 @@ class ActionGetUniversityInfo(Action):
         return []
 
 
+class ActionAskDegreeId(Action):
+    def name(self) -> Text:
+        return "action_ask_degree_id"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        degree_field = tracker.get_slot("degree_field")
+        lang = tracker.get_slot("language")
+        
+        if not degree_field:
+            msg = "Please select a degree field first." if lang != "it" else "Per favore seleziona prima un'area di studio."
+            dispatcher.utter_message(text=msg)
+            return []
+
+        try:
+            conn = psycopg2.connect(
+                host=os.getenv("POSTGRES_HOST", "db"),
+                database=os.getenv("POSTGRES_DB", "mydb"),
+                user=os.getenv("POSTGRES_USER", "postgres"),
+                password=os.getenv("POSTGRES_PASSWORD", "supersecret")
+            )
+            cur = conn.cursor()
+            
+            # Query per ottenere i corsi del field selezionato
+            query = "SELECT id, name, type FROM degree WHERE category = %s"
+            cur.execute(query, (degree_field,))
+            degrees = cur.fetchall()
+            
+            cur.close()
+            conn.close()
+
+            if not degrees:
+                msg = f"No degrees found for field '{degree_field}'." if lang != "it" else f"Nessun corso di laurea trovato per l'area '{degree_field}'."
+                dispatcher.utter_message(text=msg)
+                return []
+
+            # Costruisci il messaggio con la lista
+            if lang == "it":
+                message = f"Ecco i corsi di laurea disponibili per {degree_field}. Scrivi l'ID per sceglierne uno:\n"
+            else:
+                message = f"Here are the available degrees for {degree_field}. Type the ID to choose one:\n"
+
+            for d in degrees:
+                # d = (id, name, type)
+                message += f"- [{d[0]}] {d[1]} ({d[2]})\n"
+
+            dispatcher.utter_message(text=message)
+
+        except Exception as e:
+            print(f"DB ERROR: {e}")
+            msg = "I cannot access the database right now." if lang != "it" else "Non riesco ad accedere al database al momento."
+            dispatcher.utter_message(text=msg)
+
+        return []
+
+
+class ValidateEnrollmentForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_enrollment_form"
+
+    def validate_degree_field(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `degree_field` value."""
+        # Valid fields from DB Enum (Note: 'Enginering' has a typo in DB)
+        valid_fields = ['Enginering', 'Economics', 'Medicine', 'Science', 'Agriculture']
+        
+        # Mapping for user input to DB values
+        mapping = {
+             "Ingegneria": "Enginering",
+             "Engineering": "Enginering",
+             "Economia": "Economics",
+             "Economics": "Economics",
+             "Medicina": "Medicine",
+             "Medicine": "Medicine",
+             "Scienze": "Science",
+             "Science": "Science",
+             "Agraria": "Agriculture",
+             "Agriculture": "Agriculture"
+        }
+
+        # Normalize input
+        normalized_value = slot_value.capitalize()
+        
+        # Apply mapping if exists, otherwise keep normalized value
+        mapped_value = mapping.get(normalized_value, normalized_value)
+        
+        # Check if mapped value is valid
+        if mapped_value in valid_fields:
+             return {"degree_field": mapped_value}
+        
+        # Se non valido
+        lang = tracker.get_slot("language")
+        msg = f"'{slot_value}' is not a valid field. Please choose from: {', '.join(valid_fields)}"
+        if lang == "it":
+            msg = f"'{slot_value}' non è un'area valida. Scegli tra: {', '.join(valid_fields)}"
+            
+        dispatcher.utter_message(text=msg)
+        return {"degree_field": None}
+
+    def validate_degree_id(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `degree_id` value against DB."""
+        degree_field = tracker.get_slot("degree_field")
+        if not degree_field:
+            return {"degree_id": None} # Should not happen if flow is correct
+
+        try:
+            conn = psycopg2.connect(
+                host=os.getenv("POSTGRES_HOST", "db"),
+                database=os.getenv("POSTGRES_DB", "mydb"),
+                user=os.getenv("POSTGRES_USER", "postgres"),
+                password=os.getenv("POSTGRES_PASSWORD", "supersecret")
+            )
+            cur = conn.cursor()
+            
+            # Check if ID exists and belongs to the selected category
+            query = "SELECT name FROM degree WHERE id = %s AND category = %s"
+            cur.execute(query, (slot_value, degree_field))
+            result = cur.fetchone()
+            
+            cur.close()
+            conn.close()
+
+            if result:
+                # Valid ID
+                return {"degree_id": slot_value}
+            else:
+                lang = tracker.get_slot("language")
+                msg = f"ID '{slot_value}' not found for field '{degree_field}'. Please try again."
+                if lang == "it":
+                    msg = f"ID '{slot_value}' non trovato per l'area '{degree_field}'. Riprova."
+                dispatcher.utter_message(text=msg)
+                return {"degree_id": None}
+
+        except Exception as e:
+            print(f"DB ERROR: {e}")
+            return {"degree_id": None}
+
+    def validate_email(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `email` value."""
+        # Simple regex for email validation
+        email_regex = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+        
+        if re.match(email_regex, slot_value):
+            return {"email": slot_value}
+        else:
+            lang = tracker.get_slot("language")
+            msg = "That doesn't look like a valid email. Please try again."
+            if lang == "it":
+                msg = "Non sembra un'email valida. Riprova per favore."
+            dispatcher.utter_message(text=msg)
+            return {"email": None}
+
+    def validate_selected_courses(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `selected_courses` value."""
+        
+        # Se slot_value è una lista, bene. Se è un singolo valore, lo rendiamo lista.
+        if isinstance(slot_value, str):
+            selected_ids = [slot_value]
+        else:
+            selected_ids = slot_value
+
+        # Lista dei corsi validi (hardcoded come da richiesta)
+        # 10x: Informatica, 20x: Economia, 30x: Default
+        valid_courses = [
+            "101", "102", "103", "104", "105",
+            "201", "202", "203", "204", "205",
+            "301", "302", "303", "304", "305"
+        ]
+        
+        # Filtra solo gli ID validi
+        valid_selection = [cid for cid in selected_ids if cid in valid_courses]
+        
+        # Rimuovi duplicati
+        valid_selection = list(set(valid_selection))
+
+        if len(valid_selection) < 2:
+            dispatcher.utter_message(text="Please select at least 2 valid courses from the list (e.g., 101 and 102).")
+            return {"selected_courses": None}
+        
+        return {"selected_courses": valid_selection}
+
+
 class ActionSendEnrollmentEmail(Action):
     '''Invia una mail di conferma registrazione corso con i dettagli dell'utente.'''
 
@@ -272,8 +481,15 @@ class ActionSendEnrollmentEmail(Action):
         # Recupero dati dagli slot
         student_name = tracker.get_slot("student_name")
         user_email = tracker.get_slot("email")
-        course_name = tracker.get_slot("course_name")
+        # course_name e degree_type potrebbero non essere più usati se usiamo il nuovo flusso DB
+        # Ma manteniamoli per retrocompatibilità o se servono
+        course_name = tracker.get_slot("course_name") 
         degree_type = tracker.get_slot("degree_type")
+        
+        # Nuovi slot dal DB flow
+        degree_field = tracker.get_slot("degree_field")
+        degree_id = tracker.get_slot("degree_id")
+        selected_courses = tracker.get_slot("selected_courses")
         
         if not user_email:
             dispatcher.utter_message(text="Non ho trovato la mail per inviare la conferma.")
@@ -290,13 +506,17 @@ class ActionSendEnrollmentEmail(Action):
             dispatcher.utter_message(text="Non posso inviare la mail perché mancano le configurazioni del server.")
             return []
 
+        # Formatta la lista dei corsi scelti
+        courses_str = ", ".join(selected_courses) if selected_courses else "Nessun corso selezionato"
+
         # Costruzione del corpo della mail
-        subject = f"Conferma interesse: {course_name}"
+        subject = f"Conferma interesse: {degree_id} - {degree_field}"
         body = (
             f"Ciao {student_name},\n\n"
-            f"Abbiamo registrato con successo il tuo interesse per il seguente corso di studi:\n\n"
-            f"- Corso: {course_name}\n"
-            f"- Tipo di Laurea: {degree_type}\n\n"
+            f"Abbiamo registrato con successo il tuo interesse per il seguente percorso di studi:\n\n"
+            f"- Area di Studio: {degree_field}\n"
+            f"- Corso di Laurea (ID): {degree_id}\n"
+            f"- Corsi Opzionali Selezionati: {courses_str}\n\n"
             f"Un orientatore ti contatterà presto a questo indirizzo email ({user_email}) per fornirti maggiori dettagli.\n\n"
             f"Cordiali saluti,\n"
             f"Il tuo Assistente Virtuale UnivPM"
