@@ -8,9 +8,10 @@
 ![Keras](https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=Keras&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![NGROK](https://img.shields.io/badge/ngrok-140648?style=for-the-badge&logo=Ngrok&logoColor=white)
 ![Ollama](https://img.shields.io/badge/Ollama-FFFFFF?style=for-the-badge&logo=ollama&logoColor=black)
-![Qwen](https://img.shields.io/badge/Qwen-2.5-blue?style=for-the-badge)
+![Qwen](https://img.shields.io/badge/Qwen-3-blue?style=for-the-badge)
 ![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)
 ![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)
 ![macOS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white)
@@ -21,7 +22,8 @@ Il progetto è configurato per essere eseguito su **Docker** ed è fortemente ot
 
 L'architettura è **Ibrida (NLU + LLM)** e include:
 *   **Rasa Core/NLU**: Gestione del dialogo e intenti strutturati.
-*   **Ollama + Qwen 2.5**: Integrazione con LLM locale per capacità di RAG (Retrieval Augmented Generation), ricerca web e risposte generative avanzate.
+*   **Ollama + Qwen 3 (0.6B)**: Integrazione con LLM locale per capacità di RAG (Retrieval Augmented Generation), ricerca web e risposte generative avanzate.
+*   **PostgreSQL**: Database relazionale per la persistenza dei dati.
 *   **Rasa Action**: Container per le custom actions (Emailing, Web Search).
 *   **Ngrok**: Tunneling automatico per esporre il bot a Telegram.
 
@@ -29,14 +31,14 @@ L'architettura è **Ibrida (NLU + LLM)** e include:
 
 ## 💻 Requisiti Hardware
 
-L'utilizzo di **Qwen 2.5** tramite Ollama richiede risorse hardware adeguate per garantire tempi di risposta accettabili.
+L'utilizzo di **Qwen 3 (0.6B)** tramite Ollama richiede risorse hardware molto contenute, rendendo il bot eseguibile anche su hardware meno potente.
 
 | Componente | Requisiti Minimi | Requisiti Consigliati |
 | :--- | :--- | :--- |
-| **CPU** | 4 Core (Intel/AMD) | **Apple Silicon (M-Series)** >8 Core |
-| **RAM** | 8 GB (potrebbe rallentare) | **16 GB** o superiore |
-| **GPU** | Integrata | **NVIDIA RTX** (6GB+ VRAM) o Apple Neural Engine |
-| **Spazio Disco** | 15 GB (Docker + Modelli LLM) | 30 GB SSD |
+| **CPU** | 4 Core | **Apple Silicon (M-Series)** o >8 Core (Intel/AMD) |
+| **RAM** | 8 GB | **16 GB** o superiore |
+| **GPU** | Integrata | Qualsiasi GPU moderna |
+| **Spazio Disco** | 20 GB (Docker + Modelli LLM) | 128 GB SSD |
 
 > **Nota per utenti Mac:** Grazie all'ottimizzazione `metal` di Ollama, i chip Apple Silicon offrono prestazioni eccellenti. È raccomandato utilizzare il container `rasa_ollama` per una configurazione più semplice e integrata.
 
@@ -62,14 +64,14 @@ Assicurati di avere installato:
 
 ## ⚙️ Configurazione Iniziale
 
-### 1. Configura Ollama e scarica il modello Qwen 2.5
+### 1. Configura Ollama e scarica il modello Qwen 3 (0.6B)
 Con la configurazione Docker fornita, Ollama verrà eseguito in un proprio container. Non è necessario installare o avviare Ollama manualmente sul tuo sistema operativo.
 
-Dopo aver avviato i servizi Docker (vedi sezione "Avvio del Bot"), scarica il modello Qwen 2.5 direttamente nel container Ollama:
+Dopo aver avviato i servizi Docker (vedi sezione "Avvio del Bot"), scarica il modello Qwen 3 (0.6B) direttamente nel container Ollama:
 ```bash
-docker exec -it rasa_ollama ollama pull qwen2.5
+docker exec -it rasa_ollama ollama pull qwen3:0.6B
 ```
-*(Puoi usare versioni specifiche come `qwen2.5:7b` o `qwen2.5:14b` a seconda della tua RAM/VRAM. Il modello base è generalmente `qwen2.5` senza tag specifici.)*
+*(Il modello 0.6B è molto leggero e veloce. Puoi usare versioni più grandi se l'hardware lo consente, ma dovrai aggiornare la configurazione.)*
 
 ### 2. Configura Ngrok
 Apri `docker-compose.yml` e inserisci il tuo Authtoken (da [dashboard.ngrok.com](https://dashboard.ngrok.com)):
@@ -90,9 +92,18 @@ telegram:
 ### 4. Configura Variabili d'Ambiente
 Crea un file `.env` nella root del progetto con le seguenti variabili (vedi `.env.example`):
 ```ini
+# Email Configuration
 EMAIL_USER=tua_email@gmail.com
 EMAIL_PASSWORD=tua_app_password
-OLLAMA_URL=http://ollama:11434 # URL per raggiungere il servizio Ollama nel network Docker
+
+# Ollama Configuration
+OLLAMA_URL=http://ollama:11434
+
+# Postgres Configuration
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=password
+POSTGRES_DB=rasa_db
+POSTGRES_PORT=5432
 ```
 
 ---
@@ -146,7 +157,7 @@ Se il bot risponde "Non so aiutarti", assicurati che il container `action_server
 | **Addestrare Rasa** | `docker exec -it rasa_server rasa train` |
 | **Shell Container** | `docker exec -it rasa_server /bin/bash` |
 | **Log in tempo reale** | `docker-compose logs -f` |
-| **Pull modello Qwen** | `docker exec -it rasa_ollama ollama pull qwen2.5` |
+| **Pull modello Qwen** | `docker exec -it rasa_ollama ollama pull qwen3:0.6B` |
 
 ---
 

@@ -15,3 +15,4 @@ ollama_data/models/
 tmp/
 output/
 actions/__pycache__/actions.cpython-310.pyc
+actions/__pycache__/actions.cpython-310.pyc
