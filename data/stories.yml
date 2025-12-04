@@ -25,6 +25,15 @@ stories:
     - degree_type: "Triennale"
   - action: enrollment_form
   - slot_was_set:
+    - requested_slot: selected_courses
+  - intent: inform
+    entities:
+    - course_id: "101"
+    - course_id: "102"
+  - slot_was_set:
+    - selected_courses: ["101", "102"]
+  - action: enrollment_form
+  - slot_was_set:
     - requested_slot: course_name
   - intent: inform
     entities:

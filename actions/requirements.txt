@@ -3,3 +3,4 @@ aiogram
 requests
 crawl4ai
 playwright
+psycopg2-binary
