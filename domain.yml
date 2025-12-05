@@ -67,6 +67,10 @@ slots:
     mappings:
       - type: from_entity
         entity: degree_type
+      - type: from_text
+        conditions:
+          - active_loop: enrollment_form
+            requested_slot: degree_type
   
   course_name:
     type: text
@@ -114,6 +118,7 @@ forms:
     required_slots:
       - student_name
       - degree_field
+      - degree_type
       - degree_id
       - selected_courses
       - email
@@ -149,126 +154,34 @@ responses:
     text: "Per favore inserisci l'ID del Corso di Laurea a cui sei interessato."
 
   utter_greet:
-  - text: "Hello! I am the University Admission Bot. How can I help you today?"
-  - text: "Welcome! I'm your AI assistant for university admissions. What can I do for you?"
-  - text: "Hi there! I'm here to guide you through the enrollment process. How may I assist?"
-  - text: "Greetings! I'm the admission bot. Ready to help you join our university?"
-  - text: "Hello and welcome! I'm your admission assistant. What brings you here?"
-  - text: "Hey! I'm the University Bot. Let's get you enrolled today!"
-  - text: "Good to see you! I'm here to make your admission process smooth and easy."
-  - text: "Welcome aboard! I'm your digital admission guide. How can I help?"
-  - text: "Hello! Welcome to our university admission service. I'm here to help you succeed."
-  - text: "Hi! I'm your friendly admission bot. Ready to start your university journey?"
-  - text: "Welcome to the admission portal! I'm your bot assistant. What do you need?"
-  - text: "Pleasure to meet you! I'm the admission bot. Let's explore your options."
-  - text: "Hello! I'm thrilled to help you with your university admission today."
-  - text: "Hi! I'm your dedicated enrollment assistant. How can I support you?"
-  - text: "Welcome! I'm the admission chatbot here to make everything simple for you."
-  - text: "Greetings, future student! I'm here to guide your enrollment journey."
-  - text: "Hello! Ready to start your academic adventure? I'm here to help!"
-  - text: "Hi there! I'm your admission bot companion. What can I do for you?"
-  - text: "Welcome! I'm an AI assistant dedicated to helping you get admitted."
-  - text: "Hey there! I'm the university admission bot. Let's chat about your future!"
+  - text: "Hello! 👋 I'm the University Admission Bot. I can help you with:\n\n📚 **Enrollment** - Start the enrollment process for Bachelor's, Master's, or Single-Cycle degrees\n📅 **Deadlines & Fees** - Check application deadlines and tuition information\n📋 **Requirements** - Learn about admission requirements\n📧 **Newsletter** - Subscribe to receive updates\n\nWhat would you like to do?"
+  - text: "Welcome! 🎓 I'm your AI assistant for university admissions. Here's what I can do:\n\n1️⃣ Help you enroll in a degree program\n2️⃣ Provide information about deadlines and fees\n3️⃣ Explain admission requirements\n4️⃣ Sign you up for our newsletter\n\nJust tell me what you need!"
+  - text: "Hi there! 🌟 I'm the Admission Bot, ready to guide you. I can:\n\n• Start your enrollment process\n• Tell you about deadlines and tuition fees\n• Explain admission requirements\n• Add you to our newsletter\n\nHow can I assist you today?"
   - condition:
         - type: slot
           name: language
           value: "it"
-    text: "Ciao! Sono il Bot di Ammissione Universitaria. Come posso aiutarti oggi?"
+    text: "Ciao! 👋 Sono il Bot di Ammissione Universitaria. Posso aiutarti con:\n\n📚 **Iscrizione** - Avvia la procedura di iscrizione per Laurea Triennale, Magistrale o Ciclo Unico\n📅 **Scadenze e Tasse** - Verifica le date limite e le informazioni sulle tasse\n📋 **Requisiti** - Scopri i requisiti di ammissione\n📧 **Newsletter** - Iscriviti per ricevere aggiornamenti\n\nCosa vorresti fare?"
   - condition:
         - type: slot
           name: language
           value: "it"
-    text: "Benvenuto! Sono il tuo assistente AI per le ammissioni universitarie. Come posso assisterti?"
+    text: "Benvenuto! 🎓 Sono il tuo assistente AI per le ammissioni. Ecco cosa posso fare:\n\n1️⃣ Aiutarti a iscriverti a un corso di laurea\n2️⃣ Fornirti informazioni su scadenze e tasse\n3️⃣ Spiegarti i requisiti di ammissione\n4️⃣ Iscriverti alla newsletter\n\nDimmi cosa ti serve!"
+
+  utter_anything_else:
+  - text: "Is there anything else I can help you with? 😊\n\n📚 Enrollment | 📅 Deadlines & Fees | 📋 Requirements | 📧 Newsletter\n\nOr say 'goodbye' to end our chat."
+  - text: "Would you like to do anything else? I'm here to help! 🌟\n\nJust tell me what you need, or say 'bye' if you're done."
+  - text: "Anything else I can assist you with today? 🎓\n\nFeel free to ask about enrollment, deadlines, requirements, or the newsletter!"
   - condition:
         - type: slot
           name: language
           value: "it"
-    text: "Ciao! Sono qui per guidarti nel processo di iscrizione universitaria."
+    text: "C'è altro in cui posso aiutarti? 😊\n\n📚 Iscrizione | 📅 Scadenze e Tasse | 📋 Requisiti | 📧 Newsletter\n\nOppure saluta per terminare la chat."
   - condition:
         - type: slot
           name: language
           value: "it"
-    text: "Salve! Sono il bot di ammissione. Pronto ad aiutarti a iscriverti?"
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Benvenuto! Sono il tuo assistente per le ammissioni. Cosa posso fare per te?"
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Ehi! Sono il Bot Universitario. Iniziamo la tua iscrizione oggi!"
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Buongiorno! Sono qui per rendere il tuo processo di ammissione semplice e veloce."
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Benvenuto nel sistema di ammissione! Sono la tua guida digitale. Come posso aiutare?"
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Ciao! Benvenuto al servizio di ammissione universitaria. Sono qui per aiutarti a riuscire."
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Ciao! Sono il tuo bot di ammissione amichevole. Pronto a iniziare il tuo percorso universitario?"
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Benvenuto nel portale di ammissione! Sono il tuo assistente bot. Cosa ti serve?"
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Piacere di conoscerti! Sono il bot di ammissione. Esploriamo le tue opzioni."
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Ciao! Sono entusiasta di aiutarti con la tua ammissione universitaria oggi."
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Ciao! Sono il tuo assistente di iscrizione dedicato. Come posso supportarti?"
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Benvenuto! Sono il chatbot di ammissione qui per semplificare tutto."
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Salve, futuro studente! Sono qui per guidare il tuo percorso di iscrizione."
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Ciao! Pronto a iniziare la tua avventura accademica? Sono qui per aiutare!"
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Ciao! Sono il tuo compagno bot di ammissione. Cosa posso fare per te?"
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Benvenuto! Sono un assistente AI dedicato ad aiutarti ad essere ammesso."
-  - condition:
-        - type: slot
-          name: language
-          value: "it"
-    text: "Ehi! Sono il bot di ammissione universitaria. Chiacchieriamo del tuo futuro!"
+    text: "Vuoi fare qualcos'altro? Sono qui per aiutarti! 🌟\n\nDimmi cosa ti serve, o saluta se hai finito."
 
   utter_goodbye:
   - text: "Good luck with your studies! Bye."

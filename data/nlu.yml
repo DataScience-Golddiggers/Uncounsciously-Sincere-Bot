@@ -45,6 +45,7 @@ nlu:
 # --- SALUTI ---
 - intent: greet
   examples: |
+    - /start
     - hey
     - hello
     - hi
@@ -235,7 +236,7 @@ nlu:
     - criteri di ammissione?
     - admission criteria?
 
-# --- INTENTI PER IL FORM (Bilingue) ---
+# --- INTENTI PER IL FORM (English) ---
 - intent: apply_for_course
   examples: |
     - voglio iscrivermi all'università
@@ -284,6 +285,166 @@ nlu:
     - voglio fare l'università
     - start sign up process
     - avvia registrazione
+    I want to apply for a degree
+    - how do I register for courses
+    - I want to start the enrollment form
+    - take me to the application form
+    - let's begin the enrollment
+    - I'm ready to enroll
+    - start the admission process
+    - I want to join the university
+    - help me with university enrollment
+    - I need to fill out the enrollment form
+    - can you help me apply
+    - I want to become a student
+    - sign me up for university
+    - I'm interested in enrolling
+    - I want to choose my degree
+    - help me select a degree program
+    - I want to pick my courses
+    - I need to select my field of study
+    - show me the enrollment options
+    - I want to see available degrees
+    - help me choose a field
+    - I'm looking to study [Engineering](degree_field)
+    - I want to enroll in [Economics](degree_field)
+    - sign me up for [Medicine](degree_field)
+    - I'm interested in [Science](degree_field)
+    - I want to study [Agriculture](degree_field)
+    - enroll me in the [Engineering](degree_field) program
+    - I want a degree in [Economics](degree_field)
+    - help me apply for [Medicine](degree_field)
+    - I'd like to study in the [Science](degree_field) field
+    - register me for [Agriculture](degree_field) courses
+    - I want to see [Engineering](degree_field) degrees
+    - show me [Economics](degree_field) programs
+    - what degrees are available in [Medicine](degree_field)
+    - I'm looking for a [Bachelor's Degree](degree_type) 
+    - I want to register for a [Bachelor's Degree](degree_type) program
+    - sign me up for a [Master's Degree](degree_type)
+    - I'd like to join the [Master's Degree](degree_type) program
+    - I want to apply for a [Single-Cycle Degree](degree_type) program
+    - enroll me in a [Bachelor's Degree](degree_type) course
+    - I'm interested in a [Master's Degree](degree_type) in engineering
+    - I want a [Single-Cycle Degree](degree_type) in [Medicine](degree_field)
+    - I want a [bachelor](degree_type) degree
+    - sign me up for the [bachelor](degree_type) program
+    - I'm looking for a [bachelors](degree_type) degree
+    - enroll me in a [bachelor's](degree_type) course
+    - I want to do my [undergraduate](degree_type) studies
+    - I'm interested in an [undergrad](degree_type) program
+    - sign me up for a [3-year degree](degree_type)
+    - I want the [three year](degree_type) program
+    - enroll me in the [first cycle](degree_type) degree
+    - I want a [master](degree_type) degree
+    - sign me up for a [masters](degree_type) program
+    - I'm looking for a [master's](degree_type) course
+    - enroll me in the [graduate](degree_type) program
+    - I want to do my [postgraduate](degree_type) studies
+    - I'm interested in a [2-year degree](degree_type)
+    - sign me up for the [two year](degree_type) master
+    - I want the [second cycle](degree_type) degree
+    - enroll me in a [magistrale](degree_type) course
+    - I want a [laurea magistrale](degree_type)
+    - I want a [single cycle](degree_type) degree
+    - sign me up for a [single-cycle](degree_type) program
+    - I'm looking for a [5-year degree](degree_type)
+    - enroll me in a [six year](degree_type) program
+    - I want the [combined](degree_type) bachelor and master
+    - I'm interested in a [long cycle](degree_type) degree
+    - sign me up for [medicine single cycle](degree_type)
+    - I want the [integrated](degree_type) degree program
+    - enroll me in the [ciclo unico](degree_type) course
+    - I want a [laurea a ciclo unico](degree_type)
+    - I want to study [Engineering](degree_field) at [Bachelor's Degree](degree_type) level
+    - enroll me in [Economics](degree_field) [Master's Degree](degree_type)
+    - sign me up for a [Bachelor's Degree](degree_type) in [Science](degree_field)
+    - I'm interested in [Medicine](degree_field) [Single-Cycle Degree](degree_type)
+    - I want a [Master's Degree](degree_type) in [Agriculture](degree_field)
+    - apply for [Engineering](degree_field) [bachelor](degree_type)
+    - I want to do a [masters](degree_type) in [Economics](degree_field)
+    - enroll me in [Science](degree_field) [undergraduate](degree_type) program
+    - sign me up for [Agriculture](degree_field) [graduate](degree_type) studies
+    - I'm looking for a [postgraduate](degree_type) in [Engineering](degree_field)
+    - My name is [John Smith](student_name) and I want to enroll
+    - I'm [Maria Rossi](student_name) and I'd like to apply for a degree
+    - [Marco Bianchi](student_name) here, I want to register for university
+    - Hi, I'm [Anna Johnson](student_name) and I need to enroll
+    - My name is [Luca Ferrari](student_name), I want to study [Engineering](degree_field)
+    - I'm [Sarah Williams](student_name) and I'm interested in [Medicine](degree_field)
+    - [Giuseppe Russo](student_name) applying for [Economics](degree_field) [Master's Degree](degree_type)
+    - My name is [Emily Brown](student_name), I want a [Bachelor's Degree](degree_type) in [Science](degree_field)
+    - I'm [Francesco Colombo](student_name) and I want to enroll in [Engineering](degree_field) [bachelor](degree_type)
+    - [Sofia Martinez](student_name) here, looking for [Agriculture](degree_field) [masters](degree_type)
+    - My name is [David Chen](student_name), enroll me in [Medicine](degree_field) [single cycle](degree_type)
+    - I'm [Giulia Romano](student_name), I want [Economics](degree_field) [undergraduate](degree_type) program
+    - [Michael Taylor](student_name) applying for [Science](degree_field) [graduate](degree_type) degree
+    - My name is [Laura Conti](student_name) and my email is [laura.conti@email.com](email), I want to enroll
+    - I'm [James Wilson](student_name), email [james.wilson@gmail.com](email), interested in [Engineering](degree_field)
+    - [Chiara Ricci](student_name) here, contact me at [chiara.ricci@outlook.com](email), I want [Medicine](degree_field)
+    - My name is [Robert Davis](student_name), my email is [r.davis@university.edu](email), sign me up for [Economics](degree_field) [Master's Degree](degree_type)
+    - I'm [Alessia Greco](student_name) with email [alessia.greco@mail.it](email), I want a [Bachelor's Degree](degree_type) in [Science](degree_field)
+    - [Thomas Anderson](student_name), email [t.anderson@email.com](email), enroll me in [Agriculture](degree_field) [bachelor](degree_type)
+    - My name is [Valentina Costa](student_name), reach me at [v.costa@pec.it](email), I'm looking for [Engineering](degree_field) [masters](degree_type)
+    - I'm [Daniel Lee](student_name), my email is [daniel.lee@hotmail.com](email), I want [Medicine](degree_field) [Single-Cycle Degree](degree_type)
+    - [Martina Fontana](student_name) here, email [m.fontana@gmail.com](email), applying for [Economics](degree_field) [undergraduate](degree_type)
+    - My name is [Christopher Brown](student_name) and I want to study [Engineering](degree_field) [Bachelor's Degree](degree_type), my email is [c.brown@email.com](email)
+    - I'm [Federica Marino](student_name), interested in [Science](degree_field) [Master's Degree](degree_type), contact me at [f.marino@outlook.com](email)
+    - [William Johnson](student_name) applying for [Agriculture](degree_field) [graduate](degree_type), email [w.johnson@mail.com](email)
+    - help me choose my mandatory courses
+    - I want to select my optional course
+    - show me the available courses for my degree
+    - what are the mandatory courses
+    - which optional course should I choose
+    - I need to pick an elective course
+    - help me with course selection
+    - I want to see the course list
+    - what courses are included in my degree
+    - let me choose my optional class
+    - I'd like to select an elective
+    - show me course options
+    - I want to complete my enrollment
+    - finish my application
+    - complete the registration process
+    - submit my enrollment
+    - I'm ready to finalize my application
+    - let's complete the enrollment form
+    - I want to confirm my degree choice
+    - finalize my course selection
+    - submit my degree application
+    - I want to receive a confirmation email
+    - send me the enrollment confirmation
+    - I need the application details via email
+    - email me my enrollment summary
+    - can I get a confirmation of my courses
+    - I want to apply for Economia e Commercio(course_name)
+    - enroll me in Economia Aziendale e Digital Business(course_name)
+    - I want to study Ingegneria Civile e Ambientale(course_name)
+    - sign me up for Ingegneria Informatica(course_name)
+    - I'm interested in Ingegneria Meccanica(course_name)
+    - register me for Ingegneria Edile(course_name)
+    - I want to join Ingegneria Gestionale(course_name)
+    - apply for Scienze Biologiche(course_name)
+    - I want to study Scienze Ambientali(course_name)
+    - enroll me in Scienze Motorie(course_name)
+    - I'm looking to study Scienze Forestali(course_name)
+    - sign me up for Scienze e Tecnologie Alimentari(course_name)
+    - I want a degree in Infermieristica(course_name)
+    - apply for Fisioterapia(course_name)
+    - I want to study Dietistica(course_name)
+    - enroll me in Tecniche della Prevenzione(course_name)
+    - I'm interested in Economia e Management(course_name)
+    - register for International Economics(course_name)
+    - I want to study Scienze Economiche(course_name)
+    - apply for Biomedical Engineering(course_name)
+    - I want to enroll now
+    - I want to apply now
+    - I want to register now
+    - I want to sign up now
+    - I would like to enroll
+    - can I enroll please
+    - help me enroll
+    - I need to enroll in a degree
 
 - intent: newsletter_request
   examples: |

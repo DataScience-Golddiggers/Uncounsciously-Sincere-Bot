@@ -270,10 +270,16 @@ class ActionAskDegreeId(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         degree_field = tracker.get_slot("degree_field")
+        degree_type = tracker.get_slot("degree_type")
         lang = tracker.get_slot("language")
         
         if not degree_field:
             msg = "Please select a degree field first." if lang != "it" else "Per favore seleziona prima un'area di studio."
+            dispatcher.utter_message(text=msg)
+            return []
+        
+        if not degree_type:
+            msg = "Please select a degree type first." if lang != "it" else "Per favore seleziona prima il tipo di laurea."
             dispatcher.utter_message(text=msg)
             return []
 
@@ -286,28 +292,28 @@ class ActionAskDegreeId(Action):
             )
             cur = conn.cursor()
             
-            # Query per ottenere i corsi del field selezionato
-            query = "SELECT id, name, type FROM degree WHERE category = %s"
-            cur.execute(query, (degree_field,))
+            # Query per ottenere i corsi del field e type selezionati
+            query = "SELECT id, name, type FROM degree WHERE category = %s AND type = %s"
+            cur.execute(query, (degree_field, degree_type))
             degrees = cur.fetchall()
             
             cur.close()
             conn.close()
 
             if not degrees:
-                msg = f"No degrees found for field '{degree_field}'." if lang != "it" else f"Nessun corso di laurea trovato per l'area '{degree_field}'."
+                msg = f"No degrees found for field '{degree_field}' and type '{degree_type}'." if lang != "it" else f"Nessun corso di laurea trovato per l'area '{degree_field}' e tipo '{degree_type}'."
                 dispatcher.utter_message(text=msg)
                 return []
 
             # Costruisci il messaggio con la lista
             if lang == "it":
-                message = f"Ecco i corsi di laurea disponibili per {degree_field}. Scrivi l'ID per sceglierne uno:\n"
+                message = f"Ecco i corsi di laurea disponibili per {degree_field} ({degree_type}). Scrivi l'ID per sceglierne uno:\n"
             else:
-                message = f"Here are the available degrees for {degree_field}. Type the ID to choose one:\n"
+                message = f"Here are the available degrees for {degree_field} ({degree_type}). Type the ID to choose one:\n"
 
             for d in degrees:
                 # d = (id, name, type)
-                message += f"- [{d[0]}] {d[1]} ({d[2]})\n"
+                message += f"- [{d[0]}] {d[1]}\n"
 
             dispatcher.utter_message(text=message)
 
@@ -447,6 +453,62 @@ class ValidateEnrollmentForm(FormValidationAction):
         dispatcher.utter_message(text=msg)
         return {"degree_field": None}
 
+    def validate_degree_type(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `degree_type` value and map user input to DB values."""
+        # Valid types from DB
+        valid_types = ["Bachelor's Degree", "Master's Degree", "Single-Cycle Degree"]
+        
+        # Normalize input to lowercase for matching
+        input_lower = slot_value.lower().strip()
+        
+        # Mapping for various user inputs to DB values
+        bachelor_keywords = [
+            "bachelor", "bachelors", "bachelor's", "bachelor's degree",
+            "undergraduate", "undergrad", "3-year", "three year", "3 year",
+            "first cycle", "triennale", "laurea triennale", "l1", "1st cycle"
+        ]
+        
+        master_keywords = [
+            "master", "masters", "master's", "master's degree",
+            "graduate", "postgraduate", "post-graduate", "2-year", "two year", "2 year",
+            "second cycle", "magistrale", "laurea magistrale", "lm", "2nd cycle"
+        ]
+        
+        single_cycle_keywords = [
+            "single cycle", "single-cycle", "singlecycle", "single-cycle degree",
+            "5-year", "five year", "5 year", "6-year", "six year", "6 year",
+            "combined", "long cycle", "integrated", "ciclo unico", "laurea a ciclo unico",
+            "medicine single cycle", "lcu"
+        ]
+        
+        # Check which type matches
+        if any(kw in input_lower for kw in bachelor_keywords):
+            return {"degree_type": "Bachelor's Degree"}
+        elif any(kw in input_lower for kw in master_keywords):
+            return {"degree_type": "Master's Degree"}
+        elif any(kw in input_lower for kw in single_cycle_keywords):
+            return {"degree_type": "Single-Cycle Degree"}
+        
+        # If already a valid type, return it
+        for valid_type in valid_types:
+            if valid_type.lower() in input_lower:
+                return {"degree_type": valid_type}
+        
+        # Invalid input
+        lang = tracker.get_slot("language")
+        msg = f"'{slot_value}' is not a valid degree type. Please choose: Bachelor's Degree, Master's Degree, or Single-Cycle Degree."
+        if lang == "it":
+            msg = f"'{slot_value}' non è un tipo di laurea valido. Scegli tra: Laurea Triennale (Bachelor's), Laurea Magistrale (Master's), o Ciclo Unico (Single-Cycle)."
+            
+        dispatcher.utter_message(text=msg)
+        return {"degree_type": None}
+
     def validate_degree_id(
         self,
         slot_value: Any,
@@ -456,7 +518,11 @@ class ValidateEnrollmentForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate `degree_id` value against DB."""
         degree_field = tracker.get_slot("degree_field")
+        degree_type = tracker.get_slot("degree_type")
+        
         if not degree_field:
+            return {"degree_id": None} # Should not happen if flow is correct
+        if not degree_type:
             return {"degree_id": None} # Should not happen if flow is correct
 
         try:
@@ -468,9 +534,9 @@ class ValidateEnrollmentForm(FormValidationAction):
             )
             cur = conn.cursor()
             
-            # Check if ID exists and belongs to the selected category
-            query = "SELECT name FROM degree WHERE id = %s AND category = %s"
-            cur.execute(query, (slot_value, degree_field))
+            # Check if ID exists and belongs to the selected category and type
+            query = "SELECT name FROM degree WHERE id = %s AND category = %s AND type = %s"
+            cur.execute(query, (slot_value, degree_field, degree_type))
             result = cur.fetchone()
             
             cur.close()
@@ -481,9 +547,9 @@ class ValidateEnrollmentForm(FormValidationAction):
                 return {"degree_id": slot_value}
             else:
                 lang = tracker.get_slot("language")
-                msg = f"ID '{slot_value}' not found for field '{degree_field}'. Please try again."
+                msg = f"ID '{slot_value}' not found for field '{degree_field}' ({degree_type}). Please try again."
                 if lang == "it":
-                    msg = f"ID '{slot_value}' non trovato per l'area '{degree_field}'. Riprova."
+                    msg = f"ID '{slot_value}' non trovato per l'area '{degree_field}' ({degree_type}). Riprova."
                 dispatcher.utter_message(text=msg)
                 return {"degree_id": None}
 

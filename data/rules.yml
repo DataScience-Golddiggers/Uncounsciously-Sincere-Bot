@@ -15,6 +15,7 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+  - action: utter_anything_else
 
 - rule: Attivare il form di iscrizione
   steps:
@@ -31,6 +32,7 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_send_enrollment_email
+  - action: utter_anything_else
 
 
 # Nuove regole per le FAQ
@@ -38,11 +40,13 @@ rules:
   steps:
   - intent: ask_requirements
   - action: utter_requirements
+  - action: utter_anything_else
 
 - rule: Rispondere sulle scadenze
   steps:
   - intent: ask_deadlines
   - action: utter_deadlines
+  - action: utter_anything_else
 
 - rule: Attivare form newsletter
   steps:
@@ -58,18 +62,21 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: action_send_email   # <--- CHIAMA IL TUO CODICE PYTHON
-  - action: utter_email_sent    # <--- DICE "FATTO"
+  - action: action_send_email
+  - action: utter_email_sent
+  - action: utter_anything_else
 
 - rule: Recupera informazioni web
   steps:
   - intent: ask_web_info
   - action: action_get_university_info
+  - action: utter_anything_else
 
 - rule: Rispondere agli insulti
   steps:
   - intent: user_angry
   - action: utter_user_angry
+  - action: utter_anything_else
 
 - rule: Gestione Fallback (non ho capito)
   steps:
