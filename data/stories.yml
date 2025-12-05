@@ -1,7 +1,7 @@
 version: "3.1"
 
 stories:
-- story: happy path enrollment (iscrizione semplice)
+- story: happy path enrollment
   steps:
   - intent: greet
   - action: utter_greet
@@ -57,27 +57,87 @@ stories:
     - email: "mario.rossi@example.com"
   - active_loop: null
   - action: action_send_enrollment_email
-  - action: utter_submit
+  - action: utter_anything_else
   - intent: goodbye
   - action: utter_goodbye
 
-- story: inquire deadlines and leave (chiede info ed esce)
+- story: user asks deadlines then leaves
   steps:
   - intent: greet
   - action: utter_greet
   - intent: ask_deadlines
   - action: utter_deadlines
+  - action: utter_anything_else
   - intent: goodbye
   - action: utter_goodbye
 
-- story: inquire info then enroll (chiede costi poi si iscrive)
+- story: user asks requirements then leaves
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_requirements
+  - action: utter_requirements
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user asks info then enrolls
   steps:
   - intent: greet
   - action: utter_greet
   - intent: ask_web_info
   - action: action_get_university_info
+  - action: utter_anything_else
+  - intent: apply_for_course
+  - action: enrollment_form
+  - active_loop: enrollment_form
+  - slot_was_set:
+    - requested_slot: student_name
+
+- story: user asks deadlines then requirements then leaves
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_deadlines
+  - action: utter_deadlines
+  - action: utter_anything_else
   - intent: ask_requirements
   - action: utter_requirements
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user subscribes to newsletter then leaves
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: newsletter_request
+  - action: newsletter_form
+  - active_loop: newsletter_form
+  - slot_was_set:
+    - requested_slot: email
+  - intent: inform
+    entities:
+    - email: "user@example.com"
+  - slot_was_set:
+    - email: "user@example.com"
+  - active_loop: null
+  - action: action_send_email
+  - action: utter_email_sent
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: user asks multiple things then enrolls
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_deadlines
+  - action: utter_deadlines
+  - action: utter_anything_else
+  - intent: ask_requirements
+  - action: utter_requirements
+  - action: utter_anything_else
   - intent: apply_for_course
   - action: enrollment_form
   - active_loop: enrollment_form

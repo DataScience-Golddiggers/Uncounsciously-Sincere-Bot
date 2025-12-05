@@ -45,6 +45,7 @@ nlu:
 # --- SALUTI ---
 - intent: greet
   examples: |
+    - /start
     - hey
     - hello
     - hi
@@ -436,18 +437,14 @@ nlu:
     - register for International Economics(course_name)
     - I want to study Scienze Economiche(course_name)
     - apply for Biomedical Engineering(course_name)
-    - start enrollment
-    - begin application
-    - apply now
-    - enroll now
-    - register now
-    - sign up now
-    - I want in
-    - let's do this
-    - start the process
-    - begin the procedure
-    - initiate enrollment
-    - kick off my application
+    - I want to enroll now
+    - I want to apply now
+    - I want to register now
+    - I want to sign up now
+    - I would like to enroll
+    - can I enroll please
+    - help me enroll
+    - I need to enroll in a degree
 
 - intent: newsletter_request
   examples: |
