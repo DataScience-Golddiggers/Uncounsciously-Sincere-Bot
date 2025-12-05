@@ -25,12 +25,21 @@ stories:
     - degree_field: "Engineering"
   - action: enrollment_form
   - slot_was_set:
+    - requested_slot: degree_type
+  - intent: inform
+    entities:
+    - degree_type: "Bachelor's Degree"
+  - slot_was_set:
+    - degree_type: "Bachelor's Degree"
+  - action: enrollment_form
+  - action: action_ask_degree_id
+  - slot_was_set:
     - requested_slot: degree_id
   - intent: inform
     entities:
-    - degree_id: "1"
+    - degree_id: "L7"
   - slot_was_set:
-    - degree_id: "1"
+    - degree_id: "L7"
   - action: enrollment_form
   - action: action_ask_selected_courses
   - slot_was_set:

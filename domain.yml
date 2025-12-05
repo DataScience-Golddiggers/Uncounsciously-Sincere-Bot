@@ -67,6 +67,10 @@ slots:
     mappings:
       - type: from_entity
         entity: degree_type
+      - type: from_text
+        conditions:
+          - active_loop: enrollment_form
+            requested_slot: degree_type
   
   course_name:
     type: text
@@ -114,6 +118,7 @@ forms:
     required_slots:
       - student_name
       - degree_field
+      - degree_type
       - degree_id
       - selected_courses
       - email
