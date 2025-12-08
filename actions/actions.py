@@ -20,7 +20,7 @@ from crawl4ai import AsyncWebCrawler
 
 class ActionSendEmail(Action):
 
-    '''Invia una mail con i dettagli di contatto dell'utente.'''
+    '''Sends an email with the user's contact details.'''
 
     def name(self) -> Text:
         return "action_send_email"
@@ -32,87 +32,76 @@ class ActionSendEmail(Action):
         user_email = tracker.get_slot("email")
         
         if not user_email:
-            dispatcher.utter_message(text="Non ho trovato la mail.")
+            dispatcher.utter_message(text="I couldn't find the email.")
             return []
 
-        # Recupera variabili ambiente
+        # Retrieve environment variables
         smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
         smtp_port = int(os.getenv("SMTP_PORT", 465))
         sender_email = os.getenv("SMTP_EMAIL")
         sender_password = os.getenv("SMTP_PASSWORD")
 
-        print(f"DEBUG: Tentativo invio mail a {sender_email} tramite {smtp_server}:{smtp_port}")
+        print(f"DEBUG: Attempting to send email to {sender_email} via {smtp_server}:{smtp_port}")
 
         if not sender_email or not sender_password:
-            error_msg = "ERRORE CONFIGURAZIONE: Mancano le credenziali nel file .env"
+            error_msg = "CONFIGURATION ERROR: Missing credentials in .env file"
             print(error_msg)
-            dispatcher.utter_message(text="Errore interno: credenziali mancanti.")
+            dispatcher.utter_message(text="Internal error: missing credentials.")
             return []
 
-        msg = MIMEText(f"Ciao! Questo è un messaggio automatico di prova inoltrato per conto di: {user_email}\n\nSe leggi questo, il bot funziona!")
-        msg['Subject'] = "Nuovo contatto dal Bot Rasa"
+        subject = "New contact from Rasa Bot"
+        body = f"Hello! This is an automated test message forwarded on behalf of: {user_email}\n\nIf you read this, the bot is working!"
+
+        msg = MIMEText(body)
+        msg['Subject'] = subject
         msg['From'] = sender_email
         msg['To'] = user_email 
 
         try:
-            # GESTIONE INTELLIGENTE SSL vs TLS
+            # SSL vs TLS handling
             if smtp_port == 465:
-                # Usa connessione SSL diretta (Più sicura e stabile su Docker)
-                print("DEBUG: Connessione SSL in corso...")
+                # Use direct SSL connection
+                print("DEBUG: SSL connection...")
                 server = smtplib.SMTP_SSL(smtp_server, smtp_port)
             else:
-                # Usa connessione TLS classica (Porta 587)
-                print("DEBUG: Connessione TLS (starttls) in corso...")
+                # Use TLS connection (Port 587)
+                print("DEBUG: TLS connection (starttls)...")
                 server = smtplib.SMTP(smtp_server, smtp_port)
                 server.starttls()
 
-            # Login e Invio
-            print("DEBUG: Login in corso...")
+            # Login and Send
+            print("DEBUG: Logging in...")
             server.login(sender_email, sender_password)
             
-            print("DEBUG: Invio messaggio...")
+            print("DEBUG: Sending message...")
             server.sendmail(sender_email, user_email, msg.as_string())
             
             server.quit()
-            print("DEBUG: Mail inviata con successo!")
+            print("DEBUG: Email sent successfully!")
             
-            # Conferma all'utente
-            dispatcher.utter_message(text=f"Perfetto! Ho inviato una mail di conferma a {user_email} (che sei tu <3).")
+            # Confirmation to user
+            dispatcher.utter_message(text=f"Perfect! I've sent a confirmation email to {user_email} (that's you <3).")
             
         except smtplib.SMTPAuthenticationError:
-            print("ERRORE CRITICO: Password o Mail sbagliata. Stai usando la App Password di Google?")
-            dispatcher.utter_message(text="Errore di autenticazione mail.")
+            print("CRITICAL ERROR: Wrong Password or Email. Are you using Google App Password?")
+            dispatcher.utter_message(text="Email authentication error.")
         except Exception as e:
-            # Stampa l'errore esatto nel terminale Docker
-            print(f"ERRORE GENERICO SMTP: {e}")
-            dispatcher.utter_message(text="C'è stato un problema tecnico nell'invio.")
+            print(f"GENERIC SMTP ERROR: {e}")
+            dispatcher.utter_message(text="There was a technical problem sending the email.")
 
         return []
 
 
 class ActionGetUniversityInfo(Action):
     """
-    Recupera informazioni dal sito web dell'università usando Crawl4AI e le riassume con Ollama.
     Retrieves info from university website using Crawl4AI and summarizes with Ollama.
     """
 
     def name(self) -> Text:
         return "action_get_university_info"
 
-    # Mappa degli argomenti agli URL (IT + EN support)
+    # Map of topics to URLs (English only)
     URL_MAP = {
-        # Italian keys
-        "tasse": "https://www.univpm.it/Entra/Tasse_e_contributi",
-        "tasse universitarie": "https://www.univpm.it/Entra/Tasse_e_contributi",
-        "retta": "https://www.univpm.it/Entra/Tasse_e_contributi",
-        "costo annuale": "https://www.univpm.it/Entra/Tasse_e_contributi",
-        "borse di studio": "https://www.univpm.it/Entra/Tasse_e_contributi",
-        "corsi": "https://www.univpm.it/Entra/Offerta_formativa",
-        "iscrizione": "https://www.univpm.it/Entra/Immatricolazioni",
-        "alloggi": "https://www.univpm.it/Entra/Servizi_agli_studenti/Alloggi",
-        "generale": "https://www.univpm.it/Entra",
-        
-        # English keys (mapping to same URLs)
         "fees": "https://www.univpm.it/Entra/Tasse_e_contributi",
         "tuition fees": "https://www.univpm.it/Entra/Tasse_e_contributi",
         "tuition fee": "https://www.univpm.it/Entra/Tasse_e_contributi",
@@ -125,40 +114,31 @@ class ActionGetUniversityInfo(Action):
         "admission": "https://www.univpm.it/Entra/Immatricolazioni",
         "housing": "https://www.univpm.it/Entra/Servizi_agli_studenti/Alloggi",
         "accommodation": "https://www.univpm.it/Entra/Servizi_agli_studenti/Alloggi",
-        "scholarships": "https://www.univpm.it/Entra/Tasse_e_contributi", # Often related
+        "scholarships": "https://www.univpm.it/Entra/Tasse_e_contributi",
+        "general": "https://www.univpm.it/Entra",
     }
 
     def clean_content(self, text: str) -> str:
         '''
         Clean the extracted content using regex to remove unwanted elements.
-        :summary: Pulisce il contenuto estratto usando regex per rimuovere elementi indesiderati.
-        
-        :param self: Instance of the ActionGetUniversityInfo class
-        :param text: Description of the text to be cleaned
-        :type text: str
-        :return: Descrizione
-        :rtype: str
         '''
 
-        # Rimuove immagini Markdown: ![alt](url)
-        text = re.sub(r'!\[.*?\]\(.*?\)', '', text)
+        # Remove Markdown images: ![alt](url)
+        text = re.sub(r'!\\\[.*?\\\\]\(.*?\\\)', '', text)
         
-        # Rimuove link Markdown mantenendo il testo: [testo](url) -> testo
-        # Nota: Utile per risparmiare token, ma si perde il link.
-        text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)
+        # Remove Markdown links keeping text: [text](url) -> text
+        text = re.sub(r'\[(.*?)\]\(.*?\)', r'\1', text)
         
-        # Rimuove tag HTML residui
+        # Remove residual HTML tags
         text = re.sub(r'<[^>]+>', '', text)
         
-        # Rimuove righe con troppi caratteri speciali (separatori, ecc.), ma preserva tabelle
-        # Le tabelle markdown usano | e -
-        # Rimuoviamo linee che sono solo === o --- o *** se non sembrano tabelle
+        # Remove lines with too many special characters, preserving tables
         text = re.sub(r'^\s*[-=_*]{3,}\s*$', '', text, flags=re.MULTILINE)
 
-        # Collassa newline multipli
+        # Collapse multiple newlines
         text = re.sub(r'\n\s*\n', '\n\n', text)
         
-        # Rimuove spazi multipli
+        # Remove multiple spaces
         text = re.sub(r'[ \t]+', ' ', text)
         
         return text.strip()
@@ -167,59 +147,45 @@ class ActionGetUniversityInfo(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # 1. Identifica la lingua (default English se non specificato o diverso da 'it')
-        # 1. Identify language (default English if not specified or not 'it')
-        lang_slot = tracker.get_slot("language")
-        language = "it" if lang_slot == "it" else "en"
-
-        # 2. Identifica l'argomento richiesto
+        # 1. Identify the requested topic
         topic = tracker.get_slot("topic")
         if not topic:
-            topic = "generale"
+            topic = "general"
         
-        # Normalizza il topic (lower case)
-        url = self.URL_MAP.get(topic.lower(), self.URL_MAP["generale"])
+        # Normalize topic (lower case)
+        url = self.URL_MAP.get(topic.lower(), self.URL_MAP["general"])
         
-        # Feedback immediato all'utente (Bilingue)
-        if language == "it":
-            dispatcher.utter_message(text=f"Sto cercando informazioni su '{topic}' dal sito ufficiale...")
-        else:
-            dispatcher.utter_message(text=f"Searching for information about '{topic}' on the official website...")
+        # Immediate feedback to user
+        dispatcher.utter_message(text=f"Searching for information about '{topic}' on the official website...")
 
-        # 3. Scrape del contenuto con Crawl4AI
+        # 2. Scrape content with Crawl4AI
         extracted_text = ""
         try:
             async with AsyncWebCrawler(verbose=True) as crawler:
                 result = await crawler.arun(url=url)
-                extracted_text = result.markdown  # Otteniamo il markdown pulito
+                extracted_text = result.markdown  # Get clean markdown
                 
                 if not extracted_text:
-                    msg = "Non sono riuscito a leggere il contenuto della pagina." if language == "it" else "I couldn't read the page content."
-                    dispatcher.utter_message(text=msg)
+                    dispatcher.utter_message(text="I couldn't read the page content.")
                     return []
                 
-                # Pulizia del testo con Regex
+                # Clean text with Regex
                 extracted_text = self.clean_content(extracted_text)
                     
-                # Limitiamo la lunghezza del testo per il prompt
+                # Limit text length for prompt
                 extracted_text = extracted_text[:8000] 
 
         except Exception as e:
-            print(f"ERRORE CRAWL4AI: {e}")
-            msg = f"Ho avuto un problema nel leggere il sito: {e}" if language == "it" else f"I encountered an issue reading the website: {e}"
-            dispatcher.utter_message(text=msg)
+            print(f"CRAWL4AI ERROR: {e}")
+            dispatcher.utter_message(text=f"I encountered an issue reading the website: {e}")
             return []
 
-        # 4. Invia a Ollama per il riassunto (Prompt Bilingue)
+        # 3. Send to Ollama for summarization (English Prompt)
         try:
             user_question = tracker.latest_message.get('text')
             
-            if language == "it":
-                system_prompt = "Sei un assistente utile per l'Università UnivPM. Rispondi in ITALIANO."
-                instruction = "RISPOSTA (sii conciso, in italiano, e cita la fonte se utile):"
-            else:
-                system_prompt = "You are a helpful assistant for UnivPM University. Answer in ENGLISH."
-                instruction = "ANSWER (be concise, in English, and cite the source if useful):"
+            system_prompt = "You are a helpful assistant for UnivPM University. Answer in ENGLISH."
+            instruction = "ANSWER (be concise, in English, and cite the source if useful):"
 
             prompt = (
                 f"{system_prompt}\n"
@@ -229,9 +195,7 @@ class ActionGetUniversityInfo(Action):
                 f"{instruction}"
             )
 
-            # Chiamata API a Ollama
-            # Quando si usa Docker Compose, il nome del servizio 'ollama' viene risolto automaticamente
-            # nell'indirizzo IP del container. Quindi 'http://ollama:11434' è corretto.
+            # API Call to Ollama
             ollama_base_url = os.getenv("OLLAMA_URL", "http://ollama:11434")
             ollama_url = f"{ollama_base_url}/api/generate"
 
@@ -249,14 +213,12 @@ class ActionGetUniversityInfo(Action):
                 ai_reply = ollama_response.json().get("response", "")
                 dispatcher.utter_message(text=ai_reply)
             else:
-                print(f"ERRORE OLLAMA: {ollama_response.text}")
-                msg = "Ho letto i dati ma ho problemi a riassumerli al momento." if language == "it" else "I read the data but I'm having trouble summarizing it right now."
-                dispatcher.utter_message(text=msg)
+                print(f"OLLAMA ERROR: {ollama_response.text}")
+                dispatcher.utter_message(text="I read the data but I'm having trouble summarizing it right now.")
 
         except Exception as e:
-            print(f"ERRORE CHIAMATA OLLAMA: {e}")
-            msg = "Errore nella generazione della risposta." if language == "it" else "Error generating the response."
-            dispatcher.utter_message(text=msg)
+            print(f"OLLAMA CALL ERROR: {e}")
+            dispatcher.utter_message(text="Error generating the response.")
 
         return []
 
@@ -271,16 +233,13 @@ class ActionAskDegreeId(Action):
 
         degree_field = tracker.get_slot("degree_field")
         degree_type = tracker.get_slot("degree_type")
-        lang = tracker.get_slot("language")
         
         if not degree_field:
-            msg = "Please select a degree field first." if lang != "it" else "Per favore seleziona prima un'area di studio."
-            dispatcher.utter_message(text=msg)
+            dispatcher.utter_message(text="Please select a degree field first.")
             return []
         
         if not degree_type:
-            msg = "Please select a degree type first." if lang != "it" else "Per favore seleziona prima il tipo di laurea."
-            dispatcher.utter_message(text=msg)
+            dispatcher.utter_message(text="Please select a degree type first.")
             return []
 
         try:
@@ -292,7 +251,7 @@ class ActionAskDegreeId(Action):
             )
             cur = conn.cursor()
             
-            # Query per ottenere i corsi del field e type selezionati
+            # Query to get degrees for selected field and type
             query = "SELECT id, name, type FROM degree WHERE category = %s AND type = %s"
             cur.execute(query, (degree_field, degree_type))
             degrees = cur.fetchall()
@@ -301,15 +260,11 @@ class ActionAskDegreeId(Action):
             conn.close()
 
             if not degrees:
-                msg = f"No degrees found for field '{degree_field}' and type '{degree_type}'." if lang != "it" else f"Nessun corso di laurea trovato per l'area '{degree_field}' e tipo '{degree_type}'."
-                dispatcher.utter_message(text=msg)
+                dispatcher.utter_message(text=f"No degrees found for field '{degree_field}' and type '{degree_type}'.")
                 return []
 
-            # Costruisci il messaggio con la lista
-            if lang == "it":
-                message = f"Ecco i corsi di laurea disponibili per {degree_field} ({degree_type}). Scrivi l'ID per sceglierne uno:\n"
-            else:
-                message = f"Here are the available degrees for {degree_field} ({degree_type}). Type the ID to choose one:\n"
+            # Build message with list
+            message = f"Here are the available degrees for {degree_field} ({degree_type}). Type the ID to choose one:\n"
 
             for d in degrees:
                 # d = (id, name, type)
@@ -319,14 +274,13 @@ class ActionAskDegreeId(Action):
 
         except Exception as e:
             print(f"DB ERROR: {e}")
-            msg = "I cannot access the database right now." if lang != "it" else "Non riesco ad accedere al database al momento."
-            dispatcher.utter_message(text=msg)
+            dispatcher.utter_message(text="I cannot access the database right now.")
 
         return []
 
 
 class ActionAskSelectedCourses(Action):
-    """Mostra i corsi obbligatori e fa scegliere un corso opzionale."""
+    """Shows mandatory courses and asks to choose an optional course."""
     
     def name(self) -> Text:
         return "action_ask_selected_courses"
@@ -336,11 +290,9 @@ class ActionAskSelectedCourses(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         degree_id = tracker.get_slot("degree_id")
-        lang = tracker.get_slot("language")
         
         if not degree_id:
-            msg = "Please select a degree first." if lang != "it" else "Per favore seleziona prima un corso di laurea."
-            dispatcher.utter_message(text=msg)
+            dispatcher.utter_message(text="Please select a degree first.")
             return []
 
         try:
@@ -352,55 +304,42 @@ class ActionAskSelectedCourses(Action):
             )
             cur = conn.cursor()
             
-            # Query per ottenere il nome della laurea
+            # Query to get degree name
             cur.execute("SELECT name FROM degree WHERE id = %s", (degree_id,))
             degree_result = cur.fetchone()
             degree_name = degree_result[0] if degree_result else degree_id
             
-            # Query per ottenere i corsi obbligatori
+            # Query to get mandatory courses
             cur.execute("SELECT id, name FROM course WHERE degree_id = %s AND is_mandatory = TRUE", (degree_id,))
             mandatory_courses = cur.fetchall()
             
-            # Query per ottenere i corsi opzionali
+            # Query to get optional courses
             cur.execute("SELECT id, name FROM course WHERE degree_id = %s AND is_mandatory = FALSE", (degree_id,))
             optional_courses = cur.fetchall()
             
             cur.close()
             conn.close()
 
-            # Costruisci il messaggio
-            if lang == "it":
-                message = f"📚 **{degree_name}**\n\n"
-                message += "📋 **Corsi Obbligatori** (inclusi automaticamente):\n"
-            else:
-                message = f"📚 **{degree_name}**\n\n"
-                message += "📋 **Mandatory Courses** (automatically included):\n"
+            # Build message
+            message = f"📚 **{degree_name}**\n\n"
+            message += "📋 **Mandatory Courses** (automatically included):\n"
 
             for course in mandatory_courses:
                 message += f"  ✅ {course[1]}\n"
 
             if optional_courses:
-                if lang == "it":
-                    message += "\n🎯 **Corsi Opzionali** - Scegli uno scrivendo il numero:\n"
-                else:
-                    message += "\n🎯 **Optional Courses** - Choose one by typing the number:\n"
+                message += "\n🎯 **Optional Courses** - Choose one by typing the number:\n"
                 
                 for course in optional_courses:
                     message += f"  [{course[0]}] {course[1]}\n"
             else:
-                if lang == "it":
-                    message += "\n(Nessun corso opzionale disponibile)"
-                else:
-                    message += "\n(No optional courses available)"
+                message += "\n(No optional courses available)"
 
             dispatcher.utter_message(text=message)
 
         except Exception as e:
             print(f"DB ERROR: {e}")
-            msg = "I cannot access the database right now." if lang != "it" else "Non riesco ad accedere al database al momento."
-            dispatcher.utter_message(text=msg)
-
-        return []
+            dispatcher.utter_message(text="I cannot access the database right now.")
 
         return []
 
@@ -422,15 +361,10 @@ class ValidateEnrollmentForm(FormValidationAction):
         
         # Mapping for user input to DB values
         mapping = {
-             "Ingegneria": "Enginering",
              "Engineering": "Enginering",
-             "Economia": "Economics",
              "Economics": "Economics",
-             "Medicina": "Medicine",
              "Medicine": "Medicine",
-             "Scienze": "Science",
              "Science": "Science",
-             "Agraria": "Agriculture",
              "Agriculture": "Agriculture"
         }
 
@@ -444,12 +378,8 @@ class ValidateEnrollmentForm(FormValidationAction):
         if mapped_value in valid_fields:
              return {"degree_field": mapped_value}
         
-        # Se non valido
-        lang = tracker.get_slot("language")
+        # If invalid
         msg = f"'{slot_value}' is not a valid field. Please choose from: {', '.join(valid_fields)}"
-        if lang == "it":
-            msg = f"'{slot_value}' non è un'area valida. Scegli tra: {', '.join(valid_fields)}"
-            
         dispatcher.utter_message(text=msg)
         return {"degree_field": None}
 
@@ -471,20 +401,20 @@ class ValidateEnrollmentForm(FormValidationAction):
         bachelor_keywords = [
             "bachelor", "bachelors", "bachelor's", "bachelor's degree",
             "undergraduate", "undergrad", "3-year", "three year", "3 year",
-            "first cycle", "triennale", "laurea triennale", "l1", "1st cycle"
+            "first cycle", "1st cycle"
         ]
         
         master_keywords = [
             "master", "masters", "master's", "master's degree",
             "graduate", "postgraduate", "post-graduate", "2-year", "two year", "2 year",
-            "second cycle", "magistrale", "laurea magistrale", "lm", "2nd cycle"
+            "second cycle", "2nd cycle"
         ]
         
         single_cycle_keywords = [
             "single cycle", "single-cycle", "singlecycle", "single-cycle degree",
             "5-year", "five year", "5 year", "6-year", "six year", "6 year",
-            "combined", "long cycle", "integrated", "ciclo unico", "laurea a ciclo unico",
-            "medicine single cycle", "lcu"
+            "combined", "long cycle", "integrated", 
+            "medicine single cycle"
         ]
         
         # Check which type matches
@@ -501,11 +431,7 @@ class ValidateEnrollmentForm(FormValidationAction):
                 return {"degree_type": valid_type}
         
         # Invalid input
-        lang = tracker.get_slot("language")
         msg = f"'{slot_value}' is not a valid degree type. Please choose: Bachelor's Degree, Master's Degree, or Single-Cycle Degree."
-        if lang == "it":
-            msg = f"'{slot_value}' non è un tipo di laurea valido. Scegli tra: Laurea Triennale (Bachelor's), Laurea Magistrale (Master's), o Ciclo Unico (Single-Cycle)."
-            
         dispatcher.utter_message(text=msg)
         return {"degree_type": None}
 
@@ -521,9 +447,9 @@ class ValidateEnrollmentForm(FormValidationAction):
         degree_type = tracker.get_slot("degree_type")
         
         if not degree_field:
-            return {"degree_id": None} # Should not happen if flow is correct
+            return {"degree_id": None} 
         if not degree_type:
-            return {"degree_id": None} # Should not happen if flow is correct
+            return {"degree_id": None}
 
         try:
             conn = psycopg2.connect(
@@ -546,10 +472,7 @@ class ValidateEnrollmentForm(FormValidationAction):
                 # Valid ID
                 return {"degree_id": slot_value}
             else:
-                lang = tracker.get_slot("language")
                 msg = f"ID '{slot_value}' not found for field '{degree_field}' ({degree_type}). Please try again."
-                if lang == "it":
-                    msg = f"ID '{slot_value}' non trovato per l'area '{degree_field}' ({degree_type}). Riprova."
                 dispatcher.utter_message(text=msg)
                 return {"degree_id": None}
 
@@ -571,10 +494,7 @@ class ValidateEnrollmentForm(FormValidationAction):
         if re.match(email_regex, slot_value):
             return {"email": slot_value}
         else:
-            lang = tracker.get_slot("language")
             msg = "That doesn't look like a valid email. Please try again."
-            if lang == "it":
-                msg = "Non sembra un'email valida. Riprova per favore."
             dispatcher.utter_message(text=msg)
             return {"email": None}
 
@@ -585,10 +505,9 @@ class ValidateEnrollmentForm(FormValidationAction):
         tracker: Tracker,
         domain: DomainDict,
     ) -> Dict[Text, Any]:
-        """Validate `selected_courses` value - deve essere un ID di corso opzionale valido."""
+        """Validate `selected_courses` value - must be a valid optional course ID."""
         
         degree_id = tracker.get_slot("degree_id")
-        lang = tracker.get_slot("language")
         
         if not degree_id:
             return {"selected_courses": None}
@@ -602,7 +521,7 @@ class ValidateEnrollmentForm(FormValidationAction):
             )
             cur = conn.cursor()
             
-            # Verifica che l'ID sia un corso opzionale valido per questa laurea
+            # Verify ID is a valid optional course for this degree
             cur.execute(
                 "SELECT name FROM course WHERE id = %s AND degree_id = %s AND is_mandatory = FALSE",
                 (slot_value, degree_id)
@@ -616,8 +535,6 @@ class ValidateEnrollmentForm(FormValidationAction):
                 return {"selected_courses": slot_value}
             else:
                 msg = f"'{slot_value}' is not a valid optional course. Please choose from the list above."
-                if lang == "it":
-                    msg = f"'{slot_value}' non è un corso opzionale valido. Scegli dalla lista sopra."
                 dispatcher.utter_message(text=msg)
                 return {"selected_courses": None}
 
@@ -627,7 +544,7 @@ class ValidateEnrollmentForm(FormValidationAction):
 
 
 class ActionSendEnrollmentEmail(Action):
-    '''Invia una mail di conferma registrazione corso con i dettagli dell'utente.'''
+    '''Sends an enrollment confirmation email with user details.'''
 
     def name(self) -> Text:
         return "action_send_enrollment_email"
@@ -636,35 +553,35 @@ class ActionSendEnrollmentEmail(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # Recupero dati dagli slot
+        # Retrieve data from slots
         student_name = tracker.get_slot("student_name")
         user_email = tracker.get_slot("email")
         degree_field = tracker.get_slot("degree_field")
         degree_id = tracker.get_slot("degree_id")
         selected_course_id = tracker.get_slot("selected_courses")
-        lang = tracker.get_slot("language")
         
         if not user_email:
-            msg = "I couldn't find your email to send the confirmation." if lang != "it" else "Non ho trovato la mail per inviare la conferma."
+            msg = "I couldn't find your email to send the confirmation."
             dispatcher.utter_message(text=msg)
             return []
 
-        # Recupera variabili ambiente
+        # Retrieve environment variables
         smtp_server = os.getenv("SMTP_SERVER", "smtp.gmail.com")
         smtp_port = int(os.getenv("SMTP_PORT", 465))
         sender_email = os.getenv("SMTP_EMAIL")
         sender_password = os.getenv("SMTP_PASSWORD")
 
         if not sender_email or not sender_password:
-            print("ERRORE CONFIGURAZIONE: Mancano le credenziali nel file .env")
-            msg = "I can't send the email because server configurations are missing." if lang != "it" else "Non posso inviare la mail perché mancano le configurazioni del server."
+            print("CONFIGURATION ERROR: Missing credentials in .env file")
+            msg = "I can't send the email because server configurations are missing."
             dispatcher.utter_message(text=msg)
             return []
 
-        # Recupera dati completi dal database
+        # Retrieve full data from database
         degree_name = degree_id
         mandatory_courses_list = []
         optional_course_name = selected_course_id
+        degree_type = "N/A"
         
         try:
             conn = psycopg2.connect(
@@ -675,21 +592,19 @@ class ActionSendEnrollmentEmail(Action):
             )
             cur = conn.cursor()
             
-            # Recupera il nome della laurea
+            # Retrieve degree name
             cur.execute("SELECT name, type FROM degree WHERE id = %s", (degree_id,))
             degree_result = cur.fetchone()
             if degree_result:
                 degree_name = degree_result[0]
                 degree_type = degree_result[1]
-            else:
-                degree_type = "N/A"
             
-            # Recupera i corsi obbligatori
+            # Retrieve mandatory courses
             cur.execute("SELECT name FROM course WHERE degree_id = %s AND is_mandatory = TRUE", (degree_id,))
             mandatory_courses = cur.fetchall()
             mandatory_courses_list = [c[0] for c in mandatory_courses]
             
-            # Recupera il nome del corso opzionale scelto
+            # Retrieve optional course name
             if selected_course_id:
                 cur.execute("SELECT name FROM course WHERE id = %s", (selected_course_id,))
                 optional_result = cur.fetchone()
@@ -701,34 +616,41 @@ class ActionSendEnrollmentEmail(Action):
 
         except Exception as e:
             print(f"DB ERROR in ActionSendEnrollmentEmail: {e}")
-            # Continua comunque con i dati che abbiamo
+            # Continue with available data
 
-        # Formatta la lista dei corsi obbligatori
-        mandatory_str = "\n".join([f"  - {c}" for c in mandatory_courses_list]) if mandatory_courses_list else "  (Nessun corso obbligatorio trovato)"
+        # Format mandatory courses list
+        mandatory_str = "\n".join([f"  - {c}" for c in mandatory_courses_list]) if mandatory_courses_list else "  (No mandatory courses found)"
 
-        # Costruzione del corpo della mail
-        subject = f"Conferma Iscrizione: {degree_name}"
+        # Build email body
+        subject = f"Enrollment Confirmation: {degree_name}"
+        mandatory_header = "MANDATORY COURSES"
+        optional_header = "CHOSEN OPTIONAL COURSE"
+        summary_header = "ENROLLMENT SUMMARY"
+        field_label = "Field of Study"
+        course_label = "Degree Course"
+        type_label = "Type"
+        
         body = (
-            f"Ciao {student_name},\n\n"
-            f"Abbiamo registrato con successo il tuo interesse per il seguente percorso di studi:\n\n"
+            f"Hello {student_name},\n\n"
+            f"We have successfully registered your interest for the following study program:\n\n"
             f"═══════════════════════════════════════\n"
-            f"📌 RIEPILOGO ISCRIZIONE\n"
+            f"📌 {summary_header}\n"
             f"═══════════════════════════════════════\n\n"
-            f"🎓 Area di Studio: {degree_field}\n"
-            f"📚 Corso di Laurea: {degree_name} ({degree_id})\n"
-            f"📋 Tipo: {degree_type}\n\n"
+            f"🎓 {field_label}: {degree_field}\n"
+            f"📚 {course_label}: {degree_name} ({degree_id})\n"
+            f"📋 {type_label}: {degree_type}\n\n"
             f"───────────────────────────────────────\n"
-            f"CORSI OBBLIGATORI:\n"
+            f"{mandatory_header}:\n"
             f"───────────────────────────────────────\n"
             f"{mandatory_str}\n\n"
             f"───────────────────────────────────────\n"
-            f"CORSO OPZIONALE SCELTO:\n"
+            f"{optional_header}:\n"
             f"───────────────────────────────────────\n"
             f"  ⭐ {optional_course_name}\n\n"
             f"═══════════════════════════════════════\n\n"
-            f"Un orientatore ti contatterà presto a questo indirizzo email ({user_email}) per fornirti maggiori dettagli.\n\n"
-            f"Cordiali saluti,\n"
-            f"Il tuo Assistente Virtuale UnivPM"
+            f"A counselor will contact you soon at this email address ({user_email}) to provide more details.\n\n"
+            f"Best regards,\n"
+            f"Your UnivPM Virtual Assistant"
         )
 
         msg = MIMEText(body)
@@ -737,7 +659,7 @@ class ActionSendEnrollmentEmail(Action):
         msg['To'] = user_email 
 
         try:
-            # Connessione SMTP
+            # SMTP Connection
             if smtp_port == 465:
                 server = smtplib.SMTP_SSL(smtp_server, smtp_port)
             else:
@@ -748,18 +670,13 @@ class ActionSendEnrollmentEmail(Action):
             server.sendmail(sender_email, user_email, msg.as_string())
             server.quit()
             
-            print(f"DEBUG: Mail di enrollment inviata a {user_email}")
+            print(f"DEBUG: Enrollment email sent to {user_email}")
             
-            # Conferma all'utente
-            if lang == "it":
-                dispatcher.utter_message(text=f"Perfetto {student_name}! 🎉 Ho inviato una mail di riepilogo a {user_email} con tutti i dettagli del corso '{degree_name}'.")
-            else:
-                dispatcher.utter_message(text=f"Perfect {student_name}! 🎉 I've sent a summary email to {user_email} with all the details about '{degree_name}'.")
+            # User confirmation
+            dispatcher.utter_message(text=f"Perfect {student_name}! 🎉 I've sent a summary email to {user_email} with all the details about '{degree_name}'.")
             
         except Exception as e:
-            print(f"ERRORE SMTP ENROLLMENT: {e}")
-            msg = "I saved your data, but there was a technical error sending the confirmation email." if lang != "it" else "Ho salvato i tuoi dati, ma c'è stato un errore tecnico nell'invio dell'email di conferma."
+            print(f"SMTP ENROLLMENT ERROR: {e}")
+            msg = "I saved your data, but there was a technical error sending the confirmation email."
             dispatcher.utter_message(text=msg)
-
-        return []
-            
+            return []

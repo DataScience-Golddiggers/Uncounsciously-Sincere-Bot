@@ -18,3 +18,4 @@ actions/__pycache__/*.pyc
 actions/__pycache__/
 actions/__pycache__/actions.cpython-310.pyc
 .rasa/cache/cache.db
+.rasa/cache/*
